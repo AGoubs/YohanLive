@@ -10,47 +10,50 @@ use App\Notifications\ResetPassword;
 
 class ForgotPassword extends Component
 {
-    use Notifiable;
+  use Notifiable;
 
-    public $email = '';
+  public $email = '';
 
-    public $showSuccesNotification = false; 
-    public $showFailureNotification = false;
+  public $showSuccesNotification = false;
+  public $showFailureNotification = false;
 
-    public $showDemoNotification = false;
+  public $showDemoNotification = false;
 
-    protected $rules = [
-        'email' => 'required|email',
-    ];  
+  protected $rules = [
+    'email' => 'required|email',
+  ];
 
-    public function mount() {
-        if(auth()->user()){
-            redirect('/dashboard');
-        }
+  public function mount()
+  {
+    if (auth()->user()) {
+      redirect('/accueil');
     }
+  }
 
-    public function routeNotificationForMail() {
-        return $this->email;
-    }
+  public function routeNotificationForMail()
+  {
+    return $this->email;
+  }
 
-    public function recoverPassword() { 
-        if(env('IS_DEMO')) {
-            $this->showDemoNotification = true;
-        } else {
-            $this->validate();
-            $user = User::where('email', $this->email)->first();
-            if($user){
-                $this->notify(new ResetPassword($user->id));
-                $this->showSuccesNotification = true;
-                $this->showFailureNotification = false;
-            } else {
-                $this->showFailureNotification = true;
-            }
-        }
+  public function recoverPassword()
+  {
+    if (env('IS_DEMO')) {
+      $this->showDemoNotification = true;
+    } else {
+      $this->validate();
+      $user = User::where('email', $this->email)->first();
+      if ($user) {
+        $this->notify(new ResetPassword($user->id));
+        $this->showSuccesNotification = true;
+        $this->showFailureNotification = false;
+      } else {
+        $this->showFailureNotification = true;
+      }
     }
+  }
 
-    public function render()
-    {
-        return view('livewire.auth.forgot-password')->layout('layouts.base');
-    }
+  public function render()
+  {
+    return view('livewire.auth.forgot-password')->layout('layouts.base');
+  }
 }

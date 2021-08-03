@@ -89,17 +89,17 @@
 
                           <form wire:submit.prevent="register" action="#" method="POST" role="form text-left">
                               <div class="mb-3">
-                                  <div class="@error('name') border border-danger rounded-3  @enderror">
-                                      <input wire:model="name" type="text" class="form-control" placeholder="Name"
-                                          aria-label="Name" aria-describedby="email-addon">
+                                  <div>
+                                      <input wire:model="name" type="text"
+                                          class="form-control @error('name') border border-danger  @enderror"
+                                          placeholder="Name" aria-label="Name" aria-describedby="email-addon">
                                   </div>
                                   @error('name') <div class="text-danger">{{ $message }}</div> @enderror
                               </div>
                               <div class="mb-3">
-                                  <div class="@error('email') border border-danger rounded-3 @enderror">
-                                      <input wire:model="email" type="email" class="form-control" placeholder="Email"
-                                          aria-label="Email" aria-describedby="email-addon">
-                                  </div>
+                                  <input wire:model="email" type="email"
+                                      class="form-control @error('email') border border-danger  @enderror"
+                                      placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                   @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                               </div>
                               <div class="mb-3">

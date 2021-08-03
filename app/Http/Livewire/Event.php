@@ -7,10 +7,12 @@ use Livewire\Component;
 
 class Event extends Component
 {
+
   public $events = [];
+
   public function render()
   {
-    $this->events = ModelsEvent::get();
+    $this->events = ModelsEvent::orderBy('Date', 'ASC')->get();
     return view('livewire.event');
   }
 }
