@@ -1,5 +1,5 @@
 <div>
-    {{-- <div class="alert alert-secondary mx-4" role="alert">
+    {{-- <div class="alert alert-danger mx-4" role="alert">
         <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
             <strong>PRO</strong> feature!
             Click <strong><a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel-pro/dashboard-default"
@@ -13,7 +13,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">Evènements</h5>
+                            <h5 class="mb-0">Évènements</h5>
                         </div>
                         <a href="{{ route('ajouter un evènement') }}" class="btn bg-gradient-dark btn-sm mb-0"
                             type="button">+&nbsp; Ajouter</a>
@@ -33,12 +33,12 @@
                                         Date
                                     </th>
                                     <th
-                                        class="column3 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Heure d'arrivé
-                                    </th>
-                                    <th
                                         class="column4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Heure de l'évènement
+                                    </th>
+                                    <th
+                                        class="column3 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Heure d'arrivé
                                     </th>
                                     <th
                                         class="column5 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -64,21 +64,24 @@
                                                     class="badge badge-sm badge-success">{{ date('d/m/Y', strtotime($event->Date)) }}</span>
                                             @endif
                                         </td>
-                                        <td class="column3 text-center-responsive" data-content="Heure d'arrivé">
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ date('H:i', strtotime($event->HeureArrive)) }}</p>
-                                        </td>
+
                                         <td class="column4 text-center-responsive" data-content="Heure de l'évènement">
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
                                         </td>
+                                        <td class="column3 text-center-responsive" data-content="Heure d'arrivé">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ date('H:i', strtotime($event->HeureArrive)) }}</p>
+                                        </td>
                                         <td class="column5 text-center-responsive">
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Edit user">
+                                            <a href="{{ route('modifier un évènement', [$event->id]) }}" class="mx-3"
+                                                data-bs-toggle="tooltip" data-bs-original-title="Edit user">
                                                 <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
                                             <span>
-                                                <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                                <i class="cursor-pointer fas fa-trash text-secondary"
+                                                    onclick="confirm('Supprimer cet évènement ?') || event.stopImmediatePropagation()"
+                                                    wire:click="deleteEvent({{ $event->id }})"></i>
                                             </span>
                                         </td>
                                     </tr>

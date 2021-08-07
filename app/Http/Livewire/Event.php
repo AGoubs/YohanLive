@@ -15,4 +15,10 @@ class Event extends Component
     $this->events = ModelsEvent::orderBy('Date', 'ASC')->get();
     return view('livewire.event');
   }
+
+  public function deleteEvent($id)
+  {
+    $event = ModelsEvent::find($id);
+    $event->delete();
+  }
 }

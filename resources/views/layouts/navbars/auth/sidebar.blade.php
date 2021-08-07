@@ -39,12 +39,9 @@
                     <span class="nav-link-text ms-1">Accueil</span>
                 </a>
             </li>
-            <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Evènement</h6>
-            </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'evènements' ? 'active' : '' }}"
-                    href="{{ route('evènements') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'évènements' ? 'active' : '' }}"
+                    href="{{ route('évènements') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44" version="1.1"
@@ -67,7 +64,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Evènement</span>
+                    <span class="nav-link-text ms-1">Évènement</span>
                 </a>
             </li>
 
@@ -101,8 +98,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
-                    href="{{ route('user-profile') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'évènement du jour' ? 'active' : '' }}"
+                    href="{{ route('évènement du jour') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 42" version="1.1"
@@ -128,7 +125,7 @@
                         </svg>
 
                     </div>
-                    <span class="nav-link-text ms-1">Evènement du jour</span>
+                    <span class="nav-link-text ms-1">Évènement du jour</span>
                 </a>
             </li>
 

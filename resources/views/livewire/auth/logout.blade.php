@@ -1,5 +1,5 @@
 <div>
-    <i
+    <i wire:click="logout"
         class="fa fa-user me-sm-1 {{ in_array(
     request()->route()->getName(),
     ['profile', 'my-profile'],
