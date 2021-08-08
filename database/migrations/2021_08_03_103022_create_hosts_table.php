@@ -15,17 +15,17 @@ class CreateHostsTable extends Migration
   {
     Schema::create('hosts', function (Blueprint $table) {
       $table->id();
-      $table->string('Nom');
-      $table->string('Prenom');
-      $table->string('Fonction')->nullable();
-      $table->string('Telephone')->nullable();
-      $table->string('Numero_ipad')->nullable();
-      $table->string('Lieu')->nullable();
-      $table->string('Point')->nullable();
-      $table->string('Porte')->nullable();
-      $table->text('Commentaire')->nullable();
+      $table->string('nom');
+      $table->string('prenom');
+      $table->string('fonction')->nullable();
+      $table->string('telephone')->nullable();
+      $table->string('numero_ipad')->nullable();
+      $table->string('lieu')->nullable();
+      $table->string('point')->nullable();
+      $table->string('porte')->nullable();
+      $table->text('commentaire')->nullable();
       $table->foreignId('event_id')->constrained()->cascadeOnDelete();
-      $table->boolean('isArrived');
+      $table->boolean('isArrived')->default(0);
       $table->timestamps();
     });
   }

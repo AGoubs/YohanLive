@@ -21,7 +21,7 @@ use App\Http\Livewire\Rtl;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
-use App\Http\Livewire\TodayEvent;
+use App\Http\Livewire\ShowEvent;
 use Illuminate\Http\Request;
 
 /*
@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/accueil', Accueil::class)->name('accueil');
   Route::get('/events', Event::class)->name('évènements');
   Route::get('/create/event', CreateEvent::class)->name('ajouter un evènement');
-  Route::get('/today/event', TodayEvent::class)->name('évènement du jour');
+  Route::get('/show/event', ShowEvent::class)->name('évènement');
   Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
   Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
   Route::get('/profile', Profile::class)->name('profile');

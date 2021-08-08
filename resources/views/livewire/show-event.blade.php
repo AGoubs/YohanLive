@@ -2,6 +2,7 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12 col-lg-12 m-auto mb-4">
+                @if ($event)
                 <div class="card p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                     <h5 class="font-weight-bolder mb-0">Évènement</h5>
                     <p class="mb-0 text-sm">Évènement du jour</p>
@@ -28,6 +29,10 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <h2>Pas d'évènement aujourd'hui</h2>
+                @endif
+                
             </div>
             <div class="col-12">
                 <button onclick="history.back()" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>

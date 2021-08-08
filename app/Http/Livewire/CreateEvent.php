@@ -34,8 +34,6 @@ class CreateEvent extends Component
       'HeureEvenement' => $this->HeureEvenement,
     ]);
 
-    $eventId = $event->id;
-
-    return redirect()->route('ajouter des hôtes', [$eventId]);
+    return redirect()->route('ajouter des hôtes', [$event->id]);
   }
 }
