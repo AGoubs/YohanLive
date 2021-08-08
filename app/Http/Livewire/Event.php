@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Event as ModelsEvent;
+use App\Models\Host;
 use Livewire\Component;
 
 class Event extends Component
@@ -19,6 +20,12 @@ class Event extends Component
   public function deleteEvent($id)
   {
     $event = ModelsEvent::find($id);
+    Host::where('event_id', $id)->delete();
     $event->delete();
+  }
+
+  public function showEvent($eventId)
+  {
+    return redirect()->route('évènement', [$eventId]);
   }
 }

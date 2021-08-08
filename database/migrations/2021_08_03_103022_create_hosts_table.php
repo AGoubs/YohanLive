@@ -24,8 +24,9 @@ class CreateHostsTable extends Migration
       $table->string('point')->nullable();
       $table->string('porte')->nullable();
       $table->text('commentaire')->nullable();
-      $table->foreignId('event_id')->constrained()->cascadeOnDelete();
-      $table->boolean('isArrived')->default(0);
+      $table->foreignId('event_id')->constrained();
+      $table->boolean('is_arrived')->default(0);
+      $table->string('type_evenement');
       $table->timestamps();
     });
   }

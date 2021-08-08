@@ -64,7 +64,10 @@ class AddHost extends Component
     foreach ($this->importedHosts as $host) {
       $host = new Host($host);
       $host->event_id = $this->existingEvent->id;
+      $host->type_evenement = $this->tableType;
       $host->save();
     }
+
+    return redirect()->route('évènement', [$this->existingEvent->id]);
   }
 }

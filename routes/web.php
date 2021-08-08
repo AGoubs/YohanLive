@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/accueil', Accueil::class)->name('accueil');
   Route::get('/events', Event::class)->name('évènements');
   Route::get('/create/event', CreateEvent::class)->name('ajouter un evènement');
-  Route::get('/show/event', ShowEvent::class)->name('évènement');
+  Route::get('/show_event/{eventId?}', ShowEvent::class)->name('évènement');
   Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
   Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
   Route::get('/profile', Profile::class)->name('profile');

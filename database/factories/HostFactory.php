@@ -33,7 +33,8 @@ class HostFactory extends Factory
       'Porte' => $this->faker->numberBetween(1, 50),
       'Commentaire' => $this->faker->paragraph(1),
       'event_id' => Event::all()->random()->id,
-      'isArrived' => '0',
+      'is_arrived' => '0',
+      'type_evenement' => 'Basique',
     ];
   }
 }
