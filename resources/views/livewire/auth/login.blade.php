@@ -25,14 +25,14 @@
                             <div class="mb-3">
                                 <label for="email">{{ __('Email') }}</label>
                                 <input wire:model="email" id="email" type="email"
-                                    class="form-control @error('email') border border-danger  @enderror"
+                                    class="form-control @error('email') is-invalid  @enderror"
                                     placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                 @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="password">{{ __('Mot de passe') }}</label>
                                 <input wire:model="password" id="password" type="password"
-                                    class="form-control @error('password') border border-danger  @enderror"
+                                    class="form-control @error('password') is-invalid  @enderror"
                                     placeholder="Mot de passe" aria-label="Mot de passe"
                                     aria-describedby="password-addon">
                                 @error('password') <div class="text-danger">{{ $message }}</div> @enderror
