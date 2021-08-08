@@ -18918,3 +18918,7 @@ p {
   transition-delay: 0s;
   transform: scale(1)
 }
+
+body, html {
+  overflow-x: hidden;
+}
