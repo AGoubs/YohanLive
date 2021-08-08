@@ -21,7 +21,6 @@ class Login extends Component
     if (auth()->user()) {
       redirect('/accueil');
     }
-    $this->fill(['email' => 'admin@softui.com', 'password' => 'secret']);
   }
 
   public function login()
