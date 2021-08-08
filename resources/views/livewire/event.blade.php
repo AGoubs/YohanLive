@@ -1,14 +1,6 @@
 <div>
     <link href="../assets/css/responsive-table.css" rel="stylesheet" />
-
-    {{-- <div class="alert alert-danger mx-4" role="alert">
-        <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
-            <strong>PRO</strong> feature!
-            Click <strong><a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel-pro/dashboard-default"
-                    target="_blank" class="text-white">here</a></strong>
-            to see the PRO
-            product!</span>
-    </div> --}}
+    {{-- <livewire:flash-message> --}}
     <div class="row mt-4">
         <div class="col-12">
             <div class="card mb-4 mx-4">

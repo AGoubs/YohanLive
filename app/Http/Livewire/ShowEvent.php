@@ -43,6 +43,10 @@ class ShowEvent extends Component
             $this->event = Event::find($this->eventId);
         } else {
             $this->event = Event::where('Date', date("Y-m-d"))->first();
+            if (!isset($this->event)) {
+                session()->flash('info',  "Pas d'évènement aujourd'hui");
+                return redirect()->route('évènements');
+            }
         }
     }
 

@@ -18,6 +18,7 @@
             @include('layouts.navbars.auth.sidebar')
             <div class="main-content position-relative bg-gray-100">
                 @include('layouts.navbars.auth.nav-profile')
+               
                 <div>
                     {{ $slot }}
                 </div>
@@ -27,6 +28,7 @@
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
+            <livewire:flash-message>
             {{ $slot }}
         @endif
     @endauth
