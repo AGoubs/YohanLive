@@ -12,6 +12,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\CreateEvent;
 use App\Http\Livewire\EditEvent;
+use App\Http\Livewire\EditHost;
 use App\Http\Livewire\Event;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/show_event/{eventId?}', ShowEvent::class)->name('évènement');
   Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
   Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
+  Route::get('/edit_host/{hostId}', EditHost::class)->name('modifier un hôte');
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/tables', Tables::class)->name('tables');
   Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');

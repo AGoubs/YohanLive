@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Models\TypeEvent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventFactory extends Factory
@@ -26,6 +27,7 @@ class EventFactory extends Factory
       'Date' => $this->faker->dateTimeThisMonth(),
       'HeureArrive' => $this->faker->time(),
       'HeureEvenement' => $this->faker->time(),
+      'type_event' => TypeEvent::all()->random()->type_event,
     ];
   }
 }

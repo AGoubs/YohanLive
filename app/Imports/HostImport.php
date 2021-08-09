@@ -8,6 +8,12 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class HostImport implements ToModel, WithHeadingRow
 {
+    public function  __construct($eventId, $typeEvenement)
+    {
+        $this->eventId= $eventId;
+        $this->typeEvenement= $typeEvenement;
+    }
+
     /**
     * @param array $row
     *
@@ -18,13 +24,15 @@ class HostImport implements ToModel, WithHeadingRow
         return new Host([
             'nom' => $row['nom'],
             'prenom' => $row['prenom'],
-            'fonction' => $row['fonction'],
-            'telephone' => $row['telephone'],
-            'numero_ipad' => $row['numero_ipad'],
-            'lieu' => $row['lieu'],
-            'point' => $row['point'],
-            'porte' => $row['porte'],
-            'commentaire' => $row['commentaire'],
+            'fonction' => isset($row['fonction']) ? $row['fonction'] : null,
+            'telephone' => isset($row['telephone']) ? $row['telephone'] : null,
+            'numero_ipad' => isset($row['numero_ipad']) ? $row['numero_ipad'] : null,
+            'lieu' => isset($row['lieu']) ? $row['lieu'] : null,
+            'point' => isset($row['point']) ? $row['point'] : null,
+            'porte' => isset($row['porte']) ? $row['porte'] : null,
+            'commentaire' => isset($row['commentaire']) ? $row['commentaire'] : null,
+            'event_id' => $this->eventId,
+            'type_evenement' => $this->typeEvenement,
         ]);
     }
 }

@@ -11,9 +11,10 @@ class CreateEvent extends Component
   public $Date = '';
   public $HeureArrive = '';
   public $HeureEvenement = '';
+  public $TypeEvenement = 'Basique';
 
   protected $rules = [
-    'Nom' => 'required|unique:events',
+    'Nom' => 'required',
     'Date' => 'required',
     'HeureArrive' => 'required',
     'HeureEvenement' => 'required',
@@ -32,6 +33,7 @@ class CreateEvent extends Component
       'Date' => $this->Date,
       'HeureArrive' => $this->HeureArrive,
       'HeureEvenement' => $this->HeureEvenement,
+      'type_event' => $this->TypeEvenement,
     ]);
 
     return redirect()->route('ajouter des hôtes', [$event->id]);

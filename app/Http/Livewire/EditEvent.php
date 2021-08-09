@@ -14,7 +14,7 @@ class EditEvent extends Component
   public $HeureEvenement = '';
 
   protected $rules = [
-    'Nom' => 'required|unique:events',
+    'Nom' => 'required',
     'Date' => 'required',
     'HeureArrive' => 'required',
     'HeureEvenement' => 'required',

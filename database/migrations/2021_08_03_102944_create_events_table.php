@@ -19,6 +19,8 @@ class CreateEventsTable extends Migration
       $table->date('Date');
       $table->time('HeureArrive');
       $table->time('HeureEvenement');
+      $table->string('type_event');
+      $table->foreign('type_event')->references('type_event')->on('type_events');
       $table->timestamps();
     });
   }
