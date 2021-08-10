@@ -38,7 +38,6 @@ class HostFactory extends Factory
       'Commentaire' => $this->faker->paragraph(1),
       'event_id' => Event::all()->random()->id,
       'is_arrived' => '0',
-      'type_evenement' => 'Basique',
     ];
   }
 }

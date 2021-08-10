@@ -16,4 +16,9 @@ class AddHost extends Component
   }
 
   public function mount($eventId) {}
+
+  public function submit()
+  {
+    return redirect()->route('évènements');
+  }
 }

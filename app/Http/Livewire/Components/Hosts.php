@@ -28,4 +28,11 @@ class Hosts extends Component
     {
       Host::find($id)->delete();
     }
+
+    public function changeArrived($hostId)
+    {
+        $host = Host::find($hostId);
+        $host->is_arrived ^= 1;
+        $host->save();
+    }
 }

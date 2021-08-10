@@ -7,7 +7,8 @@
             <div>
               <h5 class="mb-0">Test</h5>
             </div>
-            <span class="badge badge-secondary">{{$tableType->type_event}}</span>
+            <a href="{{ route('gestion d\'hôte',$eventId) }}" class="btn bg-gradient-dark btn-sm mb-0"
+                            type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
@@ -30,37 +31,36 @@
                 @foreach ($hosts as $listHosts)
                 <tr>
                   @foreach ($listHosts as $key => $value)
-                  @if (isset($value) && $key != 'id')
+                  @if (isset($value) && $value !== "" && $key != 'id')
                   @if ($key == "is_arrived")
-                      @if ($value)
-                      <td class="column1 text-center-responsive ps-4">
-                        <span class="badge badge-sm badge-success">Oui</span>
-                      </td>
-                      @else
-                      <td class="column1 text-center-responsive ps-4">
-                        <span class="badge badge-sm badge-danger">Non</span>
-                      </td>
-                      @endif
-                    @else
-                    <td class="column1 text-center-responsive ps-4">
-                      <p class="text-xs font-weight-bold mb-0">{{$value}}</p>
-                    </td>
-                    @endif
+                  @if ($value)
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
+                    <span class="badge badge-sm badge-success">Oui</span>
+                  </td>
+                  @else
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
+                    <span class="badge badge-sm badge-danger">Non</span>
+                  </td>
+                  @endif
+                  @else
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
+                    <p class="text-xs font-weight-bold mb-0">{{$value}}</p>
+                  </td>
+                  @endif
                   @endif
                   @endforeach
                   <td class="column5 text-center-responsive">
-                    <a href="{{ route('modifier un évènement', $listHosts['id']) }}" class="mx-3"
-                        data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
-                        <i class="fas fa-user-edit text-secondary"></i>
+                    <a href="{{ route('gestion d\'hôte',[$eventId,$listHosts['id']]) }}" class="mx-3"
+                      data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
+                      <i class="fas fa-user-edit text-secondary"></i>
                     </a>
                     <span>
-                        <i class="cursor-pointer fas fa-trash text-secondary"
-                            data-bs-toggle="tooltip"
-                            data-bs-original-title="Supprimer l'hôte"
-                            onclick="confirm('Supprimer cet hôte ?') || event.stopImmediatePropagation()"
-                            wire:click="deleteHost({{$listHosts['id']}})"></i>
+                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
+                        data-bs-original-title="Supprimer l'hôte"
+                        onclick="confirm('Supprimer cet hôte ?') || event.stopImmediatePropagation()"
+                        wire:click="deleteHost({{$listHosts['id']}})"></i>
                     </span>
-                </td>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

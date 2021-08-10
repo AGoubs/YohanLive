@@ -16,6 +16,6 @@
 
 
   <div class="button-row d-flex mt-4 mx-4 float-right">
-    <button class="btn bg-gradient-dark ms-auto mb-0" wire:click="saveImportedHosts">Valider</button>
+    <button class="btn bg-gradient-dark ms-auto mb-0" wire:click="submit">Valider</button>
   </div>
 </div>

@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/show_event/{eventId?}', ShowEvent::class)->name('évènement');
   Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
   Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
-  Route::get('/edit_host/{hostId}', EditHost::class)->name('modifier un hôte');
+  Route::get('/edit_host/{eventId}&{hostId?}', EditHost::class)->name('gestion d\'hôte');
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/tables', Tables::class)->name('tables');
   Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');

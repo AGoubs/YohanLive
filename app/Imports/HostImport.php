@@ -32,7 +32,6 @@ class HostImport implements ToModel, WithHeadingRow
             'porte' => isset($row['porte']) ? $row['porte'] : null,
             'commentaire' => isset($row['commentaire']) ? $row['commentaire'] : null,
             'event_id' => $this->eventId,
-            'type_evenement' => $this->typeEvenement,
         ]);
     }
 }
