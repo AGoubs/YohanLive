@@ -68,7 +68,12 @@
                             @error('host.commentaire') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
                     </div>
-                    <div class="button-row d-flex mt-4">
+                    <div class="form-check form-switch mt-3">
+                        <input wire:model="host.is_arrived" class="form-check-input" type="checkbox"
+                            id="is_arrived">
+                        <label class="form-check-label" for="is_arrived">Arrivé ?</label>
+                    </div>
+                    <div class="button-row d-flex">
                         <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
                             title="Valider">Valider</button>
                     </div>

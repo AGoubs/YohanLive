@@ -19,6 +19,6 @@ class AddHost extends Component
 
   public function submit()
   {
-    return redirect()->route('évènements');
+    return redirect()->route('évènement', $this->eventId);
   }
 }

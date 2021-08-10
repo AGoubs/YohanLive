@@ -5,10 +5,10 @@
         <div class="card-header pb-0">
           <div class="d-flex flex-row justify-content-between">
             <div>
-              <h5 class="mb-0">Test</h5>
+              <h5 class="mb-0">{{$tableType->type_event}}</h5>
             </div>
             <a href="{{ route('gestion d\'hôte',$eventId) }}" class="btn bg-gradient-dark btn-sm mb-0"
-                            type="button">+&nbsp; Ajouter</a>
+              type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
@@ -28,29 +28,54 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($hosts as $listHosts)
+                @foreach ($hosts as $host)
                 <tr>
-                  @foreach ($listHosts as $key => $value)
-                  @if (isset($value) && $value !== "" && $key != 'id')
-                  @if ($key == "is_arrived")
-                  @if ($value)
-                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
+                  @if ($host->is_arrived)
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
                     <span class="badge badge-sm badge-success">Oui</span>
                   </td>
                   @else
-                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer" style="cursor: pointer">
                     <span class="badge badge-sm badge-danger">Non</span>
                   </td>
                   @endif
-                  @else
-                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$listHosts['id']}})">
-                    <p class="text-xs font-weight-bold mb-0">{{$value}}</p>
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->nom}}</p>
+                  </td>
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->prenom}}</p>
+                  </td>
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->fonction}}</p>
+                  </td>
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->telephone}}</p>
+                  </td>
+                  @if (in_array("Numéro Ipad", $tableFields))
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->numero_ipad}}</p>
                   </td>
                   @endif
+                  @if (in_array("Lieu", $tableFields))
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->lieu}}</p>
+                  </td>
                   @endif
-                  @endforeach
+                  @if (in_array("Point", $tableFields))
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->point}}</p>
+                  </td>
+                  @endif
+                  @if (in_array("Porte", $tableFields))
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->porte}}</p>
+                  </td>
+                  @endif
+                  <td class="column1 text-center-responsive ps-4" wire:click="changeArrived({{$host->id}})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold mb-0">{{$host->commentaire}}</p>
+                  </td>
                   <td class="column5 text-center-responsive">
-                    <a href="{{ route('gestion d\'hôte',[$eventId,$listHosts['id']]) }}" class="mx-3"
+                    <a href="{{ route('gestion d\'hôte',[$eventId,$host->id]) }}" class="mx-3"
                       data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                       <i class="fas fa-user-edit text-secondary"></i>
                     </a>
@@ -58,7 +83,7 @@
                       <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
                         data-bs-original-title="Supprimer l'hôte"
                         onclick="confirm('Supprimer cet hôte ?') || event.stopImmediatePropagation()"
-                        wire:click="deleteHost({{$listHosts['id']}})"></i>
+                        wire:click="deleteHost({{$host->id}})"></i>
                     </span>
                   </td>
                 </tr>

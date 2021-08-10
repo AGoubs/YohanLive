@@ -12,12 +12,14 @@ class EditEvent extends Component
   public $Date = '';
   public $HeureArrive = '';
   public $HeureEvenement = '';
+  public $type_event = '';
 
   protected $rules = [
     'Nom' => 'required',
     'Date' => 'required',
     'HeureArrive' => 'required',
     'HeureEvenement' => 'required',
+    'type_event' => 'required',
   ];
 
   public function render()
@@ -32,6 +34,7 @@ class EditEvent extends Component
     $this->Date = $this->event->Date;
     $this->HeureEvenement = date('H:i', strtotime($this->event->HeureEvenement));
     $this->HeureArrive = date('H:i', strtotime($this->event->HeureArrive));
+    $this->type_event = $this->event->type_event;
   }
 
   public function updateEvent()
@@ -41,8 +44,9 @@ class EditEvent extends Component
     $this->event->Date = $this->Date;
     $this->event->HeureEvenement = $this->HeureEvenement;
     $this->event->HeureArrive = $this->HeureArrive;
+    $this->event->type_event = $this->type_event;
     $this->event->save();
     session()->flash('info',  "Evènement modifié avec succès");
-    return redirect()->route('évènements');
+    return redirect()->route('évènement', $this->event->id);
   }
 }

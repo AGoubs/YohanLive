@@ -24,6 +24,7 @@ class EditHost extends Component
         'host.point' => '',
         'host.porte' => '',
         'host.commentaire' => '',
+        'host.is_arrived' => '',
     ];
 
     public function render()
@@ -45,12 +46,14 @@ class EditHost extends Component
     public function submit()
     {
         $this->validate();
-        if ($this->host->id) {
-            $this->host->save();
-        } else {
+        if (!$this->host->id) {
+            session()->flash('info',  "Hôte créé avec succès");
             $this->host->event_id = $this->eventId;
-            $this->host->save();
         }
+        else 
+            session()->flash('info',  "Hôte modifié avec succès");
+            
+        $this->host->save();
 
         return redirect()->route('ajouter des hôtes', [$this->eventId]);
     }

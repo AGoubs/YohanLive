@@ -4,7 +4,15 @@
     <div class="row">
       <div class="col-12 col-lg-12 m-auto mb-4">
         <div class="card p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
-          <h5 class="font-weight-bolder mb-0">Évènement</h5>
+          <div class="d-flex flex-row justify-content-between">
+            <div>
+              <h5 class="mb-0">Évènement</h5>
+            </div>
+            <a href="{{ route('modifier un évènement', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2"
+              type="button">
+              Modifier
+            </a>
+          </div>
           <div class="row mt-3">
             <div class="col-12 col-sm-6">
               <label for="Nom" class="control-label">Nom</label>
@@ -31,13 +39,13 @@
       </div>
     </div>
     <livewire:components.hosts :eventId="$eventId">
-    
-    <div class="row">
-      <div class="col-12">
-        <button onclick="history.back()" class="btn btn-default"><i class="fas fa-arrow-left"></i>
-          Retour</button>
+
+      <div class="row">
+        <div class="col-12">
+          <button onclick="history.back()" class="btn btn-default"><i class="fas fa-arrow-left"></i>
+            Retour</button>
+        </div>
       </div>
-    </div>
   </div>
 </div>
 </div>
