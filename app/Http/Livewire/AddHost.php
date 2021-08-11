@@ -21,4 +21,9 @@ class AddHost extends Component
   {
     return redirect()->route('évènement', $this->eventId);
   }
+
+  public function editEvent()
+  {
+    redirect()->route('modifier un évènement', $this->eventId);
+  }
 }

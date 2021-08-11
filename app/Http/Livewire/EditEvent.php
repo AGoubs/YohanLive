@@ -46,7 +46,8 @@ class EditEvent extends Component
     $this->event->HeureArrive = $this->HeureArrive;
     $this->event->type_event = $this->type_event;
     $this->event->save();
-    session()->flash('info',  "Evènement modifié avec succès");
-    return redirect()->route('évènement', $this->event->id);
+    // session()->flash('info',  "Evènement modifié avec succès");
+    // return redirect()->route('évènement', $this->event->id);
+    return redirect()->route('ajouter des hôtes', $this->event->id);
   }
 }

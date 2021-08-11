@@ -15,9 +15,13 @@
 
     <livewire:components.hosts :eventId="$eventId" />
 
-
     <div class="button-row d-flex mt-4 float-right">
       <button class="btn bg-gradient-dark ms-auto mb-0" wire:click="submit">Valider</button>
+    </div>
+
+    <div class="col-12">
+      <button wire:click="editEvent()" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>
+        Retour</button>
     </div>
   </div>
 </div>
