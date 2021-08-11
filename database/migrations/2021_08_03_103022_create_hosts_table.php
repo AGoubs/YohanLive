@@ -14,6 +14,7 @@ class CreateHostsTable extends Migration
   public function up()
   {
     Schema::create('hosts', function (Blueprint $table) {
+      $table->engine = 'InnoDB';
       $table->id();
       $table->string('nom');
       $table->string('prenom');
