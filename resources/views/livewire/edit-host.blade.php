@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12 col-lg-8 m-auto my-5">
             <form wire:submit.prevent="submit" action="#" method="POST" class="multisteps-form__form "
-                style="height: 600px;" asp-action="Create">
+                style="height: 650px;" asp-action="Create">
                 <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active"
                     data-animation="FadeIn">
                     <h5 class="font-weight-bolder mb-0">{{$text}}</h5>
