@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-lg-12 m-auto mb-4">
       <div class="card mb-4">
-        <div class="card-header pb-0">
+        <div class="card-header">
           <div class="d-flex flex-row justify-content-between">
             <div>
               <h5 class="mb-0">{{ $tableType->type_event }}</h5>
@@ -10,7 +10,7 @@
             <a href="{{ route('gestion d\'hôte', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
-        <hr class="horizontal dark my-3">
+        {{-- <hr class="horizontal dark mt-3"> --}}
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0 responsive">
@@ -71,7 +71,7 @@
                         <p class="text-xs font-weight-bold mb-0">{{ $host->porte }}</p>
                       </td>
                     @endif
-                    <td data-label="Commentaire" class="text-center-responsive ps-4" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td style="text-align: left; word-break: break-all;" class="text-center-responsive ps-4" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0">{{ $host->commentaire }}</p>
                     </td>
                     <td class="column5 text-center-responsive">

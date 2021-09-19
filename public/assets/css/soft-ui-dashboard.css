@@ -18924,12 +18924,15 @@ body, html {
 }
 
 @media (max-width: 700px) {
+  .table> :not(caption)>*>* {
+    border-bottom-width: 0;
+  }
   .responsive.table thead {
     display: none;
   }
   .responsive.table tr {
     display: block;
-    margin-bottom: 40px;
+    margin: 20px 0px;
   }
   .responsive.table td {
     display: block;
