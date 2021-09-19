@@ -12981,7 +12981,7 @@ hr.horizontal.gray-light {
 }
 
 .table td, .table th {
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .table.align-items-center td, .table.align-items-center th {
@@ -18921,4 +18921,25 @@ p {
 
 body, html {
   overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+  .responsive.table thead {
+    display: none;
+  }
+  .responsive.table tr {
+    display: block;
+    margin-bottom: 40px;
+  }
+  .responsive.table td {
+    display: block;
+    text-align: right;
+  }
+  .table td:before {
+    /* width: 50%; */
+    line-height: 1;
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
 }
