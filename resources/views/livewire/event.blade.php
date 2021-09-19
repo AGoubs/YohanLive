@@ -11,7 +11,7 @@
             <a href="{{ route('ajouter un evènement') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
-        <div class="card-body px-0 pt-0 pb-2">
+        <div class="card-body px-0 pt-0 pb-2" wire:ignore>
           <table class="table align-items-center mb-0 responsive">
             <thead>
               <tr>
@@ -37,7 +37,7 @@
                   <td data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">{{ $event->Nom }}</p>
                   </td>
-                  <td data-label="Date" wire:click="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td data-label="Date" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     @if ($event->Date < date('Y-m-d')) <span class="badge badge-sm badge-danger">
                         {{ date('d/m/Y', strtotime($event->Date)) }}</span>
                     @elseif ($event->Date == date('Y-m-d'))
@@ -47,10 +47,10 @@
                     @endif
                   </td>
 
-                  <td data-label="Heure de l'évènement" wire:click="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td data-label="Heure de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
                   </td>
-                  <td data-label="Heure d'arrivé" wire:click="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td data-label="Heure d'arrivé" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">
                       {{ date('H:i', strtotime($event->HeureArrive)) }}
                     </p>
