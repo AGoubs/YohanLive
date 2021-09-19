@@ -34,7 +34,7 @@
             <tbody>
               @foreach ($events as $event)
                 <tr class="px-3">
-                  <td data-label="Nom" wire:click="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">{{ $event->Nom }}</p>
                   </td>
                   <td data-label="Date" wire:click="showEvent({{ $event->id }})" style="cursor: pointer">
