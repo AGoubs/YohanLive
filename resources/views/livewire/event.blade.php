@@ -28,16 +28,17 @@
                   Heure d'arrivé
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  Actions
                 </th>
               </tr>
             </thead>
             <tbody>
               @foreach ($events as $event)
                 <tr class="px-3">
-                  <td data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td class="ps-2 ps-md-4" data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">{{ $event->Nom }}</p>
                   </td>
-                  <td data-label="Date" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td class="text-md-center" data-label="Date" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     @if ($event->Date < date('Y-m-d')) <span class="badge badge-sm badge-danger">
                         {{ date('d/m/Y', strtotime($event->Date)) }}</span>
                     @elseif ($event->Date == date('Y-m-d'))
@@ -47,15 +48,15 @@
                     @endif
                   </td>
 
-                  <td data-label="Heure de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td class="text-md-center" data-label="Heure de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
                   </td>
-                  <td data-label="Heure d'arrivé" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td class="text-md-center" data-label="Heure d'arrivé" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">
                       {{ date('H:i', strtotime($event->HeureArrive)) }}
                     </p>
                   </td>
-                  <td>
+                  <td class="text-md-center">
                     <a href="{{ route('modifier un évènement', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
                       <i class="fas fa-user-edit text-secondary"></i>
                     </a>
@@ -64,7 +65,7 @@
                     </span>
                   </td>
                   <td>
-                    <hr class="horizontal dark my-3">
+                    <hr class="horizontal dark my-3 d-md-none">
                   </td>
                 </tr>
               @endforeach
