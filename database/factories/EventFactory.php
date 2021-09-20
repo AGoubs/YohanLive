@@ -27,6 +27,7 @@ class EventFactory extends Factory
       'Date' => $this->faker->dateTimeThisMonth(),
       'HeureArrive' => $this->faker->time(),
       'HeureEvenement' => $this->faker->time(),
+      'HeureFinEvenement' => $this->faker->time(),
       'type_event' => TypeEvent::all()->random()->type_event,
     ];
   }
