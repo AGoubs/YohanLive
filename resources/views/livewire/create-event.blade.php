@@ -29,17 +29,22 @@
               </div>
             </div>
             <div class="row mt-3">
-              <div class="col-12 col-sm-4">
+              <div class="col-12 col-sm-3">
                 <label for="HeureEvenement" class="control-label">Heure de l'évènement</label>
                 <input type="time" class="form-control @error('HeureEvenement') border border-danger  @enderror" wire:model="HeureEvenement" />
                 @error('HeureEvenement') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
-              <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+              <div class="col-12 col-sm-3">
+                <label for="HeureFinEvenement" class="control-label">Heure de fin de l'évènement</label>
+                <input type="time" class="form-control @error('HeureFinEvenement') border border-danger  @enderror" wire:model="HeureFinEvenement" />
+                @error('HeureFinEvenement') <div class="text-danger">{{ $message }}</div> @enderror
+              </div>
+              <div class="col-12 col-sm-3 mt-3 mt-sm-0">
                 <label for="HeureArrive" class="control-label">Heure d'arrivé</label>
                 <input type="time" class="form-control @error('HeureArrive') border border-danger  @enderror" wire:model="HeureArrive" />
                 @error('HeureArrive') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
-              <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+              <div class="col-12 col-sm-3 mt-3 mt-sm-0">
                 <label for="TypeEvenement" class="control-label">Type d'évènement</label>
                 <select class="multisteps-form__select form-control" id="TypeEvenement" style="background-color: white" wire:model="TypeEvenement">
                   <option selected="selected" value="Basique">Basique</option>

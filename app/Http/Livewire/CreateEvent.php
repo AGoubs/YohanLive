@@ -11,6 +11,7 @@ class CreateEvent extends Component
   public $Date = '';
   public $HeureArrive = '';
   public $HeureEvenement = '';
+  public $HeureFinEvenement = '';
   public $TypeEvenement = 'Basique';
 
   protected $rules = [
@@ -18,6 +19,7 @@ class CreateEvent extends Component
     'Date' => 'required',
     'HeureArrive' => 'required',
     'HeureEvenement' => 'required',
+    'HeureFinEvenement' => 'required',
   ];
 
   public function render()
@@ -33,6 +35,7 @@ class CreateEvent extends Component
       'Date' => $this->Date,
       'HeureArrive' => $this->HeureArrive,
       'HeureEvenement' => $this->HeureEvenement,
+      'HeureFinEvenement' => $this->HeureFinEvenement,
       'type_event' => $this->TypeEvenement,
     ]);
 
