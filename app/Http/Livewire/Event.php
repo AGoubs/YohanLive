@@ -24,6 +24,13 @@ class Event extends Component
     $event->delete();
   }
 
+  public function deleteAllEvent()
+  {
+    Host::query()->delete();
+    ModelsEvent::query()->delete();
+    return redirect()->route('évènements');
+  }
+
   public function showEvent($eventId)
   {
     return redirect()->route('évènement', [$eventId]);

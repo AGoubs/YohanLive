@@ -9,30 +9,35 @@ use Livewire\Component;
 
 class Hosts extends Component
 {
-    public $eventId;
-    public $hosts;
-    public $tableType;
-    public $tableFields;
+  public $eventId;
+  public $hosts;
+  public $tableType;
+  public $tableFields;
 
-    public function render()
-    {
-        $this->hosts = Host::where('event_id', $this->eventId)->select('id', 'is_arrived', 'nom', 'prenom', 'fonction', 'telephone', 'numero_ipad', 'lieu', 'point', 'porte', 'commentaire')->get();
-        $event = Event::find($this->eventId);
-        $this->tableType = TypeEvent::where('type_event', $event->type_event)->first();
-        $this->tableFields = explode(',',$this->tableType->fields);
+  public function render()
+  {
+    $this->hosts = Host::where('event_id', $this->eventId)->select('id', 'is_arrived', 'nom', 'prenom', 'fonction', 'telephone', 'numero_ipad', 'lieu', 'point', 'porte', 'commentaire')->get();
+    $event = Event::find($this->eventId);
+    $this->tableType = TypeEvent::where('type_event', $event->type_event)->first();
+    $this->tableFields = explode(',', $this->tableType->fields);
 
-        return view('livewire.components.hosts');
-    }
+    return view('livewire.components.hosts');
+  }
 
-    public function deleteHost($id)
-    {
-      Host::find($id)->delete();
-    }
+  public function deleteHost($id)
+  {
+    Host::find($id)->delete();
+  }
 
-    public function changeArrived($hostId)
-    {
-        $host = Host::find($hostId);
-        $host->is_arrived ^= 1;
-        $host->save();
-    }
+  public function deleteAllHosts()
+  {
+    Host::where('event_id', $this->eventId)->delete();
+  }
+
+  public function changeArrived($hostId)
+  {
+    $host = Host::find($hostId);
+    $host->is_arrived ^= 1;
+    $host->save();
+  }
 }

@@ -90,6 +90,10 @@
           </table>
         </div>
       </div>
+      <div class="d-flex flex-row justify-content-between">
+        <div></div>
+        <a onclick="confirm('Supprimer tous les hôtes/hôtesses ? \nAttention, cette action n\'est pas réversible.') || event.stopImmediatePropagation()" wire:click="deleteAllHosts()" class="btn bg-gradient-danger btn-sm" type="button">Supprimer les hôtes</a>
+      </div>
     </div>
   </div>
 </div>
