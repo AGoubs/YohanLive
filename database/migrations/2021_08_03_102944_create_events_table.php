@@ -19,7 +19,6 @@ class CreateEventsTable extends Migration
       $table->date('Date');
       $table->time('HeureArrive');
       $table->time('HeureEvenement');
-      $table->time('HeureFinEvenement')->nullable();
       $table->string('type_event');
       $table->timestamps();
     });
