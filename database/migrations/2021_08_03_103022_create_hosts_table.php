@@ -26,6 +26,7 @@ class CreateHostsTable extends Migration
       $table->text('commentaire')->nullable();
       $table->foreignId('event_id')->constrained();
       $table->boolean('is_arrived')->nullable()->default(0);
+      $table->time('time_arrived')->nullable();
       $table->timestamps();
     });
   }

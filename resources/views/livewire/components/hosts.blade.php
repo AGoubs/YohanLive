@@ -18,6 +18,9 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Arrivé
                 </th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  Heure d'arrivé
+                </th>
                 @foreach ($tableFields as $item)
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     {{ $item }}
@@ -38,6 +41,13 @@
                       <span class="badge badge-sm badge-danger ms-2">Non</span>
                     </td>
                   @endif
+                  <td class="text-md-left" data-label="Heure d'arrivé" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    @if ($host->time_arrived)
+                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ date('H:i', strtotime($host->time_arrived)) }}</p>
+                    @else
+                      <p class="text-xs font-weight-bold ps-3"></p>
+                    @endif
+                  </td>
                   <td class="text-md-left" data-label="Nom" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $host->nom }}</p>
                   </td>

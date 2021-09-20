@@ -24,6 +24,9 @@
                   Heure de l'évènement
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  Heure de fin de l'évènement
+                </th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Heure d'arrivé
                 </th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -49,6 +52,9 @@
 
                   <td class="text-md-center" data-label="Heure de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
+                  </td>
+                  <td class="text-md-center" data-label="Heure de fin de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                    <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureFinEvenement)) }}</span>
                   </td>
                   <td class="text-md-center" data-label="Heure d'arrivé" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0">
