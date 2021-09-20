@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
       'email' => 'yohan@britti.fr',
       'password' => Hash::make('Yohan123')
     ]);
+
+
     TypeEvent::factory()->create([
       'type_event' => 'Basique',
       'fields' => 'Nom,Prénom,Fonction,Téléphone,Commentaire'
