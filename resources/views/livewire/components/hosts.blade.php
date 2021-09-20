@@ -81,7 +81,7 @@
                     </td>
                   @endif
                   <td class="text-md-left" style="text-align: left; word-break: break-all;" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                    <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $host->commentaire }}</p>
+                    <p class="text-xs font-weight-bold mb-0 ps-md-3 pt-3">{{ $host->commentaire }}</p>
                   </td>
                   <td class="text-md-left">
                     <a href="{{ route('gestion d\'hôte', [$eventId, $host->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
