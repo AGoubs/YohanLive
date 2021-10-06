@@ -12,15 +12,15 @@
         </div>
         {{-- <hr class="horizontal dark mt-3"> --}}
         <div class="card-body px-0 pt-0 pb-2">
-          <table class="table align-items-center mb-0 responsive">
+          <table class="table align-items-center mb-0">
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Arrivé
                 </th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Heure d'arrivé
-                </th>
+                </th> --}}
                 @foreach ($tableFields as $item)
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     {{ $item }}
@@ -33,50 +33,52 @@
               @foreach ($hosts as $host)
                 <tr class="px-3">
                   @if ($host->is_arrived)
-                    <td class="text-md-left" data-label="Arrivé" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <span class="badge badge-sm badge-success ms-2">Oui</span>
+                      @if ($host->time_arrived)
+                        <p class="text-xs font-weight-bold mb-0 ms-2 mt-2">{{ date('H:i', strtotime($host->time_arrived)) }}</p>
+                      @endif
+
                     </td>
                   @else
-                    <td class="text-md-left" data-label="Arrivé" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer" style="cursor: pointer">
                       <span class="badge badge-sm badge-danger ms-2">Non</span>
                     </td>
                   @endif
-                  <td class="text-md-left" data-label="Heure d'arrivé" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                    @if ($host->time_arrived)
-                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ date('H:i', strtotime($host->time_arrived)) }}</p>
+                  {{-- <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+
                     @else
-                      <p class="text-xs font-weight-bold ps-3"></p>
-                    @endif
-                  </td>
-                  <td class="text-md-left" data-label="Nom" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <p class="text-xs font-weight-bold ps-3"></p>
+                  </td> --}}
+                  <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $host->nom }}</p>
                   </td>
-                  <td class="text-md-left" data-label="Prénom" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                  <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->prenom }}</p>
                   </td>
-                  <td class="text-md-left" data-label="Fonction" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                  <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->fonction }}</p>
                   </td>
-                  <td class="text-md-left" data-label="Téléphone" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                  <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->telephone }}</p>
                   </td>
                   @if (in_array('Numéro Ipad', $tableFields))
-                    <td class="text-md-left" data-label="Numéro Ipad" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->numero_ipad }}</p>
                     </td>
                   @endif
                   @if (in_array('Lieu', $tableFields))
-                    <td class="text-md-left" data-label="Lieu" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->lieu }}</p>
                     </td>
                   @endif
                   @if (in_array('Point', $tableFields))
-                    <td class="text-md-left" data-label="Point" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->point }}</p>
                     </td>
                   @endif
                   @if (in_array('Porte', $tableFields))
-                    <td class="text-md-left" data-label="Porte" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->porte }}</p>
                     </td>
                   @endif
