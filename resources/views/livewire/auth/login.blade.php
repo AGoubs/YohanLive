@@ -1,4 +1,4 @@
-<section class="h-100-vh mb-8">
+<section>
   <div class="page-header align-items-start section-height-30 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg');">
     <span class="mask bg-gradient-dark opacity-6"></span>
     <div class="container">
