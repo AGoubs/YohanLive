@@ -107,9 +107,6 @@
                           wire:click="deleteHost({{ $host->id }})"></i>
                       </span>
                     </td>
-                    <td>
-                      <hr class="horizontal dark my-3">
-                    </td>
                   </tr>
                 @endforeach
               </tbody>
