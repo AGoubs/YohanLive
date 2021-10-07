@@ -9,7 +9,7 @@ use Livewire\Component;
 class ShowEvent extends Component
 {
     public $event;
-    public ?int $eventId;
+    public $eventId;
     public $hosts;
     public $tableField;
     public $typeEvenement;

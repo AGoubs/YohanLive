@@ -63,7 +63,7 @@
                   </td>
                   <td class="text-md-center">
                     <a href="{{ route('modifier un évènement', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
-                      <i class="fas fa-user-edit text-secondary"></i>
+                      <i class="fas fa-edit text-secondary"></i>
                     </a>
                     <span>
                       <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'évènement" onclick="confirm('Supprimer cet évènement ?') || event.stopImmediatePropagation()" wire:click="deleteEvent({{ $event->id }})"></i>

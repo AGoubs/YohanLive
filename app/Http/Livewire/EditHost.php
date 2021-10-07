@@ -10,7 +10,7 @@ class EditHost extends Component
 {
     public $host;
     public $text;
-    public ?int $hostId;
+    public $hostId;
     public $eventId;
 
     protected $rules = [
