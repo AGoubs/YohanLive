@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item px-3 d-flex align-items-center">
-                        <a href="{{ route('profile')}}" class="nav-link text-body p-0">
+                        <a href="{{ route('mes-informations')}}" class="nav-link text-body p-0">
                             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                         </a>
                     </li>
