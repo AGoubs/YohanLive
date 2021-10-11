@@ -37,10 +37,12 @@
                     @if ($host->is_arrived)
                       <td class="text-md-left" wire:click="changeArrived({{ $host->id }})"
                         style="cursor: pointer">
-                        <span class="badge badge-sm badge-success ms-2">Oui</span>
                         @if ($host->time_arrived)
-                          <p class="text-xs font-weight-bold mb-0 ms-2 mt-2">
-                            {{ date('H:i', strtotime($host->time_arrived)) }}</p>
+                          <span class="badge badge-sm badge-success ms-2">
+                            {{ date('H:i', strtotime($host->time_arrived)) }}</span>
+                        @else
+                        <span class="badge badge-sm badge-success ms-2">Oui</span>
+
                         @endif
 
                       </td>
@@ -93,7 +95,7 @@
                     @endif
                     <td class="text-md-left" style="text-align: left; word-break: break-all; min-width:200px"
                       wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                      <p class="text-xs font-weight-bold mb-0 ps-md-3 pt-3">{{ $host->commentaire }}</p>
+                      <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $host->commentaire }}</p>
                     </td>
                     <td class="text-md-left" style="min-width: 100px">
                       <a href="{{ route('gestion d\'hôte', [$eventId, $host->id]) }}" class="mx-3"
