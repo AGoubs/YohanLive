@@ -1,12 +1,11 @@
 <div>
-    @include('layouts.navbars.guest.login')
     <div class="page-header section-height-75">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-                    <div class="card card-plain mt-8">
+                    <div class="card card-plain mt-6">
                         <div class="card-header pb-0 text-left bg-transparent">
-                            <p class="mb-0">{{ __('Forgot your password? Enter your email and new password here') }}
+                            <p class="mb-0">{{ __('Entrez votre adresse mail et votre nouveau mot de passe') }}
                             <p>
                         </div>
                         <div class="card-body">
@@ -14,16 +13,16 @@
                             <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
                                 <div>
                                     <label for="email">{{ __('Email') }}</label>
-                                    <div class="@error('email')border border-danger rounded-3 @enderror mb-3">
-                                        <input wire:model="email" id="email" type="email" class="form-control"
+                                    <div class="mb-3">
+                                        <input wire:model="email" id="email" type="email" class="form-control @error('password')is-invalid @enderror"
                                             placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                     </div>
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>
                                 <div>
-                                    <label for="password">{{ __('Password') }}</label>
-                                    <div class="@error('password')border border-danger rounded-3 @enderror mb-3">
-                                        <input wire:model="password" id="password" type="password" class="form-control"
+                                    <label for="password">{{ __('Mot de passe') }}</label>
+                                    <div class="mb-3">
+                                        <input wire:model="password" id="password" type="password" class="form-control @error('password')is-invalid @enderror"
                                             placeholder="Password" aria-label="Password"
                                             aria-describedby="password-addon">
                                     </div>
@@ -32,9 +31,9 @@
                                 <div>
                                     <label for="passwordConfirmation">{{ __('Password Confirmation') }}</label>
                                     <div
-                                        class="@error('passwordConfirmation')border border-danger rounded-3 @enderror mb-3">
+                                        class="mb-3">
                                         <input wire:model="passwordConfirmation" id="password" type="password"
-                                            class="form-control" placeholder="passwordConfirmation"
+                                            class="form-control @error('password')is-invalid @enderror" placeholder="passwordConfirmation"
                                             aria-label="Password" aria-describedby="password-addon">
                                     </div>
                                     @error('passwordConfirmation') <div class="text-danger">{{ $message }}</div>
@@ -62,7 +61,7 @@
                             @if ($showFailureNotification)
                                 <div wire:model="showFailureNotification"
                                     class="mt-3 alert alert-light alert-dismissible fade show" role="alert">
-                                    <span class="alert-text">{{ 'Please enter the correct email address!' }}</span>
+                                    <span class="alert-text">{{ 'Merci d\'entrer une adresse mail correcte !' }}</span>
                                     <button wire:click="$set('showFailureNotification', false)" type="button"
                                         class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                     </button>

@@ -25,9 +25,9 @@ class ForgotPassword extends Component
 
   public function mount()
   {
-    if (auth()->user()) {
-      redirect('/accueil');
-    }
+    // if (auth()->user()) {
+    //   redirect('/accueil');
+    // }
   }
 
   public function routeNotificationForMail()
