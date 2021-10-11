@@ -39,7 +39,7 @@ use Illuminate\Http\Request;
 Route::get('/', Login::class)->name('login');
 
 Route::get('/login', Login::class)->name('login');
-Route::get('/sign-up', SignUp::class)->name('sign-up');
+// Route::get('/sign-up', SignUp::class)->name('sign-up');
  
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 

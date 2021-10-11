@@ -36,9 +36,9 @@
                 <label class="form-check-label" for="rememberMe">{{ __('Rester connecté') }}</label>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">{{ __('Connexion') }}</button>
+                <button type="submit" class="btn bg-gradient-dark w-100 mt-4 mb-0">{{ __('Connexion') }}</button>
               </div>
-              <p class="text-sm mt-3 mb-0">Mot de passe oublié ? <a href="{{ route('forgot-password') }}" class="text-dark font-weight-bolder">Cliquez ici</a></p>
+              <p class="text-sm mt-4 mb-0 text-center">Mot de passe oublié ? <a href="{{ route('forgot-password') }}" class="text-dark font-weight-bolder">Cliquez ici</a></p>
             </form>
 
           </div>

@@ -35,10 +35,10 @@
                 @foreach ($hosts as $host)
                   <tr class="px-3">
                     @if ($host->is_arrived)
-                      <td class="text-md-left" wire:click="changeArrived({{ $host->id }})"
+                      <td class="text-center" wire:click="changeArrived({{ $host->id }})"
                         style="cursor: pointer">
                         @if ($host->time_arrived)
-                          <span class="badge badge-sm badge-success ms-2">
+                          <span class="badge badge-sm badge-success">
                             {{ date('H:i', strtotime($host->time_arrived)) }}</span>
                         @else
                         <span class="badge badge-sm badge-success ms-2">Oui</span>
@@ -47,9 +47,9 @@
 
                       </td>
                     @else
-                      <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer"
+                      <td class="text-center" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer"
                         style="cursor: pointer">
-                        <span class="badge badge-sm badge-danger ms-2">Non</span>
+                        <span class="badge badge-sm badge-danger">Non</span>
                       </td>
                     @endif
                     {{-- <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
@@ -66,7 +66,7 @@
                     <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->fonction }}</p>
                     </td>
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
+                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer;min-width:150px">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->telephone }}</p>
                     </td>
                     @if (in_array('Numéro Ipad', $tableFields))
