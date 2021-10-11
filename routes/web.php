@@ -50,6 +50,6 @@ Route::middleware('auth')->group(function () {
   Route::get('/edit_host/{eventId}&{hostId?}', EditHost::class)->name('gestion d\'hôte');
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/tables', Tables::class)->name('tables');
-  Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
+  Route::get('/mes-informations', UserProfile::class)->name('mes-informations');
   Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
