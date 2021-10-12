@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureEvenement)) }}" disabled />
               </div>
               <div class="col-12 col-sm-4 mt-3 mt-sm-0">
-                <label for="HeureFinEvenement" class="control-label">Heure de fin de l'évènement</label>
+                <label for="HeureFinEvenement" class="control-label">Heure de fin</label>
                 <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureFinEvenement)) }}" disabled />
               </div>
               <div class="col-12 col-sm-4 mt-3 mt-sm-0">

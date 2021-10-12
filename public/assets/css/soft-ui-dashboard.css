@@ -18970,3 +18970,8 @@ body, html {
     font-weight: bold;
   }
 }
+
+.dropdown .dropdown-menu.dropdown-menu-end
+{
+  right: 10px;
+}

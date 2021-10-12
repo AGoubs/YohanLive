@@ -35,7 +35,7 @@
                 @error('HeureEvenement') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
               <div class="col-12 col-sm-3">
-                <label for="HeureFinEvenement" class="control-label">Heure de fin de l'évènement</label>
+                <label for="HeureFinEvenement" class="control-label">Heure de fin</label>
                 <input type="time" class="form-control @error('HeureFinEvenement') border border-danger  @enderror" wire:model="HeureFinEvenement" />
                 @error('HeureFinEvenement') <div class="text-danger">{{ $message }}</div> @enderror
               </div>

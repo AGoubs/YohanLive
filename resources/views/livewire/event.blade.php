@@ -53,7 +53,7 @@
                   <td class="text-md-center" data-label="Heure de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
                   </td>
-                  <td class="text-md-center" data-label="Heure de fin de l'évènement" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
+                  <td class="text-md-center" data-label="Heure de fin" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
                     <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureFinEvenement)) }}</span>
                   </td>
                   <td class="text-md-center" data-label="Heure d'arrivé" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
@@ -68,9 +68,6 @@
                     <span>
                       <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'évènement" onclick="confirm('Supprimer cet évènement ?') || event.stopImmediatePropagation()" wire:click="deleteEvent({{ $event->id }})"></i>
                     </span>
-                  </td>
-                  <td>
-                    <hr class="horizontal dark my-3 d-md-none">
                   </td>
                 </tr>
               @endforeach
