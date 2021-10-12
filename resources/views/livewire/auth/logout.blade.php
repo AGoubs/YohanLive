@@ -1,6 +1,6 @@
 <div x-data="{open: false}">
   <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-    aria-expanded="false" x-on:click="open = ! open" @click.away="open = false" x-transition>
+    aria-expanded="false" x-on:click="open = ! open" @click.away="open = false" >
     <i
       class="fa fa-user me-sm-1 {{ in_array(
     request()->route()->getName(),
