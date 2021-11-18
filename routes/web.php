@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Accueil;
 use App\Http\Livewire\AddHost;
+use App\Http\Livewire\Auth\CreateUser;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Auth\ForgotPassword;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
   Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
   Route::get('/edit_host/{eventId}&{hostId?}', EditHost::class)->name('gestion d\'hôte');
+  Route::get('/create/user', CreateUser::class)->name('ajouter un utilisateur');
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/tables', Tables::class)->name('tables');
   Route::get('/mes-informations', UserProfile::class)->name('mes-informations');

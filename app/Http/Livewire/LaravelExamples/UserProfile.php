@@ -16,9 +16,9 @@ class UserProfile extends Component
   protected $rules = [
     'user.name' => 'max:40|min:3',
     'user.email' => 'email:rfc,dns',
-    'user.phone' => 'max:10',
+    'user.phone' => 'max:12',
     'user.about' => 'max:200',
-    'user.location' => 'min:3'
+    'user.location' => 'min:1'
   ];
 
   public function mount()
