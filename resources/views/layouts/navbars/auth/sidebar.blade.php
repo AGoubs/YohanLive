@@ -2,7 +2,7 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="{{ route('accueil') }}">
-      <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="...">
+      <img src="{{asset('assets/img/logo-ct.png')}}" class="navbar-brand-img h-100" alt="Main logo
       <span class="ms-1 font-weight-bold">YohanLive</span>
     </a>
   </div>
@@ -34,7 +34,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ Route::currentRouteName() == 'évènements' ? 'active' : '' }}" href="{{ route('évènements') }}">
+        <a class="nav-link {{ Route::currentRouteName() == 'events.index' ? 'active' : '' }}" href="{{ route('events.index') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -57,7 +57,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Route::currentRouteName() == 'évènement' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('évènement') }}">
+        <a class="nav-link {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('events.show') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem; margin-right:1px; margin-bottom:4px;" class="fa fa-calendar-check ps-2 pe-2 text-center text-dark"></i>
           </div>

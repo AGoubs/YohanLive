@@ -7,7 +7,7 @@
             <div>
               <h5 class="mb-0">Évènements</h5>
             </div>
-            <a href="{{ route('ajouter un evènement') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+            <a href="{{ route('events.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2" wire:ignore>
@@ -62,7 +62,7 @@
                     </p>
                   </td>
                   <td class="text-md-center">
-                    <a href="{{ route('modifier un évènement', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
+                    <a href="{{ route('events.edit', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
                       <i class="fas fa-edit text-secondary"></i>
                     </a>
                     <span>

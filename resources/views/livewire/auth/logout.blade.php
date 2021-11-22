@@ -21,7 +21,7 @@
   </a>
   <ul class="dropdown-menu  dropdown-menu-end  p-2 me-sm-n4" aria-labelledby="dropdownMenuButton">
     <li>
-      <a class="dropdown-item border-radius-md" href="{{ route('mes-informations') }}">
+      <a class="dropdown-item border-radius-md" href="{{ route('users.profile') }}">
         <div class="d-flex justify-content-between">
           <h6 class="text-sm font-weight-normal mb-0 p-2">
             Modifier mon compte
@@ -31,7 +31,7 @@
       </a>
     </li>
     <li>
-      <a class="dropdown-item border-radius-md" href="{{ route('ajouter un utilisateur') }}">
+      <a class="dropdown-item border-radius-md" href="{{ route('users.create') }}">
         <div class="d-flex justify-content-between">
 
           <h6 class="text-sm font-weight-normal mb-0 p-2">
@@ -44,7 +44,7 @@
     <hr class="horizontal dark my-2">
     <li>
       <li>
-        <a class="dropdown-item border-radius-md" href="{{ route('change-password') }}">
+        <a class="dropdown-item border-radius-md" href="{{ route('users.change-password') }}">
           <div class="d-flex justify-content-between">
   
             <h6 class="text-sm font-weight-normal mb-0 p-2">

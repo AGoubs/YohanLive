@@ -28,6 +28,6 @@ class ImportHost extends Component
         Host::where('event_id', $this->eventId)->delete();
         $this->importedHost = Excel::import(new HostImport($this->eventId, 'Basique'), $this->file);
 
-        return redirect()->route('ajouter des hôtes', [$this->eventId]);
+        return redirect()->route('hosts.add', [$this->eventId]);
     }
 }

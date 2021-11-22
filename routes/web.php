@@ -7,24 +7,14 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\Auth\ResetPassword;
-use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Billing;
 use App\Http\Livewire\CreateEvent;
 use App\Http\Livewire\EditEvent;
 use App\Http\Livewire\EditHost;
 use App\Http\Livewire\Event;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Tables;
-use App\Http\Livewire\StaticSignIn;
-use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
-use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\ShowEvent;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,27 +27,44 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::get('/', Login::class)->name('login');
-
-Route::get('/login', Login::class)->name('login');
-// Route::get('/sign-up', SignUp::class)->name('sign-up');
- 
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
+Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
-Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['auth']], function () {
+  /**
+   * Dashboard Routes
+   */
   Route::get('/accueil', Accueil::class)->name('accueil');
-  Route::get('/events', Event::class)->name('évènements');
-  Route::get('/create/event', CreateEvent::class)->name('ajouter un evènement');
-  Route::get('/show_event/{eventId?}', ShowEvent::class)->name('évènement');
-  Route::get('/add_host/{eventId}', AddHost::class)->name('ajouter des hôtes');
-  Route::get('/edit_event/{eventId}', EditEvent::class)->name('modifier un évènement');
-  Route::get('/edit_host/{eventId}&{hostId?}', EditHost::class)->name('gestion d\'hôte');
-  Route::get('/create/user', CreateUser::class)->name('ajouter un utilisateur');
-  Route::get('/profile', Profile::class)->name('profile');
-  Route::get('/tables', Tables::class)->name('tables');
-  Route::get('/mes-informations', UserProfile::class)->name('mes-informations');
-  Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
-  Route::get('/change-password', ResetPassword::class)->name('change-password');
+
+  /**
+   * Events Routes
+   */
+  Route::group(['prefix' => 'events'], function () {
+    Route::get('/', Event::class)->name('events.index');
+    Route::get('/create', CreateEvent::class)->name('events.create');
+    Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
+    Route::get('/edit/{eventId}', EditEvent::class)->name('events.edit');
+  });
+
+  /**
+   * Hosts Routes
+   */
+  Route::group(['prefix' => 'hosts'], function () {
+    Route::get('/add/{eventId}', AddHost::class)->name('hosts.add');
+    Route::get('/edit/{eventId}&{hostId?}', EditHost::class)->name('hosts.edit');
+ 
+  });
+
+  /**
+   * Users Routes
+   */
+  Route::group(['prefix' => 'users'], function () {
+    // Route::get('/', User::class)->name('users.index');
+    Route::get('/create', CreateUser::class)->name('users.create');
+    Route::get('/profile', UserProfile::class)->name('users.profile');
+    Route::get('/change-password', ResetPassword::class)->name('users.change-password');
+  });
 });

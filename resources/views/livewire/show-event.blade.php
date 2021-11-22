@@ -8,7 +8,7 @@
               <div>
                 <h5 class="mb-0">Évènement</h5>
               </div>
-              <a href="{{ route('modifier un évènement', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
+              <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
                 Modifier
               </a>
             </div>

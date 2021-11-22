@@ -26,7 +26,7 @@
         @else
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')
-            @if (in_array(request()->route()->getName(),['accueil', 'évènements'],))
+            @if (in_array(request()->route()->getName(),['accueil', 'events.index'],))
             @include('components.plugins.fixed-plugin')
             @endif
             <livewire:flash-message>

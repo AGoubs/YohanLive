@@ -1,7 +1,7 @@
 <div>
   <div class="container-fluid">
     <div class="page-header min-height-200 border-radius-xl mt-4"
-      style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+      style="background-image: url('{{ asset("assets/img/curved-images/curved0.jpg") }}'); background-position-y: 50%;">
       <span class="mask bg-gradient-dark opacity-6"></span>
     </div>
     <div class="card card-body blur shadow-blur mx-4 mt-n6">
