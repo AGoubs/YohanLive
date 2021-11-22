@@ -21,7 +21,7 @@ class UserAuthenticated
         {
             // if user admin take him to his dashboard
             if ( Auth::user()->isAdmin() ) {
-                 return redirect(route('admin_dashboard'));
+                 return redirect(route('events.index'));
             }
             // allow user to proceed with request
             else if ( Auth::user()->isUser() ) {
