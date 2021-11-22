@@ -13,7 +13,12 @@ class Event extends Component
 
   public function render()
   {
-    $this->events = ModelsEvent::orderBy('Date', 'ASC')->get();
+    if (auth()->user()->isAdmin()) {
+      $this->events = ModelsEvent::orderBy('Date', 'ASC')->get();
+    }
+    else {
+      // $this->events = ModelsEvent::where('user');
+    }
     return view('livewire.event');
   }
 
