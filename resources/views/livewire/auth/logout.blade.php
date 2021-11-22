@@ -23,7 +23,7 @@
     <li>
       <a class="dropdown-item border-radius-md" href="{{ route('users.profile') }}">
         <div class="d-flex justify-content-between">
-          <h6 class="text-sm font-weight-normal mb-0 p-2">
+          <h6 class="text-sm font-weight-normal mb-0 p-1">
             Modifier mon compte
           </h6>
           <i class="fa fa-user align-self-center ms-4"></i>
@@ -34,7 +34,7 @@
       <a class="dropdown-item border-radius-md" href="{{ route('users.create') }}">
         <div class="d-flex justify-content-between">
 
-          <h6 class="text-sm font-weight-normal mb-0 p-2">
+          <h6 class="text-sm font-weight-normal mb-0 p-1">
             Ajouter un compte
           </h6>
           <i class="fa fa-user-plus align-self-center ms-4"></i>
@@ -47,7 +47,7 @@
         <a class="dropdown-item border-radius-md" href="{{ route('users.change-password') }}">
           <div class="d-flex justify-content-between">
   
-            <h6 class="text-sm font-weight-normal mb-0 p-2">
+            <h6 class="text-sm font-weight-normal mb-0 p-1">
               Changer mon mot de passe
             </h6>
             <i class="fa fa-lock align-self-center ms-4"></i>
@@ -58,7 +58,7 @@
         <hr class="horizontal dark my-2">
       <a class="dropdown-item border-radius-md" wire:click="logout">
         <div class="d-flex justify-content-between">
-          <h6 class="text-sm font-weight-normal mb-0 p-2">
+          <h6 class="text-sm font-weight-normal mb-0 p-1">
             Se déconnecter
           </h6>
           <i class="fa fa-sign-out-alt align-self-center"></i>
