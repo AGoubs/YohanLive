@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
   Route::prefix('events')->group(function () {
     Route::get('/', Event::class)->name('events.index');
     Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
+
     Route::middleware('admin')->group(function () {
       Route::get('/create', CreateEvent::class)->name('events.create');
       Route::get('/edit/{eventId}', EditEvent::class)->name('events.edit');
@@ -64,7 +65,9 @@ Route::middleware('auth')->group(function () {
    */
   Route::prefix('users')->group(function () {
     // Route::get('/', User::class)->name('users.index');
-    Route::get('/create', CreateUser::class)->name('users.create');
+    Route::middleware('admin')->group(function () {
+      Route::get('/create', CreateUser::class)->name('users.create');
+    });
     Route::get('/profile', UserProfile::class)->name('users.profile');
     Route::get('/change-password', ResetPassword::class)->name('users.change-password');
   });

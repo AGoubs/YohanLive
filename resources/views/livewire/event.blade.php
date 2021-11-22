@@ -7,7 +7,9 @@
             <div>
               <h5 class="mb-0">Évènements</h5>
             </div>
+            @if (auth()->user()->isAdmin())
             <a href="{{ route('events.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+            @endif
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2" wire:ignore>
