@@ -52,6 +52,6 @@ class EditEvent extends Component
     $this->event->save();
     // session()->flash('info',  "Evènement modifié avec succès");
     // return redirect()->route('évènement', $this->event->id);
-    return redirect()->route('ajouter des hôtes', $this->event->id);
+    return redirect()->route('hosts.add', $this->event->id);
   }
 }

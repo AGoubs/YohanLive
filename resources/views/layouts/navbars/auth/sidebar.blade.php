@@ -34,7 +34,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ Route::currentRouteName() == 'évènements' ? 'active' : '' }}" href="{{ route('évènements') }}">
+        <a class="nav-link {{ Route::currentRouteName() == 'events.index' ? 'active' : '' }}" href="{{ route('events.index') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg class="text-dark" width="16px" height="16px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -57,7 +57,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Route::currentRouteName() == 'évènement' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('évènement') }}">
+        <a class="nav-link {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('events.show') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <i style="font-size: 1rem; margin-right:1px; margin-bottom:4px;" class="fa fa-calendar-check ps-2 pe-2 text-center text-dark"></i>
           </div>

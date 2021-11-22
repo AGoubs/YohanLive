@@ -60,7 +60,7 @@
         </form>
       </div>
       <div class="col-12">
-        <a href="{{ route('évènements') }}" class="btn btn-default" type="button"><i class="fas fa-arrow-left mr-2"></i> Retour</a>
+        <a href="{{ route('events.index') }}" class="btn btn-default" type="button"><i class="fas fa-arrow-left mr-2"></i> Retour</a>
       </div>
     </div>
   </div>

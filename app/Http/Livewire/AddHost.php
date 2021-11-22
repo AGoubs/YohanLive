@@ -19,11 +19,11 @@ class AddHost extends Component
 
   public function submit()
   {
-    return redirect()->route('évènement', $this->eventId);
+    return redirect()->route('events.show', $this->eventId);
   }
 
   public function editEvent()
   {
-    redirect()->route('modifier un évènement', $this->eventId);
+    redirect()->route('events.edit', $this->eventId);
   }
 }

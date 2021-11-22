@@ -39,6 +39,6 @@ class CreateEvent extends Component
       'type_event' => $this->TypeEvenement,
     ]);
 
-    return redirect()->route('ajouter des hôtes', [$event->id]);
+    return redirect()->route('hosts.add', [$event->id]);
   }
 }

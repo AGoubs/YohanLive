@@ -7,7 +7,7 @@
             <div>
               <h5 class="mb-0">{{ $tableType->type_event }}</h5>
             </div>
-            <a href="{{ route('gestion d\'hôte', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0"
+            <a href="{{ route('hosts.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0"
               type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
@@ -98,7 +98,7 @@
                       <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $host->commentaire }}</p>
                     </td>
                     <td class="text-md-left" style="min-width: 100px">
-                      <a href="{{ route('gestion d\'hôte', [$eventId, $host->id]) }}" class="mx-3"
+                      <a href="{{ route('hosts.edit', [$eventId, $host->id]) }}" class="mx-3"
                         data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                         <i class="fas fa-user-edit text-secondary"></i>
                       </a>

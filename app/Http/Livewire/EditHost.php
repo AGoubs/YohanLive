@@ -55,6 +55,6 @@ class EditHost extends Component
             
         $this->host->save();
 
-        return redirect()->route('ajouter des hôtes', [$this->eventId]);
+        return redirect()->route('hosts.add', [$this->eventId]);
     }
 }

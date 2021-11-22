@@ -30,6 +30,7 @@ class CreateUser extends Component
     $this->validate();
     $this->user->password = Hash::make($this->user->password);
     $this->user->save();
+    $this->user->assignRole('referent');
     $this->showSuccesNotification = true;
 
     return redirect('/accueil');
