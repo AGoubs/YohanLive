@@ -42,6 +42,18 @@
       </a>
     </li>
     <li>
+      <li>
+        <a class="dropdown-item border-radius-md" href="{{ route('change-password') }}">
+          <div class="d-flex justify-content-between">
+  
+            <h6 class="text-sm font-weight-normal mb-0 p-2">
+              Changer mon mot de passe
+            </h6>
+            <i class="fa fa-lock align-self-center ms-4"></i>
+          </div>
+        </a>
+      </li>
+      <li>
       <a class="dropdown-item border-radius-md" wire:click="logout">
         <div class="d-flex justify-content-between">
           <h6 class="text-sm font-weight-normal mb-0 p-2">

@@ -12,42 +12,38 @@ use Livewire\Component;
 
 class ResetPassword extends Component
 {
-    public $email = '';
-    public $password = '';
-    public $passwordConfirmation = '';
+  public $email = '';
+  public $password = '';
+  public $passwordConfirmation = '';
 
-    public $showSuccesNotification = false; 
-    public $showFailureNotification = false;
+  public $showSuccesNotification = false;
+  public $showFailureNotification = false;
 
-    public $showDemoNotification = false;
+  public $showDemoNotification = false;
 
-    public $urlID = '';
+  public $urlID = '';
 
-    protected $rules = [
-        'email' => 'required|email',
-        'password' => 'required|min:6|same:passwordConfirmation'
-    ];  
+  protected $rules = [
+    'email' => 'required',
+    'password' => 'required|min:6|same:passwordConfirmation'
+  ];
 
-    public function mount() {
-        $existingUser = User::find(auth()->id());
-        // $this->urlID = intval($existingUser->id);
+  public function resetPassword()
+  {
+    $this->validate();
+    $existingUser = User::where('email', $this->email)->first();
+    if ($existingUser && $existingUser->id == auth()->id()) {
+      $existingUser->update([
+        'password' => Hash::make($this->password)
+      ]);
+      return redirect()->route('accueil');
+    } else {
+      $this->showFailureNotification = true;
     }
+  }
 
-    public function resetPassword() {
-        $this->validate();
-        $existingUser = User::where('email', $this->email)->first();
-        if($existingUser && $existingUser->id == $this->urlID) { 
-            $existingUser->update([
-                'password' => Hash::make($this->password) 
-            ]);
-            return redirect()->route('login');
-        } else {
-            $this->showFailureNotification = true;
-        }
-    }
-
-    public function render()
-    {
-        return view('livewire.auth.reset-password')->layout('layouts.base');
-    }
+  public function render()
+  {
+    return view('livewire.auth.reset-password')->layout('layouts.base');
+  }
 }
