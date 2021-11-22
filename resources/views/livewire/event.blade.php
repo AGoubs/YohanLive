@@ -31,9 +31,11 @@
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Heure d'arrivé
                 </th>
+                @if (auth()->user()->isAdmin())
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Actions
                 </th>
+                @endif
               </tr>
             </thead>
             <tbody>
@@ -63,6 +65,7 @@
                       {{ date('H:i', strtotime($event->HeureArrive)) }}
                     </p>
                   </td>
+                  @if (auth()->user()->isAdmin())
                   <td class="text-md-center">
                     <a href="{{ route('events.edit', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
                       <i class="fas fa-edit text-secondary"></i>
@@ -71,6 +74,7 @@
                       <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'évènement" onclick="confirm('Supprimer cet évènement ?') || event.stopImmediatePropagation()" wire:click="deleteEvent({{ $event->id }})"></i>
                     </span>
                   </td>
+                  @endif
                 </tr>
               @endforeach
             </tbody>
