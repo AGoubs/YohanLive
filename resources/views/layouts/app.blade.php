@@ -18,16 +18,17 @@
             @include('layouts.navbars.auth.sidebar')
             <div class="main-content position-relative bg-gray-100">
                 @include('layouts.navbars.auth.nav-profile')
-               
                 <div>
                     {{ $slot }}
                 </div>
             </div>
-            @include('components.plugins.fixed-plugin')
+            {{-- @include('components.plugins.fixed-plugin') --}}
         @else
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')
+            @if (in_array(request()->route()->getName(),['accueil', 'évènements'],))
             @include('components.plugins.fixed-plugin')
+            @endif
             <livewire:flash-message>
             {{ $slot }}
         @endif

@@ -59,4 +59,5 @@ Route::middleware('auth')->group(function () {
   Route::get('/tables', Tables::class)->name('tables');
   Route::get('/mes-informations', UserProfile::class)->name('mes-informations');
   Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+  Route::get('/change-password', ResetPassword::class)->name('change-password');
 });

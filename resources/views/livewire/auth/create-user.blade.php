@@ -57,7 +57,7 @@
               <div class="form-group">
                 <label for="user-email" class="form-control-label">{{ __('Email') }}</label>
                 <input wire:model="user.email" class="form-control @error('user.email') is-invalid @enderror"
-                  type="email" placeholder="@exemple.com" id="user-email">
+                  type="email" placeholder="@exemple.com" id="user-email" pattern="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b">
                 @error('user.email') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
             </div>

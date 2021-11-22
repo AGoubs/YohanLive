@@ -13,7 +13,7 @@ class CreateUser extends Component
 
   protected $rules = [
     'user.name' => 'required|min:1',
-    'user.email' => 'required',
+    'user.email' => 'required|unique:users,email',
     'user.password' => 'required',
     'user.phone' => 'max:12',
     'user.about' => 'max:200',

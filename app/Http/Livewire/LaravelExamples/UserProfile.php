@@ -14,8 +14,8 @@ class UserProfile extends Component
   public $showDemoNotification = false;
 
   protected $rules = [
-    'user.name' => 'max:40|min:3',
-    'user.email' => 'email:rfc,dns',
+    'user.name' => 'required|max:40|min:3',
+    'user.email' => 'unique:email',
     'user.phone' => 'max:12',
     'user.about' => 'max:200',
     'user.location' => 'min:1'
