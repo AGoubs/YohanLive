@@ -42,6 +42,7 @@
         </div>
       </div>
       <livewire:components.hosts :eventId="$eventId">
+      <livewire:components.users :eventId="$eventId">
 
         <div class="row">
           <div class="col-12">
