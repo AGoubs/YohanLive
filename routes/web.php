@@ -33,7 +33,7 @@ Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::middleware('auth')->group(function () {
   /**
    * Dashboard Routes
    */
@@ -42,28 +42,32 @@ Route::group(['middleware' => ['auth']], function () {
   /**
    * Events Routes
    */
-  Route::group(['prefix' => 'events'], function () {
+  Route::prefix('events')->group(function () {
     Route::get('/', Event::class)->name('events.index');
-    Route::get('/create', CreateEvent::class)->name('events.create');
     Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
-    Route::get('/edit/{eventId}', EditEvent::class)->name('events.edit');
+
+    Route::middleware('admin')->group(function () {
+      Route::get('/create', CreateEvent::class)->name('events.create');
+      Route::get('/edit/{eventId}', EditEvent::class)->name('events.edit');
+    });
   });
 
   /**
    * Hosts Routes
    */
-  Route::group(['prefix' => 'hosts'], function () {
+  Route::prefix('hosts')->group(function () {
     Route::get('/add/{eventId}', AddHost::class)->name('hosts.add');
     Route::get('/edit/{eventId}&{hostId?}', EditHost::class)->name('hosts.edit');
- 
   });
 
   /**
    * Users Routes
    */
-  Route::group(['prefix' => 'users'], function () {
+  Route::prefix('users')->group(function () {
     // Route::get('/', User::class)->name('users.index');
-    Route::get('/create', CreateUser::class)->name('users.create');
+    Route::middleware('admin')->group(function () {
+      Route::get('/create', CreateUser::class)->name('users.create');
+    });
     Route::get('/profile', UserProfile::class)->name('users.profile');
     Route::get('/change-password', ResetPassword::class)->name('users.change-password');
   });

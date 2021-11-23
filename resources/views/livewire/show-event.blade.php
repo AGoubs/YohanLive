@@ -8,9 +8,11 @@
               <div>
                 <h5 class="mb-0">Évènement</h5>
               </div>
+              @if (auth()->user()->isAdmin())
               <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
                 Modifier
               </a>
+              @endif
             </div>
             <div class="row mt-3">
               <div class="col-12 col-sm-6">
@@ -40,6 +42,7 @@
         </div>
       </div>
       <livewire:components.hosts :eventId="$eventId">
+      <livewire:components.users :eventId="$eventId">
 
         <div class="row">
           <div class="col-12">
