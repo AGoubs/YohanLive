@@ -29,7 +29,7 @@ class ShowEvent extends Component
             $this->event = Event::where('Date', date("Y-m-d"))->first();
             if (!isset($this->event)) {
                 session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
-                return redirect()->route('events.show');
+                return redirect()->route('events.index');
             } else {
                 $this->eventId = $this->event->id;
             }
