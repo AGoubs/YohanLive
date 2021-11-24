@@ -32,7 +32,7 @@ class CreateUser extends Component
     $this->user->save();
     $this->showSuccesNotification = true;
 
-    return redirect('/accueil');
+    return redirect()->route('users.index');
   }
   public function render()
   {

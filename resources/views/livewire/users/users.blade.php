@@ -8,7 +8,7 @@
               <h5 class="mb-0">Liste des utilisateurs</h5>
             </div>
             @if (auth()->user()->isAdmin())
-              <a href="{{ route('events.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
+              <a href="{{ route('users.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
                 Ajouter</a>
             @endif
           </div>
