@@ -55,18 +55,23 @@
                   <td class="text-md-center" style="cursor: pointer">
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
                   </td>
-                  <td></td>
+                  <td class="text-md-center">
+                    <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip"
+                      data-bs-original-title="Editer l'utilisateur">
+                      <i class="fas fa-user-edit text-secondary"></i>
+                    </a>
+                    <span>
+                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
+                        data-bs-original-title="Supprimer l'utilisateur"
+                        onclick="confirm('Supprimer cet utilisateur ?') || event.stopImmediatePropagation()"
+                        wire:click="deleteUser({{ $user->id }})"></i>
+                    </span>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="d-flex flex-row justify-content-between">
-        <div></div>
-        <a onclick="confirm('Supprimer tous les évènements ? \nAttention, cette action n\'est pas réversible.') || event.stopImmediatePropagation()"
-          wire:click="deleteAllEvent()" class="btn bg-gradient-danger btn-sm mx-4" type="button">Supprimer les
-          évènements</a>
       </div>
     </div>
   </div>

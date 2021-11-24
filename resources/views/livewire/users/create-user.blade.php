@@ -8,7 +8,8 @@
       <div class="row gx-4">
         <div class="col-auto">
           <div class="avatar avatar-xl position-relative">
-            <img src="../assets/img/user-placeholder.png" alt="..." class="w-100 border-radius-lg shadow-sm">
+            <img src="{{asset("assets/img/user-placeholder.png")}}" alt="..." class="w-100 border-radius-lg shadow-sm">
+
           </div>
         </div>
         <div class="col-auto my-auto">

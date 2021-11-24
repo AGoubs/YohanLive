@@ -14,4 +14,10 @@ class Users extends Component
     $this->users = User::all();
     return view('livewire.users.users');
   }
+
+  public function deleteUser($id)
+  {
+    User::find($id)->delete();
+    return redirect()->route('users.index');
+  }
 }
