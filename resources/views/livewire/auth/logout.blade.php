@@ -3,18 +3,18 @@
     aria-expanded="false" x-on:click="open = ! open" @click.away="open = false">
     <i
       class="fa fa-user me-sm-1 {{ in_array(
-    request()->route()->getName(),
-    ['profile', 'my-profile'],
-)
-    ? 'text-white'
-    : '' }}"></i>
+          request()->route()->getName(),
+          ['profile', 'my-profile'],
+      )
+          ? 'text-white'
+          : '' }}"></i>
     <span
       class="d-sm-inline d-none {{ in_array(
-    request()->route()->getName(),
-    ['profile', 'my-profile'],
-)
-    ? 'text-white'
-    : '' }}">Bienvenue
+          request()->route()->getName(),
+          ['profile', 'my-profile'],
+      )
+          ? 'text-white'
+          : '' }}">Bienvenue
       {{ $user }}
       <span x-html="open ?  `<i class='fa fa-chevron-up ms-1'></i>` : `<i class='fa fa-chevron-down ms-1'></i>`"></span>
     </span>
@@ -30,7 +30,21 @@
         </div>
       </a>
     </li>
-    @if (auth()->user()->isAdmin()) 
+    <li>
+    <li>
+      <a class="dropdown-item border-radius-md" href="{{ route('users.change-password') }}">
+        <div class="d-flex justify-content-between">
+
+          <h6 class="text-sm font-weight-normal mb-0 p-1">
+            Changer mon mot de passe
+          </h6>
+          <i class="fa fa-lock align-self-center ms-4"></i>
+        </div>
+      </a>
+    </li>
+    <li>
+      @if (auth()->user()->isAdmin())
+        <hr class="horizontal dark my-2">
     <li>
       <a class="dropdown-item border-radius-md" href="{{ route('users.create') }}">
         <div class="d-flex justify-content-between">
@@ -42,27 +56,26 @@
         </div>
       </a>
     </li>
-    @endif
     <li>
-      <li>
-        <a class="dropdown-item border-radius-md" href="{{ route('users.change-password') }}">
-          <div class="d-flex justify-content-between">
-  
-            <h6 class="text-sm font-weight-normal mb-0 p-1">
-              Changer mon mot de passe
-            </h6>
-            <i class="fa fa-lock align-self-center ms-4"></i>
-          </div>
-        </a>
-      </li>
-      <li>
-        <hr class="horizontal dark my-2">
-      <a class="dropdown-item border-radius-md" wire:click="logout">
+      <a class="dropdown-item border-radius-md" href="{{ route('users.create') }}">
         <div class="d-flex justify-content-between">
+
           <h6 class="text-sm font-weight-normal mb-0 p-1">
-            Se déconnecter
+            Liste des utilisateurs
           </h6>
-          <i class="fa fa-sign-out-alt align-self-center"></i>
+          <i class="fa fa-users align-self-center ms-4"></i>
         </div>
       </a>
+    </li>
+    @endif
+
+    <hr class="horizontal dark my-2">
+    <a class="dropdown-item border-radius-md" wire:click="logout">
+      <div class="d-flex justify-content-between">
+        <h6 class="text-sm font-weight-normal mb-0 p-1">
+          Se déconnecter
+        </h6>
+        <i class="fa fa-sign-out-alt align-self-center"></i>
+      </div>
+    </a>
 </div>
