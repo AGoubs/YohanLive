@@ -57,7 +57,7 @@
       </a>
     </li>
     <li>
-      <a class="dropdown-item border-radius-md" href="{{ route('users.create') }}">
+      <a class="dropdown-item border-radius-md" href="{{ route('users.index') }}">
         <div class="d-flex justify-content-between">
 
           <h6 class="text-sm font-weight-normal mb-0 p-1">

@@ -15,6 +15,7 @@ use App\Http\Livewire\Event;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\ShowEvent;
 use App\Http\Livewire\Users\CreateUser;
+use App\Http\Livewire\Users\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/', User::class)->name('users.index');
     Route::middleware('admin')->group(function () {
       Route::get('/create', CreateUser::class)->name('users.create');
+      Route::get('/', Users::class)->name('users.index');
     });
     Route::get('/profile', UserProfile::class)->name('users.profile');
     Route::get('/change-password', ResetPassword::class)->name('users.change-password');
