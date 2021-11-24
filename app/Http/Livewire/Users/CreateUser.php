@@ -32,7 +32,7 @@ class CreateUser extends Component
     $this->user->save();
     $this->showSuccesNotification = true;
 
-    return redirect()->route('users.index');
+    return redirect()->route('users-events.index', ['userId' => $this->user->id]);
   }
   public function render()
   {

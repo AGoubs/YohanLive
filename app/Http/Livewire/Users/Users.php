@@ -11,7 +11,7 @@ class Users extends Component
 
   public function render()
   {
-    $this->users = User::all();
+    $this->users = User::orderBy('role', 'DESC')->orderBy('name', 'ASC')->get();
     return view('livewire.users.users');
   }
 
@@ -19,5 +19,10 @@ class Users extends Component
   {
     User::find($id)->delete();
     return redirect()->route('users.index');
+  }
+  
+  public function selectEvent($userId)
+  {
+    return redirect()->route('users-events.index', ['userId' => $userId]);
   }
 }

@@ -21,4 +21,5 @@ class Users extends Component
     }
     return view('livewire.components.users');
   }
+
 }
