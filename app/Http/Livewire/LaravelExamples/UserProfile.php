@@ -15,8 +15,8 @@ class UserProfile extends Component
 
   protected $rules = [
     'user.name' => 'required|max:40|min:3',
-    'user.email' => 'unique:email',
-    'user.phone' => 'max:12',
+    'user.email' => 'required',
+    'user.phone' => 'max:12', 
     'user.about' => 'max:200',
     'user.location' => 'min:1'
   ];

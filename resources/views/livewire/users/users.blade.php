@@ -40,19 +40,19 @@
             <tbody>
               @foreach ($users as $user)
                 <tr class="px-3">
-                  <td class="text-md-left" wire:click='selectEvent({{ $user->id }})'>
+                  <td class="text-md-left" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->name }}</p>
                   </td>
-                  <td class="text-md-center">
+                  <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->email }}</p>
                   </td>
-                  <td class="text-md-center">
+                  <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->phone }}</p>
                   </td>
-                  <td class="text-md-center">
+                  <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->location }}</p>
                   </td>
-                  <td class="text-md-center">
+                  <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
                   </td>
                   <td class="text-md-center">

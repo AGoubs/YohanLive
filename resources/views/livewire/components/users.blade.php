@@ -12,7 +12,6 @@
               type="button">+&nbsp; Ajouter</a> --}}
           </div>
         </div>
-        {{-- <hr class="horizontal dark mt-3"> --}}
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive">
             <table class="table align-items-center mb-0">
