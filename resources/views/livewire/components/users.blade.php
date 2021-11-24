@@ -1,4 +1,5 @@
 <div>
+  @if ($users != [])
   <div class="row">
     <div class="col-12 col-lg-12 m-auto mb-4">
       <div class="card mb-4">
@@ -20,6 +21,12 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     Nom
                   </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Email
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Téléphone
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -27,6 +34,12 @@
                   <tr class="px-3">
                     <td class="text-md-left" style="cursor: pointer">
                       <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->name }}</p>
+                    </td>
+                    <td class="text-md-left" style="cursor: pointer">
+                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->email }}</p>
+                    </td>
+                    <td class="text-md-left" style="cursor: pointer">
+                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->phone }}</p>
                     </td>
                   </tr>
                 @endforeach
@@ -42,4 +55,5 @@
       </div>
     </div>
   </div>
+  @endif
 </div>
