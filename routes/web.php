@@ -2,7 +2,6 @@
 
 use App\Http\Livewire\Accueil;
 use App\Http\Livewire\AddHost;
-use App\Http\Livewire\Auth\CreateUser;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Auth\ForgotPassword;
@@ -15,6 +14,7 @@ use App\Http\Livewire\Event;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\ShowEvent;
+use App\Http\Livewire\Users\CreateUser;
 
 /*
 |--------------------------------------------------------------------------
