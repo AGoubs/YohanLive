@@ -8,6 +8,7 @@ use Livewire\Component;
 class Users extends Component
 {
   public $users;
+  public $showSuccesNotification  = false;
 
   public function render()
   {
@@ -20,7 +21,7 @@ class Users extends Component
     User::find($id)->delete();
     return redirect()->route('users.index');
   }
-  
+
   public function selectEvent($userId)
   {
     return redirect()->route('users-events.index', ['userId' => $userId]);

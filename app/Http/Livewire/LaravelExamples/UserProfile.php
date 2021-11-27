@@ -11,12 +11,10 @@ class UserProfile extends Component
   public $user;
   public $showSuccesNotification  = false;
 
-  public $showDemoNotification = false;
-
   protected $rules = [
     'user.name' => 'required|max:40|min:3',
     'user.email' => 'required',
-    'user.phone' => 'max:12', 
+    'user.phone' => 'max:12',
     'user.about' => 'max:200',
     'user.location' => 'min:1'
   ];

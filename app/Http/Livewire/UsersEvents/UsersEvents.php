@@ -35,6 +35,7 @@ class UsersEvents extends Component
       'user_id' => $this->userId,
       'event_id' => $eventId
     ]);
+    session()->flash('success', 'Modification enregistrée avec succès !');
 
     return redirect()->route('users.index');
   }
@@ -42,7 +43,7 @@ class UsersEvents extends Component
   public function deselectEvent($eventId)
   {
     EventByUser::where('event_id', $eventId)->where('user_id', $this->userId)->delete();
-
+    session()->flash('success', 'Modification enregistrée avec succès !');
     return redirect()->route('users.index');
   }
 }

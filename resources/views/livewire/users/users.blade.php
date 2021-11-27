@@ -56,15 +56,11 @@
                     <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
                   </td>
                   <td class="text-md-center">
-                    <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip"
-                      data-bs-original-title="Editer l'utilisateur">
+                    <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'utilisateur">
                       <i class="fas fa-user-edit text-secondary"></i>
                     </a>
                     <span>
-                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
-                        data-bs-original-title="Supprimer l'utilisateur"
-                        onclick="confirm('Supprimer cet utilisateur ?') || event.stopImmediatePropagation()"
-                        wire:click="deleteUser({{ $user->id }})"></i>
+                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'utilisateur" onclick="confirm('Supprimer cet utilisateur ?') || event.stopImmediatePropagation()" wire:click="deleteUser({{ $user->id }})"></i>
                     </span>
                   </td>
                 </tr>
