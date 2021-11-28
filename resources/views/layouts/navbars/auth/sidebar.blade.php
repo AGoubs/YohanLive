@@ -2,8 +2,8 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="{{ route('accueil') }}">
-      <img src="{{asset('assets/img/logo-ct.png')}}" class="navbar-brand-img h-100" alt="Main logo
-      <span class="ms-1 font-weight-bold">YohanLive</span>
+      <img src="{{ asset('assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="Main logo
+      <span class="          ms-1 font-weight-bold">YohanLive</span>
     </a>
   </div>
   <hr class="horizontal dark mt-0">
@@ -33,6 +33,20 @@
           <span class="nav-link-text ms-1">Accueil</span>
         </a>
       </li>
+      {{-- <li class="nav-item pb-2">
+        <a class="nav-link {{ Route::currentRouteName() == 'users.index' ? 'active' : '' }}" href="{{ route('users.index') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i style="font-size: 1rem;" class="fas fa-sm fa-users ps-2 pe-2 text-center
+                        {{ in_array(
+                            request()->route()->getName(),
+                            ['users.index'],
+                        )
+                            ? 'text-white'
+                            : 'text-dark' }}"></i>
+          </div>
+          <span class="nav-link-text ms-1">Utilisateurs</span>
+        </a>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link {{ Route::currentRouteName() == 'events.index' ? 'active' : '' }}" href="{{ route('events.index') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -55,11 +69,11 @@
           <span class="nav-link-text ms-1">Évènement</span>
         </a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('events.show') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem; margin-right:1px; margin-bottom:4px;" class="fa fa-calendar-check ps-2 pe-2 text-center text-dark"></i>
+            <i style="font-size: 1rem;" class="fas fa-sm fa-calendar-check ps-2 pe-2 text-center
+                        {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'text-white' : 'text-dark' }}"></i>
           </div>
 
           <span class="nav-link-text ms-1">Évènement du jour</span>

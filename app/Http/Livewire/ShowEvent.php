@@ -15,10 +15,18 @@ class ShowEvent extends Component
   public $hosts;
   public $tableField;
   public $typeEvenement;
+  public $users;
 
   public function render()
   {
     $this->typeEvenement = $this->event->type_event;
+
+    $usersIds = EventByUser::where('event_id', $this->eventId)->pluck('user_id')->toArray();
+    if ($usersIds) {
+      foreach ($usersIds as $userId) {
+        $this->users[] = User::where('id', $userId)->first();
+      }
+    }
     return view('livewire.show-event');
   }
 

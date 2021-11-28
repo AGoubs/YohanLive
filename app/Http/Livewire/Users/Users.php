@@ -15,15 +15,4 @@ class Users extends Component
     $this->users = User::orderBy('role', 'DESC')->orderBy('name', 'ASC')->get();
     return view('livewire.users.users');
   }
-
-  public function deleteUser($id)
-  {
-    User::find($id)->delete();
-    return redirect()->route('users.index');
-  }
-
-  public function selectEvent($userId)
-  {
-    return redirect()->route('users-events.index', ['userId' => $userId]);
-  }
 }
