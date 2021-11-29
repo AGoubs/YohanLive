@@ -13,19 +13,23 @@
     Event
   </title>
   <!-- Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> --}}
+  <link href="{{ asset('assets/css/open-sans.min.css') }}" rel="stylesheet" />
+
   <!-- Nucleo Icons -->
   <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{{ asset('assets/js/kit-fontawesome.min.js') }}" rel="stylesheet" />
 
   <!-- CSS Files -->
   <link href="{{ asset('assets/css/soft-ui-dashboard.min.css') }}" rel="stylesheet" />
 
   <!-- Alpine -->
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
+  <script src="{{ asset('assets/js/alpine.min.js') }}" defer></script>
+
   @livewireStyles
 
 </head>
@@ -36,6 +40,7 @@
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('assets/js/kit-fontawesome.min.js') }}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
