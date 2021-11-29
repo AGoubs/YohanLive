@@ -33,7 +33,7 @@ class ShowEvent extends Component
 
   public function mount()
   {
-    $this->userEvents = EventByUser::where('user_id', $this->userId)->pluck('event_id');
+    $this->userEvents = EventByUser::where('user_id', auth()->id())->pluck('event_id');
     if (in_array($this->eventId, $this->userEvents)) {
       if (isset($this->eventId)) {
         $this->event = Event::find($this->eventId);
