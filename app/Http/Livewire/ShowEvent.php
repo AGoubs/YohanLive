@@ -16,6 +16,7 @@ class ShowEvent extends Component
   public $tableField;
   public $typeEvenement;
   public $users;
+  public $userEvents;
 
   public function render()
   {
@@ -32,16 +33,22 @@ class ShowEvent extends Component
 
   public function mount()
   {
-    if (isset($this->eventId)) {
-      $this->event = Event::find($this->eventId);
-    } else {
-      $this->event = Event::where('Date', date("Y-m-d"))->first();
-      if (!isset($this->event)) {
-        session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
-        return redirect()->route('events.index');
+    $this->userEvents = EventByUser::where('user_id', $this->userId)->pluck('event_id');
+    if (in_array($this->eventId, $this->userEvents)) {
+      if (isset($this->eventId)) {
+        $this->event = Event::find($this->eventId);
       } else {
-        $this->eventId = $this->event->id;
+        $this->event = Event::where('Date', date("Y-m-d"))->first();
+        if (!isset($this->event)) {
+          session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
+          return redirect()->route('events.index');
+        } else {
+          $this->eventId = $this->event->id;
+        }
       }
+    } else {
+      session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
+      return redirect()->route('events.index');
     }
   }
 }

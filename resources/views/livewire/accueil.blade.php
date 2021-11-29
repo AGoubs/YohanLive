@@ -5,7 +5,8 @@
         <h2>Bienvenue {{ $user }}</h2>
       </div>
     </div>
-    @if ($todayEvent)
+    @if ($todayEvent &&
+    auth()->user()->isAdmin())
       <div class="row mt-4">
         <div class="col-12">
           <div class="card">
