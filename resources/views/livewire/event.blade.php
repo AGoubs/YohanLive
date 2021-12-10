@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2" wire:ignore>
-          <table class="table align-items-center mb-0 responsive">
+          <table class="table align-items-center mb-0 responsive" id="table-events">
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -42,14 +42,15 @@
             <tbody>
               @foreach ($events as $event)
                 <tr class="px-3">
-                  <td class="ps-2 ps-md-4" data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})"
+                  <td class="" data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})"
                     style="cursor: pointer">
 
                     <p class="text-xs font-weight-bold mb-0">
                       {{-- On Affiche un logo si l'event est partagé --}}
                       @if (in_array($event->id, $events_by_users))
                         @if (auth()->user()->isAdmin())
-                          <i class="fas fa-user-friends text-success" title="{{implode(', ',$this->users[$event->id])}}"></i>&nbsp;
+                          <i class="fas fa-user-friends text-success"
+                            title="{{ implode(', ', $this->users[$event->id]) }}"></i>&nbsp;
                         @endif
                       @endif
 
@@ -121,4 +122,13 @@
       }
     };
   })();
+</script>
+<script src="../../assets/js/plugins/datatables.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.1/i18n/fr_fr.json"></script>
+<script>
+  const dataTableSearch = new simpleDatatables.DataTable("#table-events", {
+    searchable: true,
+    fixedHeight: true,
+    perPage: 25,
+  });
 </script>

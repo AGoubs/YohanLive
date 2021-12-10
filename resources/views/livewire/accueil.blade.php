@@ -6,7 +6,7 @@
       </div>
     </div>
     @if ($todayEvent)
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="col-12">
           <div class="card">
             <div class="card-header pb-0">
