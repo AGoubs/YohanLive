@@ -40,20 +40,20 @@
         <tbody>
           @foreach ($users as $user)
             <tr class="px-3">
-              <td class="text-md-left" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+              <td class="text-md-left" data-label="Nom" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                 <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->name }}</p>
               </td>
-              <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+              <td class="text-md-center" data-label="Email" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                 <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->email }}</p>
               </td>
-              <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+              <td class="text-md-center" data-label="Téléphone" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                 <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->phone }}</p>
               </td>
-              <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+              <td class="text-md-center" data-label="Localisation" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                 <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->location }}</p>
               </td>
               @if (auth()->user()->isAdmin())
-                <td class="text-md-center" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                <td class="text-md-center" data-label="Role" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
                 </td>
                 <td class="text-md-center">
