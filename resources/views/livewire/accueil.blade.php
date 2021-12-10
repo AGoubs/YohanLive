@@ -77,10 +77,10 @@
 
     @if (auth()->user()->isAdmin())
       <div class="row mt-4">
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
           <livewire:components.events-table />
         </div>
-        <div class="col-4 mr-4">
+        <div class="col-12 col-lg-4 mr-4">
           <livewire:components.users-table :users='$users' />
         </div>
       </div>
