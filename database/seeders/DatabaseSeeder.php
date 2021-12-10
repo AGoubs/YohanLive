@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
     ]);
 
 
-    Event::factory(10)->create();
+    Event::factory(30)->create();
     Host::factory(100)->create();
   }
 }

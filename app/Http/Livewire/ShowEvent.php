@@ -34,18 +34,19 @@ class ShowEvent extends Component
   public function mount()
   {
     $this->userEvents = EventByUser::where('user_id', auth()->id())->pluck('event_id')->toArray();
-    if (in_array($this->eventId, $this->userEvents) || auth()->user()->isAdmin()) {
-      if (isset($this->eventId)) {
-        $this->event = Event::find($this->eventId);
+
+    if (!isset($this->eventId)) {
+      $this->event = Event::where('Date', date("Y-m-d"))->first();
+      if (!isset($this->event)) {
+        session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
+        return redirect()->route('events.index');
       } else {
-        $this->event = Event::where('Date', date("Y-m-d"))->first();
-        if (!isset($this->event)) {
-          session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
-          return redirect()->route('events.index');
-        } else {
-          $this->eventId = $this->event->id;
-        }
+        $this->eventId = $this->event->id;
       }
+    }
+
+    if (in_array($this->eventId, $this->userEvents) || auth()->user()->isAdmin()) {
+      $this->event = Event::find($this->eventId);
     } else {
       session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
       return redirect()->route('events.index');
