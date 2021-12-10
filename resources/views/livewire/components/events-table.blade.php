@@ -93,11 +93,17 @@
 
 </div>
 <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.11.1/i18n/fr_fr.json"></script>
+{{-- <script src="https://cdn.datatables.net/plug-ins/1.11.1/i18n/fr_fr.json"></script> --}}
 <script>
   const dataTableSearch = new simpleDatatables.DataTable("#event-table", {
     searchable: true,
     fixedHeight: true,
     perPage: 25,
+    labels: {
+      placeholder: "Rechercher...",
+      perPage: "{select} évènements par page",
+      noRows: "Aucun évènements trouvée",
+      info: "Affichage de {start} à {end} des {rows} évènements",
+    }
   });
 </script>
