@@ -1,17 +1,12 @@
 <div>
   <div class="row mt-4">
     <div class="col-12">
-      <div class="card mb-4 mx-4">
-        <div class="card-header pb-0">
-          <div class="d-flex flex-row justify-content-between">
-            <div>
-              <h5 class="mb-0">Évènements</h5>
-            </div>
-            @if (auth()->user()->isAdmin())
-              <a href="{{ route('events.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
-                Ajouter</a>
-            @endif
-          </div>
+      <div class="mx-4">
+        <livewire:components.events-table />
+        <div class="d-flex flex-row justify-content-between">
+          <div></div>
+          <a onclick="confirm('Supprimer tous les évènements ? \nAttention, cette action n\'est pas réversible.') || event.stopImmediatePropagation()" wire:click="deleteAllEvent()" class="btn bg-gradient-danger btn-sm mx-4" type="button">Supprimer les
+            évènements</a>
         </div>
         <div class="card-body px-0 pt-0 pb-2" wire:ignore>
           <table class="table align-items-center mb-0 responsive" id="table-events">

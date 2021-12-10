@@ -33,6 +33,20 @@
           <span class="nav-link-text ms-1">Accueil</span>
         </a>
       </li>
+      {{-- <li class="nav-item pb-2">
+        <a class="nav-link {{ Route::currentRouteName() == 'users.index' ? 'active' : '' }}" href="{{ route('users.index') }}">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i style="font-size: 1rem;" class="fas fa-sm fa-users ps-2 pe-2 text-center
+                        {{ in_array(
+                            request()->route()->getName(),
+                            ['users.index'],
+                        )
+                            ? 'text-white'
+                            : 'text-dark' }}"></i>
+          </div>
+          <span class="nav-link-text ms-1">Utilisateurs</span>
+        </a>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link {{ Route::currentRouteName() == 'events.index' ? 'active' : '' }}" href="{{ route('events.index') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -55,11 +69,11 @@
           <span class="nav-link-text ms-1">Évènement</span>
         </a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'active' : '' }}" href="{{ route('events.show') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem; margin-right:1px; margin-bottom:4px;" class="fa fa-calendar-check ps-2 pe-2 text-center text-dark"></i>
+            <i style="font-size: 1rem;" class="fas fa-sm fa-calendar-check ps-2 pe-2 text-center
+                        {{ Route::currentRouteName() == 'events.show' && Route::current()->parameters() == [] ? 'text-white' : 'text-dark' }}"></i>
           </div>
 
           <span class="nav-link-text ms-1">Évènement du jour</span>

@@ -9,9 +9,9 @@
                 <h5 class="mb-0">Évènement</h5>
               </div>
               @if (auth()->user()->isAdmin())
-              <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
-                Modifier
-              </a>
+                <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
+                  Modifier
+                </a>
               @endif
             </div>
             <div class="row mt-3">
@@ -42,8 +42,13 @@
         </div>
       </div>
       <livewire:components.hosts :eventId="$eventId">
-      <livewire:components.users :eventId="$eventId">
-
+        @if ($users != [])
+          <div class="row">
+            <div class="col-12 col-lg-12 m-auto mb-4">
+              <livewire:components.users-table :users="$users">
+            </div>
+          </div>
+        @endif
         <div class="row">
           <div class="col-12">
             <button onclick="history.back()" class="btn btn-default"><i class="fas fa-arrow-left"></i>
@@ -60,3 +65,12 @@
 </div>
 @endif
 </div>
+<script>
+  (function() {
+    window.onpageshow = function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  })();
+</script>

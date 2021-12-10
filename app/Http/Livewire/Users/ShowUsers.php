@@ -12,8 +12,6 @@ class ShowUsers extends Component
 
   public $showSuccesNotification  = false;
 
-  public $showDemoNotification = false;
-
   protected $rules = [
     'user.name' => 'required|max:40|min:3',
     'user.email' => 'required',
@@ -24,19 +22,18 @@ class ShowUsers extends Component
 
   public function mount($userId)
   {
-    $this->user = User::where('id',$userId)->first();
+    $this->user = User::where('id', $userId)->first();
   }
 
   public function save()
   {
     $this->validate();
     $this->user->save();
+
     $this->showSuccesNotification = true;
   }
   public function render()
   {
     return view('livewire.users.show-users');
   }
-
-  
 }

@@ -25,6 +25,13 @@ class DatabaseSeeder extends Seeder
       'password' => Hash::make('Yohan123')
     ]);
 
+    User::factory()->create([
+      'name' => 'Arnaud Goubier',
+      'email' => 'arnaud@goubier.fr',
+      'password' => Hash::make('Arnaud123'),
+      'role' => 'admin'
+    ]);
+
 
     TypeEvent::factory()->create([
       'type_event' => 'Basique',
