@@ -17,7 +17,7 @@ class EventsTable extends Component
   public function render()
   {
     if (auth()->user()->isAdmin()) {
-      $this->events = Event::orderBy('Date', 'ASC')->get();
+      $this->events = Event::orderBy('Date', 'DESC')->get();
       $this->events_by_users = EventByUser::pluck('event_id')->toArray();
       $users_by_events = EventByUser::all();
       foreach ($users_by_events as $event) {
