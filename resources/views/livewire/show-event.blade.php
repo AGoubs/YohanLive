@@ -9,7 +9,8 @@
                 <h5 class="mb-0">Évènement</h5>
               </div>
               @if (auth()->user()->isAdmin())
-                <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2" type="button">
+                <a href="{{ route('events.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0 mx-2"
+                  type="button">
                   Modifier
                 </a>
               @endif
@@ -27,28 +28,30 @@
             <div class="row mt-3">
               <div class="col-12 col-sm-4">
                 <label for="HeureEvenement" class="control-label">Heure de l'évènement</label>
-                <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureEvenement)) }}" disabled />
+                <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureEvenement)) }}"
+                  disabled />
               </div>
               <div class="col-12 col-sm-4 mt-3 mt-sm-0">
                 <label for="HeureFinEvenement" class="control-label">Heure de fin</label>
-                <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureFinEvenement)) }}" disabled />
+                <input type="text" class="form-control"
+                  value="{{ date('H:i', strtotime($event->HeureFinEvenement)) }}" disabled />
               </div>
               <div class="col-12 col-sm-4 mt-3 mt-sm-0">
                 <label for="HeureArrive" class="control-label">Heure d'arrivé</label>
-                <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureArrive)) }}" disabled />
+                <input type="text" class="form-control" value="{{ date('H:i', strtotime($event->HeureArrive)) }}"
+                  disabled />
               </div>
             </div>
           </div>
         </div>
       </div>
       <livewire:components.hosts :eventId="$eventId">
-        @if ($users != [])
-          <div class="row">
-            <div class="col-12 col-lg-12 m-auto mb-4">
-              <livewire:components.users-table :users="$users">
-            </div>
+
+        <div class="row">
+          <div class="col-12 col-lg-12 m-auto mb-4">
+            <livewire:components.users-table :users="$users">
           </div>
-        @endif
+        </div>
         <div class="row">
           <div class="col-12">
             <button onclick="history.back()" class="btn btn-default"><i class="fas fa-arrow-left"></i>
