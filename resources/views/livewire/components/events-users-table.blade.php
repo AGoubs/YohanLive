@@ -9,6 +9,8 @@
           @if (auth()->user()->isAdmin())
             <a href="{{ route('users.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
               Ajouter</a>
+            <a href="{{ route('assign-users.index', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0"
+              type="button">-&nbsp; Attribuer</a>
           @endif
         </div>
       </div>
@@ -30,9 +32,6 @@
               Localisation
             </th>
             @if (auth()->user()->isAdmin())
-              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                Rôle
-              </th>
               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Actions
               </th>
@@ -61,22 +60,7 @@
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->location }}</p>
                 </td>
                 @if (auth()->user()->isAdmin())
-                  <td class="text-md-center" data-label="Role" style="cursor: pointer"
-                    wire:click='selectEvent({{ $user->id }})'>
-                    <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
-                  </td>
-                  <td class="text-md-center">
-                    <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip"
-                      data-bs-original-title="Editer l'utilisateur">
-                      <i class="fas fa-user-edit text-secondary"></i>
-                    </a>
-                    <span>
-                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
-                        data-bs-original-title="Supprimer l'utilisateur"
-                        onclick="confirm('Supprimer l\'utilisateur : {{ $user->name }} ?') || event.stopImmediatePropagation()"
-                        wire:click="deleteUser({{ $user->id }})"></i>
-                    </span>
-                  </td>
+                 
                 @endif
               </tr>
             @endforeach

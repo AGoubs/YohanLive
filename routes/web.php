@@ -17,6 +17,7 @@ use App\Http\Livewire\ShowEvent;
 use App\Http\Livewire\Users\CreateUser;
 use App\Http\Livewire\Users\ShowUsers;
 use App\Http\Livewire\Users\Users;
+use App\Http\Livewire\UsersEvents\AssignUsers;
 use App\Http\Livewire\UsersEvents\UsersEvents;
 
 /*
@@ -83,6 +84,15 @@ Route::middleware('auth')->group(function () {
   Route::prefix('users-events')->group(function () {
     Route::middleware('admin')->group(function () {
       Route::get('/{userId}', UsersEvents::class)->name('users-events.index');
+    });
+  });
+
+   /**
+   * AssignUsers Routes
+   */
+  Route::prefix('assign-users')->group(function () {
+    Route::middleware('admin')->group(function () {
+      Route::get('/{eventId}', AssignUsers::class)->name('assign-users.index');
     });
   });
 });
