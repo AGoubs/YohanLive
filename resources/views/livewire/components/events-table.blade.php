@@ -22,13 +22,13 @@
               Date
             </th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Heure de l'évènement
+              Évènement
             </th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Heure de fin de l'évènement
+              Fin de l'évènement
             </th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Heure d'arrivé
+              Arrivé
             </th>
             @if (auth()->user()->isAdmin())
               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -42,7 +42,7 @@
             <tr class="px-3">
               <td class="ps-2 ps-md-4" data-label="Nom" wire:click.prevent="showEvent({{ $event->id }})" style="cursor: pointer">
 
-                <p class="text-xs font-weight-bold mb-0">
+                <p class="text-xs font-weight-bold mb-0  short-col">
                   {{-- On Affiche un logo si l'event est partagé --}}
                   @if (in_array($event->id, $events_by_users))
                     @if (auth()->user()->isAdmin())
@@ -75,7 +75,7 @@
                 </p>
               </td>
               @if (auth()->user()->isAdmin())
-                <td class="text-md-center">
+                <td class="text-md-center action-col">
                   <a href="{{ route('events.edit', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">
                     <i class="fas fa-edit text-secondary"></i>
                   </a>

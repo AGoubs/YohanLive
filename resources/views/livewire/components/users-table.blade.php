@@ -3,7 +3,7 @@
     <div class="card-header pb-0">
       <div class="d-flex flex-row justify-content-between">
         <div>
-          <h5 class="mb-0">Liste des utilisateurs</h5>
+          <h5 class="mb-0">Utilisateurs</h5>
         </div>
         @if (auth()->user()->isAdmin())
           <a href="{{ route('users.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;

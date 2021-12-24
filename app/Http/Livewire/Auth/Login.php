@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\User;
 
@@ -22,9 +23,14 @@ class Login extends Component
       redirect('/accueil');
     }
   }
-
   public function login()
   {
+    try {
+      DB::connection()->getPdo();
+    } catch (\Exception $e) {
+      return $this->addError('email', trans("auth.connexion_failed"));
+    }
+
     $credentials = $this->validate();
     if (auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
       $user = User::where(["email" => $this->email])->first();
