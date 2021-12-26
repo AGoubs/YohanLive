@@ -14,7 +14,6 @@
       <div class="row mt-4">
         <div class="col-12">
           <livewire:components.events-table />
-          {{-- @include('components.tables.table') --}}
         </div>
         <div class="col-12">
           <livewire:components.users-table :users='$users' />

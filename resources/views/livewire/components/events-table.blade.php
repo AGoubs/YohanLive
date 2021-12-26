@@ -94,7 +94,7 @@
 </div>
 <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
 <script>
-  const dataTableSearch = new simpleDatatables.DataTable("#event-table", {
+  const dataTableSearchEvents = new simpleDatatables.DataTable("#event-table", {
     searchable: true,
     fixedHeight: true,
     perPage: 10,

@@ -2,7 +2,7 @@
   <div class="container-fluid py-4">
     <div class="row mt-4">
       <div class="col-12">
-        <livewire:components.users-table :users='$users' />
+        <livewire:components.users-table :users='$users' :action="true"/>
       </div>
     </div>
   </div>

@@ -8,6 +8,12 @@ use Livewire\Component;
 class UsersTable extends Component
 {
   public $users;
+  public $eventId;
+  public $action = false;
+  public $assign = false;
+  public $assignButton = false;
+  public $usersIdsByEvent;
+
   public function render()
   {
     return view('livewire.components.users-table');
