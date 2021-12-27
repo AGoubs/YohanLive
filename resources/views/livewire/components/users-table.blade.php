@@ -122,9 +122,9 @@
     perPage: 10,
     labels: {
       placeholder: "Rechercher...",
-      perPage: "{select} évènements par page",
-      noRows: "Aucun évènements trouvée",
-      info: "Affichage de {start} à {end} des {rows} évènements",
+      perPage: "{select} utilisateurs par page",
+      noRows: "Aucun utilisateur trouvée",
+      info: "Affichage de {start} à {end} des {rows} utilisateurs",
     }
   });
 </script>
