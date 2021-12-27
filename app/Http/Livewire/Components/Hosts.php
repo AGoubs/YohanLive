@@ -10,6 +10,7 @@ use Livewire\Component;
 class Hosts extends Component
 {
   public $eventId;
+  public $event;
   public $hosts;
   public $tableType;
   public $tableFields;
@@ -17,8 +18,8 @@ class Hosts extends Component
   public function render()
   {
     $this->hosts = Host::where('event_id', $this->eventId)->select('id', 'is_arrived', 'time_arrived', 'nom', 'prenom', 'fonction', 'telephone', 'numero_ipad', 'lieu', 'point', 'porte', 'commentaire')->get();
-    $event = Event::find($this->eventId);
-    $this->tableType = TypeEvent::where('type_event', $event->type_event)->first();
+    $this->event = Event::find($this->eventId);
+    $this->tableType = TypeEvent::where('type_event', $this->event->type_event)->first();
     $this->tableFields = explode(',', $this->tableType->fields);
 
     return view('livewire.components.hosts');
