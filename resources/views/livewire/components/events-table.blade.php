@@ -39,7 +39,6 @@
           </tr>
         </thead>
         <tbody>
-          {{-- wire:click="showEvent({{ $event->id }})" --}}
           @foreach ($events as $event)
             <div>
               <tr class="px-3" wire:key="{{ $event->id }}" style="cursor:pointer">
@@ -51,9 +50,8 @@
                           title="{{ implode(', ', $this->users[$event->id]) }}"></i>&nbsp;
                       @endif
                     @endif
-
                     {{ $event->Nom }}
-                  </a>
+                    </a>
                 </td>
                 <td class="text-md-center" data-label="Date" onclick="redirect({{ $event->id }})">
                   @if ($event->Date < date('Y-m-d')) <span
