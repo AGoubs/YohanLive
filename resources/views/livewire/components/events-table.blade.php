@@ -38,9 +38,9 @@
           </tr>
         </thead>
         <tbody>
-          {{-- wire:click.prevent="showEvent({{ $event->id }})" --}}
+          {{-- wire:click="showEvent({{ $event->id }})" --}}
           @foreach ($events as $event)
-            <tr class="px-3" wire:key="{{ $event->id }}">
+            <tr class="px-3" wire:key="{{ $event->id }}" style="cursor:pointer">
               <td class="ps-2 ps-md-4" data-label="Nom" wire:click="showEvent({{ $event->id }})">
                 <p class="text-xs font-weight-bold mb-0  short-col">
                   {{-- On Affiche un logo si l'event est partagé --}}
@@ -54,7 +54,7 @@
                   {{ $event->Nom }}
                 </p>
               </td>
-              <td class="text-md-center" data-label="Date">
+              <td class="text-md-center" data-label="Date" wire:click="showEvent({{ $event->id }})">
                 @if ($event->Date < date('Y-m-d')) <span
                     class="badge badge-sm badge-danger">
                     {{ date('d/m/Y', strtotime($event->Date)) }}</span>
@@ -65,15 +65,15 @@
                 @endif
               </td>
 
-              <td class="text-md-center" data-label="Heure de l'évènement">
+              <td class="text-md-center" data-label="Heure de l'évènement" wire:click="showEvent({{ $event->id }})">
                 <span
                   class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
               </td>
-              <td class="text-md-center" data-label="Heure de fin">
+              <td class="text-md-center" data-label="Heure de fin" wire:click="showEvent({{ $event->id }})">
                 <span
                   class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureFinEvenement)) }}</span>
               </td>
-              <td class="text-md-center" data-label="Heure d'arrivé">
+              <td class="text-md-center" data-label="Heure d'arrivé" wire:click="showEvent({{ $event->id }})">
                 <p class="text-xs font-weight-bold mb-0">
                   {{ date('H:i', strtotime($event->HeureArrive)) }}
                 </p>
