@@ -40,7 +40,7 @@ class EventsTable extends Component
     $event = Event::find($id);
     Host::where('event_id', $id)->delete();
     $event->delete();
-    return redirect()->route('events.show');
+    return redirect()->route('events.index');
   }
 
   public function deleteAllEvent()
