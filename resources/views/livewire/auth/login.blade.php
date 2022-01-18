@@ -20,7 +20,7 @@
             <h5>{{ __('Se connecter') }}</h5>
           </div>
           <div class="card-body">
-            <form wire:submit.prevent="login" action="#" method="POST" role="form text-left">
+            <form wire:submit.prevent="login">
               <div class="mb-3">
                 <label for="email">{{ __('Email') }}</label>
                 <input wire:model="email" id="email" type="email" class="form-control @error('email') is-invalid  @enderror" placeholder="Email" aria-label="Email" aria-describedby="email-addon">

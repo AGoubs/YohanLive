@@ -36,8 +36,14 @@
                     @if ($host->is_arrived)
                       <td class="text-center" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
                         @if ($host->time_arrived)
-                          <span class="badge badge-sm badge-success">
-                            {{ date('H:i', strtotime($host->time_arrived)) }}</span>
+                          @if ($host->time_arrived < $event->HeureArrive)
+                            <span class="badge badge-sm badge-success">
+                              {{ date('H:i', strtotime($host->time_arrived)) }}</span>
+                          @else
+                            <span class="badge badge-sm badge-warning">
+                              {{ date('H:i', strtotime($host->time_arrived)) }}</span>
+                          @endif
+
                         @else
                           <span class="badge badge-sm badge-success ms-2">Oui</span>
 

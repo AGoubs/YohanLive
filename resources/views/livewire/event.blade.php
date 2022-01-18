@@ -23,7 +23,6 @@
   })();
 </script>
 <script src="../../assets/js/plugins/datatables.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.11.1/i18n/fr_fr.json"></script>
 <script>
   const dataTableSearch = new simpleDatatables.DataTable("#table-events", {
     searchable: true,

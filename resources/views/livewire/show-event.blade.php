@@ -49,7 +49,7 @@
 
         <div class="row">
           <div class="col-12 col-lg-12 m-auto mb-4">
-            <livewire:components.events-users-table :users="$users" :eventId="$eventId">
+            <livewire:components.users-table :users="$users" :eventId="$eventId" :assignButton="true">
           </div>
         </div>
         <div class="row">

@@ -16,4 +16,9 @@ class Event extends Model
    */
 
   protected $guarded = [];
+
+  public static function getEventById($eventId)
+  {
+    return Event::where('id', $eventId)->first();
+  }
 }
