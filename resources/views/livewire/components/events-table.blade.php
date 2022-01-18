@@ -86,7 +86,7 @@
                     <span>
                       <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
                         data-bs-original-title="Supprimer l'évènement"
-                        onclick="confirm('Supprimer cet évènement ?') || event.stopImmediatePropagation()"
+                        onclick="confirm('Supprimer cet évènement : {{ $event->Nom}}?') || event.stopImmediatePropagation()"
                         wire:click="deleteEvent({{ $event->id }})"></i>
                     </span>
                   </td>
