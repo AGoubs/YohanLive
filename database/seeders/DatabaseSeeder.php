@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\Host;
 use App\Models\TypeEvent;
@@ -49,5 +50,6 @@ class DatabaseSeeder extends Seeder
 
     Event::factory(30)->create();
     Host::factory(100)->create();
+    Contact::factory(200)->create();
   }
 }

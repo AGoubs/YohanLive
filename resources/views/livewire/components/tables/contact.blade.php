@@ -16,57 +16,57 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                     Nom
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                     Prénom
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Commentaire
-                     </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                     Téléphone
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                     Email
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                     Société
-                    </th>
-                   
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Nom
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Prénom
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Téléphone
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Email
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Commentaire
+                  </th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Model actuel
+                  </th>
+
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($hosts as $host)
+                @foreach ($contacts as $contact)
                   <tr class="px-3">
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ $host->nom }}</p>
+                    <td class="text-md-left" style="cursor: pointer">
+                      <p class="text-xs font-weight-bold mb-0 ps-3">{{ $contact->name }}</p>
                     </td>
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->prenom }}</p>
+                    <td class="text-md-left" style="cursor: pointer">
+                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->firstname }}</p>
                     </td>
-                    <td class="text-md-left" style="text-align: left; word-break: break-all; min-width:200px" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer">
-                      <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $host->commentaire }}</p>
+                    <td class="text-md-left" style="text-align: left; word-break: break-all; min-width:200px" style="cursor: pointer">
+                      <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $contact->email }}</p>
                     </td>
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer;min-width:150px">
-                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->telephone }}</p>
+                    <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->phone }}</p>
                     </td>
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer;min-width:150px">
-                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->fonction }}</p>
+                    <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->comment }}</p>
                     </td>
-                    <td class="text-md-left" wire:click="changeArrived({{ $host->id }})" style="cursor: pointer;min-width:150px">
-                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $host->lieu }}</p>
+                    <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
                     </td>
-                    
-                    
+
+
                     <td class="text-md-left" style="min-width: 100px">
-                      <a href="{{ route('hosts.edit', [$eventId, $host->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
+                      <a href="{{ route('hosts.edit', [$eventId, $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                         <i class="fas fa-user-edit text-secondary"></i>
                       </a>
                       <span>
-                        <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'hôte" onclick="confirm('Supprimer cet hôte ?') || event.stopImmediatePropagation()" wire:click="deleteHost({{ $host->id }})"></i>
+                        <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer le contact" onclick="confirm('Supprimer ce contact ?') || event.stopImmediatePropagation()" wire:click="deleteContact({{ $contact->id }})"></i>
                       </span>
                     </td>
                   </tr>
