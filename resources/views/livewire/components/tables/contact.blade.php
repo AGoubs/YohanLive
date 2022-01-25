@@ -1,5 +1,6 @@
 <div>
-  <div class="row">
+  {{-- TODO Datatables --}}
+  <div class="row mx-2  mt-n7">
     <div class="col-12 col-lg-12 m-auto mb-4">
       <div class="card mb-4">
         <div class="card-header">
@@ -7,10 +8,9 @@
             <div>
               <h5 class="mb-0">{{ $event->Nom }}</h5>
             </div>
-            <a href="{{ route('hosts.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+            <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
           </div>
         </div>
-        {{-- <hr class="horizontal dark mt-3"> --}}
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive">
             <table class="table align-items-center mb-0">
@@ -59,10 +59,9 @@
                     <td class="text-md-left" style="cursor: pointer;min-width:150px">
                       <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
                     </td>
-
-
+                    {{-- TODO Edit contact --}}
                     <td class="text-md-left" style="min-width: 100px">
-                      <a href="{{ route('hosts.edit', [$eventId, $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
+                      <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                         <i class="fas fa-user-edit text-secondary"></i>
                       </a>
                       <span>

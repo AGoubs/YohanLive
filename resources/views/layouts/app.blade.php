@@ -19,7 +19,7 @@
       @include('layouts.footers.guest.description')
     @elseif (in_array(
     request()->route()->getName(),
-    ['events.contact'],
+    ['events.contact', 'events.create-contact'],
 ))
       {{ $slot }}
     @elseif (in_array(

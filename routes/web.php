@@ -8,6 +8,8 @@ use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Contact;
+use App\Http\Livewire\Contact\Contact as ContactContact;
+use App\Http\Livewire\Contact\CreateContact;
 use App\Http\Livewire\CreateEvent;
 use App\Http\Livewire\EditEvent;
 use App\Http\Livewire\EditHost;
@@ -50,7 +52,8 @@ Route::middleware('auth')->group(function () {
   Route::prefix('events')->group(function () {
     Route::get('/', Event::class)->name('events.index');
     Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
-    Route::get('/contact/{eventId?}', Contact::class)->name('events.contact');
+    Route::get('/contact/{eventId}', ContactContact::class)->name('events.contact');
+    Route::get('/create-contact/{eventId}', CreateContact::class)->name('events.create-contact');
 
     Route::middleware('admin')->group(function () {
       Route::get('/create', CreateEvent::class)->name('events.create');
@@ -80,7 +83,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/change-password', ResetPassword::class)->name('users.change-password');
   });
 
-   /**
+  /**
    * UsersEvent Routes
    */
   Route::prefix('users-events')->group(function () {
@@ -89,7 +92,7 @@ Route::middleware('auth')->group(function () {
     });
   });
 
-   /**
+  /**
    * AssignUsers Routes
    */
   Route::prefix('assign-users')->group(function () {
