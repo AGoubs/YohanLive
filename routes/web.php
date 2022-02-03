@@ -10,6 +10,7 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Contact;
 use App\Http\Livewire\Contact\Contact as ContactContact;
 use App\Http\Livewire\Contact\CreateContact;
+use App\Http\Livewire\Contact\EditContact;
 use App\Http\Livewire\CreateEvent;
 use App\Http\Livewire\EditEvent;
 use App\Http\Livewire\EditHost;
@@ -68,6 +69,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/add/{eventId}', AddHost::class)->name('hosts.add');
     Route::get('/edit/{eventId}&{hostId?}', EditHost::class)->name('hosts.edit');
   });
+
+  /**
+   * Contacts Routes
+   */
+  Route::prefix('contacts')->group(function () {
+    Route::get('/edit/{eventId}&{contactId?}', EditContact::class)->name('contacts.edit');
+  });
+
 
   /**
    * Users Routes

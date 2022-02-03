@@ -13,4 +13,9 @@ class Contact extends Model
   {
     return Contact::where('event_id', $eventId)->get();
   }
+
+  public static function getContactById($id)
+  {
+    return Contact::where('id', $id)->first();
+  }
 }
