@@ -19,17 +19,12 @@
               Nom
             </th>
             <th data-type="date" data-format="DD/MM/YYYY" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-              Date
+              Date de début
             </th>
-            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Évènement
+            <th data-type="date" data-format="DD/MM/YYYY" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+              Date de fin
             </th>
-            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Fin de l'évènement
-            </th>
-            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-              Arrivé
-            </th>
+
             @if (auth()->user()->isAdmin())
               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Actions
@@ -60,18 +55,17 @@
                     <span class="badge badge-sm badge-success">{{ date('d/m/Y', strtotime($event->Date)) }}</span>
                   @endif
                 </td>
+                <td class="text-md-center" data-label="Date" onclick="redirect({{ $event->id }})">
+                  @if ($event->DateFin < date('Y-m-d')) <span class="badge badge-sm badge-danger">
+                      {{ date('d/m/Y', strtotime($event->DateFin)) }}</span>
+                  @elseif ($event->DateFin == date('Y-m-d'))
+                    <span class="badge badge-sm badge-info">{{ date('d/m/Y', strtotime($event->DateFin)) }}</span>
+                  @elseif ($event->DateFin > date('Y-m-d'))
+                    <span class="badge badge-sm badge-success">{{ date('d/m/Y', strtotime($event->DateFin)) }}</span>
+                  @endif
+                </td>
 
-                <td class="text-md-center" data-label="Heure de l'évènement" onclick="redirect({{ $event->id }})">
-                  <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureEvenement)) }}</span>
-                </td>
-                <td class="text-md-center" data-label="Heure de fin" onclick="redirect({{ $event->id }})">
-                  <span class="text-secondary text-xs font-weight-bold">{{ date('H:i', strtotime($event->HeureFinEvenement)) }}</span>
-                </td>
-                <td class="text-md-center" data-label="Heure d'arrivé" onclick="redirect({{ $event->id }})">
-                  <p class="text-xs font-weight-bold mb-0">
-                    {{ date('H:i', strtotime($event->HeureArrive)) }}
-                  </p>
-                </td>
+
                 @if (auth()->user()->isAdmin())
                   <td class="text-md-center action-col">
                     <a href="{{ route('events.edit', [$event->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'évènement">

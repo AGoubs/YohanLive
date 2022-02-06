@@ -5,12 +5,23 @@
         <div class="card-header">
           <div class="d-flex flex-row justify-content-between">
             @if (auth()->user()->isAdmin())
-              <div class="col-12 col-md-4 col-lg-2 mt-2 mt-sm-0" wire:ignore>
-                <select class="multisteps-form__select form-control" id="TypeEvenement" style="background-color: white">
-                  <option selected="selected" value="{{ $event->Date }}">{{ ucfirst(\Carbon\Carbon::parse($event->Date)->translatedFormat('l d F Y')) }}</option>
-                  <option value="{{ $event->DateFin }}">{{ ucfirst(\Carbon\Carbon::parse($event->DateFin)->translatedFormat('l d F Y')) }}</option>
+              <div class="col-12 col-md-6 col-lg-6 mt-2 mt-sm-0">
+                <div class="d-inline-flex">
 
-                </select>
+                  <button class="btn" wire:click="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
+                  <div class="form-group mx-2">
+                    <select class="form-control" id="date_event" style="background-color: white" wire:model="date">
+                      @foreach ($dateBetween as $date)
+                        @if ($date == date('Y-m-d'))
+                          <option selected="selected" value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
+                        @else
+                          <option value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                  <button class="btn" wire:click="increase_date()"><i class="fas fa-chevron-right"></i></button>
+                </div>
               </div>
               <div><button class="btn"><i class="far fa-file-excel fa-2x text-success"></i></button></div>
             @else
@@ -47,8 +58,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Model actuel
                     </th>
-
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -91,8 +101,7 @@
     </div>
   </div>
 </div>
-
-<script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
 <script>
   const dataTableSearchContacts = new simpleDatatables.DataTable("#contacts-table", {
     searchable: true,
@@ -105,4 +114,4 @@
       info: "Affichage de {start} à {end} des {rows} contacts",
     }
   });
-</script>
+</script> --}}
