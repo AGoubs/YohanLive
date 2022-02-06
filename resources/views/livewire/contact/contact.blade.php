@@ -4,5 +4,13 @@
     <div class="mt-n7">
       <livewire:components.tables.contact :eventId="$eventId">
     </div>
-    <livewire:contact.footer>
 </div>
+<script>
+  (function() {
+    window.onpageshow = function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  })();
+</script>

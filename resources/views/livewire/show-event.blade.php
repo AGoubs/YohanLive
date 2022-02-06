@@ -8,7 +8,7 @@
         <div class="col-12 col-lg-12 m-auto mt-4">
           <livewire:components.tables.contact :eventId="$eventId">
             <div class="mx-3">
-              <livewire:components.users-table :eventId="$eventId" :users='$users' :assignButton="true">
+              <livewire:components.tables.users :eventId="$eventId" :users='$users' :assignButton="true">
 
             </div>
 

@@ -64,22 +64,22 @@
                 <tbody>
                   @foreach ($contacts as $contact)
                     <tr class="px-3">
-                      <td class="text-md-left" style="cursor: pointer">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0 ps-3">{{ $contact->name }}</p>
                       </td>
-                      <td class="text-md-left" style="cursor: pointer">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->firstname }}</p>
                       </td>
-                      <td class="text-md-left" style="cursor: pointer">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $contact->phone }}</p>
                       </td>
-                      <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->email }}</p>
                       </td>
-                      <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->comment }}</p>
                       </td>
-                      <td class="text-md-left" style="cursor: pointer;min-width:150px">
+                      <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
                       </td>
                       {{-- TODO Edit contact --}}
