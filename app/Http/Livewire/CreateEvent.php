@@ -9,17 +9,12 @@ class CreateEvent extends Component
 {
   public $Nom = '';
   public $Date = '';
-  public $HeureArrive = '';
-  public $HeureEvenement = '';
-  public $HeureFinEvenement = '';
-  public $TypeEvenement = 'Basique';
+  public $DateFin = '';
 
   protected $rules = [
     'Nom' => 'required',
     'Date' => 'required',
-    'HeureArrive' => 'required',
-    'HeureEvenement' => 'required',
-    'HeureFinEvenement' => 'required',
+    'DateFin' => '',
   ];
 
   public function render()
@@ -33,12 +28,9 @@ class CreateEvent extends Component
     $event = Event::create([
       'Nom' => $this->Nom,
       'Date' => $this->Date,
-      'HeureArrive' => $this->HeureArrive,
-      'HeureEvenement' => $this->HeureEvenement,
-      'HeureFinEvenement' => $this->HeureFinEvenement,
-      'type_event' => $this->TypeEvenement,
+      'DateFin' => $this->DateFin,
     ]);
 
-    return redirect()->route('hosts.add', [$event->id]);
+    return redirect()->route('assign-users.index', ['eventId' => $event->id]);
   }
 }

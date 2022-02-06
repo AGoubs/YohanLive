@@ -40,10 +40,14 @@ class AssignUsers extends Component
     foreach ($formData as $userId => $value) {
       if (!EventByUser::eventByUserExist($userId, $this->eventId)) {
         EventByUser::createEventByUser($userId, $this->eventId);
-      } 
+      }
     }
-    session()->flash('success', 'Modification enregistrée avec succès !');
 
     return redirect()->route('events.show', [$this->eventId]);
+  }
+
+  public function editEvent()
+  {
+    redirect()->route('events.edit', $this->eventId);
   }
 }

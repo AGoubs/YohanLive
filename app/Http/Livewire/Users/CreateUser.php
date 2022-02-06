@@ -9,6 +9,7 @@ use Livewire\Component;
 class CreateUser extends Component
 {
   public $user;
+  public $eventId;
   public $showSuccesNotification  = false;
 
   protected $rules = [
@@ -30,9 +31,13 @@ class CreateUser extends Component
     $this->validate();
     $this->user->password = Hash::make($this->user->password);
     $this->user->save();
-    $this->showSuccesNotification = true;
+    // $this->showSuccesNotification = true;
 
-    return redirect()->route('users-events.index', ['userId' => $this->user->id]);
+    if ($this->eventId) {
+      return redirect()->route('assign-users.index', ['eventId' => $this->eventId]);
+    } else {
+      return redirect()->route('users.index');
+    }
   }
   public function render()
   {

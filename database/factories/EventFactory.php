@@ -25,6 +25,7 @@ class EventFactory extends Factory
     return [
       'Nom' => $this->faker->company,
       'Date' => $this->faker->dateTimeThisMonth(),
+      'DateFin' => $this->faker->dateTimeThisMonth(),
       'HeureArrive' => $this->faker->time(),
       'HeureEvenement' => $this->faker->time(),
       'HeureFinEvenement' => $this->faker->time(),

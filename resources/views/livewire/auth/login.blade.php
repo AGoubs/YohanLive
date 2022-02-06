@@ -23,7 +23,7 @@
             <form wire:submit.prevent="login">
               <div class="mb-3">
                 <label for="email">{{ __('Email') }}</label>
-                <input wire:model="email" id="email" type="email" class="form-control @error('email') is-invalid  @enderror" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                <input wire:model="email" id="email" type="text" class="form-control @error('email') is-invalid  @enderror" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                 @error('email') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
               <div class="mb-3">

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     Schema::defaultStringLength(191);
     setlocale(LC_TIME, "fr_FR");
     date_default_timezone_set('Europe/Paris');
+    Carbon::setLocale(config('app.locale'));
   }
 }

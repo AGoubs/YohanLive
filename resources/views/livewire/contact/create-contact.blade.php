@@ -15,12 +15,12 @@
             <form wire:submit.prevent="submit">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Nom</label>
+                  <label class="control-label">Nom <span class="text-danger">*</span></label>
                   <input type="text" class="form-control @error('contact.name') is-invalid  @enderror" wire:model="contact.name" autofocus />
                   @error('contact.name') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                  <label class="control-label">Prénom</label>
+                  <label class="control-label">Prénom <span class="text-danger">*</span></label>
                   <input type="text" class="form-control @error('contact.firstname') is-invalid @enderror" wire:model="contact.firstname" />
                   @error('contact.firstname') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>

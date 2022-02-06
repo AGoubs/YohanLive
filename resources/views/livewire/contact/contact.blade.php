@@ -1,5 +1,8 @@
 <div>
+
   <livewire:contact.layout :eventId="$eventId">
-    <livewire:components.tables.contact :eventId="$eventId">
-      <livewire:contact.footer>
+    <div class="mt-n7">
+      <livewire:components.tables.contact :eventId="$eventId">
+    </div>
+    <livewire:contact.footer>
 </div>

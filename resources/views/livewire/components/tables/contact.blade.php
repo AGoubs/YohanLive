@@ -1,14 +1,25 @@
 <div>
-  {{-- TODO Datatables --}}
-  <div class="row mx-2  mt-n7">
+  <div class="row mx-2">
     <div class="col-12 col-lg-12 m-auto mb-4">
       <div class="card mb-4">
         <div class="card-header">
           <div class="d-flex flex-row justify-content-between">
-            <div>
-              <h5 class="mb-0">{{ $event->Nom }}</h5>
-            </div>
-            <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+            @if (auth()->user()->isAdmin())
+              <div class="col-12 col-md-4 col-lg-2 mt-2 mt-sm-0" wire:ignore>
+                <select class="multisteps-form__select form-control" id="TypeEvenement" style="background-color: white">
+                  <option selected="selected" value="{{ $event->Date }}">{{ ucfirst(\Carbon\Carbon::parse($event->Date)->translatedFormat('l d F Y')) }}</option>
+                  <option value="{{ $event->DateFin }}">{{ ucfirst(\Carbon\Carbon::parse($event->DateFin)->translatedFormat('l d F Y')) }}</option>
+
+                </select>
+              </div>
+              <div><button class="btn"><i class="far fa-file-excel fa-2x text-success"></i></button></div>
+            @else
+              <div>
+                <h5 class="mb-0">{{ $event->Nom }}</h5>
+              </div>
+              <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+            @endif
+
           </div>
         </div>
         <livewire:flash-message>
@@ -89,9 +100,9 @@
     perPage: 5,
     labels: {
       placeholder: "Rechercher...",
-      perPage: "{select} utilisateurs par page",
-      noRows: "Aucun utilisateur trouvée",
-      info: "Affichage de {start} à {end} des {rows} utilisateurs",
+      perPage: "{select} contacts par page",
+      noRows: "Aucun contact trouvée",
+      info: "Affichage de {start} à {end} des {rows} contacts",
     }
   });
 </script>

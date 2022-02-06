@@ -6,7 +6,7 @@
           <button class="multisteps-form__progress-btn js-active" type="button" title="Evènement">
             <span>Evènement</span>
           </button>
-          <button class="multisteps-form__progress-btn" type="button" title="Hôtes">Hôtes</button>
+          <button class="multisteps-form__progress-btn" type="button" title="Utilisateurs">Utilisateurs</button>
         </div>
       </div>
     </div>
@@ -17,40 +17,22 @@
             <h5 class="font-weight-bolder mb-0">Evènement</h5>
             <p class="mb-0 text-sm">Informations de l'évènement</p>
             <div class="row mt-3">
-              <div class="col-12 col-sm-6">
-                <label for="Nom" class="control-label">Nom</label>
+              <div class="col-12 col-sm-12">
+                <label for="Nom" class="control-label">Nom <span class="text-danger">*</span></label>
                 <input type="text" class="form-control @error('Nom') is-invalid  @enderror" wire:model="Nom" autofocus />
                 @error('Nom') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
+            </div>
+            <div class="row mt-3">
               <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                <label for="Date" class="control-label">Date</label>
+                <label for="Date" class="control-label">Date de début <span class="text-danger">*</span></label>
                 <input type="date" class="form-control @error('Date') border border-danger  @enderror" wire:model="Date" />
                 @error('Date') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 col-sm-3">
-                <label for="HeureEvenement" class="control-label">Heure de l'évènement</label>
-                <input type="time" class="form-control @error('HeureEvenement') border border-danger  @enderror" wire:model="HeureEvenement" />
-                @error('HeureEvenement') <div class="text-danger">{{ $message }}</div> @enderror
-              </div>
-              <div class="col-12 col-sm-3">
-                <label for="HeureFinEvenement" class="control-label">Heure de fin</label>
-                <input type="time" class="form-control @error('HeureFinEvenement') border border-danger  @enderror" wire:model="HeureFinEvenement" />
-                @error('HeureFinEvenement') <div class="text-danger">{{ $message }}</div> @enderror
-              </div>
-              <div class="col-12 col-sm-3 mt-3 mt-sm-0">
-                <label for="HeureArrive" class="control-label">Heure d'arrivé</label>
-                <input type="time" class="form-control @error('HeureArrive') border border-danger  @enderror" wire:model="HeureArrive" />
-                @error('HeureArrive') <div class="text-danger">{{ $message }}</div> @enderror
-              </div>
-              <div class="col-12 col-sm-3 mt-3 mt-sm-0">
-                <label for="TypeEvenement" class="control-label">Type d'évènement</label>
-                <select class="multisteps-form__select form-control" id="TypeEvenement" style="background-color: white" wire:model="TypeEvenement">
-                  <option selected="selected" value="Basique">Basique</option>
-                  <option value="Stade">Stade</option>
-                  <option value="FDL">FDL</option>
-                </select>
+              <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                <label for="DateFin" class="control-label">Date de fin</label>
+                <input type="Date" class="form-control @error('DateFin') border border-danger  @enderror" wire:model="DateFin" />
+                @error('DateFin') <div class="text-danger">{{ $message }}</div> @enderror
               </div>
               <div class="button-row d-flex mt-4">
                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Suivant">Suivant</button>

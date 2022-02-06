@@ -7,7 +7,7 @@
         </div>
         <div>
           @if (auth()->user()->isAdmin())
-            <a href="{{ route('users.create') }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
+            <a href="{{ route('users.create', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
               Ajouter</a>
             @if ($assignButton === true)
 
@@ -25,7 +25,7 @@
               Nom
             </th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-              Email
+              Identifiant
             </th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
               Téléphone

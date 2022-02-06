@@ -21,6 +21,10 @@ class UsersTable extends Component
     return view('livewire.components.users-table');
   }
 
+  public function mount()
+  {
+  }
+
   public function deleteUser($id)
   {
     EventByUser::where('user_id', $id)->delete();

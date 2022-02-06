@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
   Route::prefix('users')->group(function () {
     // Route::get('/', User::class)->name('users.index');
     Route::middleware('admin')->group(function () {
-      Route::get('/create', CreateUser::class)->name('users.create');
+      Route::get('/create/{eventId?}', CreateUser::class)->name('users.create');
       Route::get('/', Users::class)->name('users.index');
       Route::get('/show/{userId}', ShowUsers::class)->name('users.show');
     });
