@@ -6,6 +6,7 @@
           <button class="multisteps-form__progress-btn js-active" type="button" title="Evènement">
             <span>Evènement</span>
           </button>
+          <button class="multisteps-form__progress-btn" type="button" title="Customisation">Customisation</button>
           <button class="multisteps-form__progress-btn" type="button" title="Utilisateurs">Utilisateurs</button>
         </div>
       </div>

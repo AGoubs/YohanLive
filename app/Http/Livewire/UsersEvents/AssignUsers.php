@@ -45,9 +45,4 @@ class AssignUsers extends Component
 
     return redirect()->route('events.show', [$this->eventId]);
   }
-
-  public function editEvent()
-  {
-    redirect()->route('events.edit', $this->eventId);
-  }
 }

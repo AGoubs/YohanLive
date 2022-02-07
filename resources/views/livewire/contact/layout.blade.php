@@ -1,11 +1,11 @@
 <div>
   <header class="header-2">
     <div class="page-header min-vh-40 relative  bg-gray-100" style="background-image: url('{{ asset('assets/img/curved-images/curved1.jpg') }}')">
-      <span class="mask bg-danger"></span>
+      <span class="mask" style="background-color: {{ $event->Couleur }}"></span>
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n7"><img src="{{ asset('assets/img/event-header/honda.png') }}" alt="" width="250"></h1>
+            <h1 class="text-white pt-3 mt-n7"><img src="{{ $event->Logo }}" alt="" width="{{ $event->LogoSize }}"></h1>
           </div>
         </div>
       </div>

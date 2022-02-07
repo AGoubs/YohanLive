@@ -25,12 +25,15 @@ class CreateEvent extends Component
   public function createEvent()
   {
     $this->validate();
+    if (!$this->DateFin) {
+      $this->DateFin = $this->Date;
+    }
     $event = Event::create([
       'Nom' => $this->Nom,
       'Date' => $this->Date,
       'DateFin' => $this->DateFin,
     ]);
 
-    return redirect()->route('assign-users.index', ['eventId' => $event->id]);
+    return redirect()->route('events.customization', ['eventId' => $event->id]);
   }
 }

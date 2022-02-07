@@ -15,6 +15,9 @@ class ModifyEventTable extends Migration
   {
     Schema::table('events', function (Blueprint $table) {
       $table->date('DateFin')->nullable();
+      $table->string('Couleur')->nullable();
+      $table->string('Logo')->nullable();
+      $table->integer('LogoSize')->nullable();
       $table->time('HeureArrive')->nullable()->change();
       $table->time('HeureEvenement')->nullable()->change();
       $table->string('type_event')->nullable()->change();

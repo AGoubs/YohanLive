@@ -15,7 +15,7 @@ use App\Http\Livewire\CreateEvent;
 use App\Http\Livewire\EditEvent;
 use App\Http\Livewire\EditHost;
 use App\Http\Livewire\Event;
-
+use App\Http\Livewire\Events\Customization;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\ShowEvent;
 use App\Http\Livewire\Users\CreateUser;
@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('admin')->group(function () {
       Route::get('/create', CreateEvent::class)->name('events.create');
+      Route::get('/customization/{eventId}', Customization::class)->name('events.customization');
       Route::get('/edit/{eventId}', EditEvent::class)->name('events.edit');
     });
   });

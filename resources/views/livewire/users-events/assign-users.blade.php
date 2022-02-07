@@ -6,6 +6,7 @@
           <button class="multisteps-form__progress-btn js-active" type="button" title="Evènement">
             <span>Evènement</span>
           </button>
+          <button class="multisteps-form__progress-btn js-active" type="button" title="Customisation">Customisation</button>
           <button class="multisteps-form__progress-btn js-active" type="button" title="Utilisateurs">Utilisateurs</button>
         </div>
       </div>
@@ -19,7 +20,7 @@
       </div>
       <div class="row mt-2">
         <div class="d-flex justify-content-between">
-          <button type="button" wire:click="editEvent()" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>Retour</button>
+          <a href="{{ route('events.customization', $eventId) }}" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>Retour</a>
           <button type="submit" class="btn bg-gradient-dark btn-sm mb-0">Enregistrer</button>
         </div>
       </div>

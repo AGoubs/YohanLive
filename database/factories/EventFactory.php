@@ -30,6 +30,7 @@ class EventFactory extends Factory
       'HeureEvenement' => $this->faker->time(),
       'HeureFinEvenement' => $this->faker->time(),
       'type_event' => TypeEvent::all()->random()->type_event,
+      'Couleur' => $this->faker->hexColor,
     ];
   }
 }

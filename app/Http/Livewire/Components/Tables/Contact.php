@@ -17,7 +17,6 @@ class Contact extends Component
 
   public function render()
   {
-    // $this->contacts = ModelsContact::getContactsByEvent($this->eventId);
     $this->contacts = ModelsContact::getContactsByEventAndDate($this->eventId, $this->date);
 
 
