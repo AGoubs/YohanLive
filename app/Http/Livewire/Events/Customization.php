@@ -44,6 +44,7 @@ class Customization extends Component
     $this->validate();
     $this->event->Logo = $this->Logo->store('logos', 'public');
     $this->event->Couleur = $this->Couleur;
+    $this->event->LogoSize = $this->LogoSize;
     $this->event->save();
 
     return redirect()->route('assign-users.index', ['eventId' => $this->event->id]);

@@ -8,7 +8,7 @@
               <div class="col-12 col-md-6 col-lg-6 mt-2 mt-sm-0">
                 <div class="d-inline-flex">
                   <div x-data>
-                    <button x-bind:disabled="$wire.disableDecrease" class="btn" wire:click="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
+                    <button x-bind:disabled="$wire.disableDecrease" class="btn" onclick="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
                   </div>
                   <div class="form-group mx-2">
                     <select class="form-control" id="date_event" style="background-color: white" wire:model="date">
@@ -18,11 +18,11 @@
                     </select>
                   </div>
                   <div x-data>
-                    <button x-bind:disabled="$wire.disableIncrease" class="btn" wire:click="increase_date()"><i class="fas fa-chevron-right"></i></button>
+                    <button x-bind:disabled="$wire.disableIncrease" class="btn" onclick="increase_date()"><i class="fas fa-chevron-right"></i></button>
                   </div>
                 </div>
               </div>
-              <div><button class="btn"><i class="far fa-file-excel fa-2x text-success"></i></button></div>
+              <div><button class="btn bg-gradient-dark mb-0" onclick="dataExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button></div>
             @else
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
@@ -102,10 +102,10 @@
 </div>
 <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
 <script>
-  const dataTableSearchContacts = new simpleDatatables.DataTable("#contacts-table", {
+  let dataTableSearchContacts = new simpleDatatables.DataTable("#contacts-table", {
     searchable: true,
     fixedHeight: true,
-    perPage: 5,
+    perPage: 100,
     labels: {
       placeholder: "Rechercher...",
       perPage: "{select} contacts par page",
@@ -113,4 +113,23 @@
       info: "Affichage de {start} à {end} des {rows} contacts",
     }
   });
+</script>
+<script>
+  function decrease_date() {
+    @this.decrease_date();
+    dataTableSearchContacts.destroy();
+    setTimeout(() => {
+
+      dataTableSearchContacts.init();
+    }, 200);
+  }
+
+  function increase_date() {
+    @this.increase_date();
+    dataTableSearchContacts.destroy();
+    setTimeout(() => {
+
+      dataTableSearchContacts.init();
+    }, 200);
+  }
 </script>
