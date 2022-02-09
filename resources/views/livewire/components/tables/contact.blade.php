@@ -22,7 +22,7 @@
                   </div>
                 </div>
               </div>
-              <div><button class="btn bg-gradient-dark mb-0" onclick="dataExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button></div>
+              <div><button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button></div>
             @else
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>

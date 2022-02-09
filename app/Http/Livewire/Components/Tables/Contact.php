@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Components\Tables;
 
+use App\Exports\ContactExport;
 use App\Models\Contact as ModelsContact;
 use App\Models\Event;
 use Livewire\Component;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Contact extends Component
 {
@@ -74,5 +76,10 @@ class Contact extends Component
     } else {
       return redirect()->route('events.contact', [$this->eventId]);
     }
+  }
+
+  public function ContactExport()
+  {
+    return Excel::download(new ContactExport, 'users.xlsx');
   }
 }
