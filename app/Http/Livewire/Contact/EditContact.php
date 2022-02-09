@@ -39,8 +39,10 @@ class EditContact extends Component
     $this->validate();
     $this->contact->save();
 
-    // session()->flash('success',  "Contact modifié avec succès");
-
-    return redirect()->route('events.contact', [$this->eventId]);
+    if (auth()->user()->isAdmin()) {
+      return redirect()->route('events.show', [$this->eventId]);
+    } else {
+      return redirect()->route('events.contact', [$this->eventId]);
+    }
   }
 }

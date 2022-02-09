@@ -30,6 +30,7 @@ class CreateUser extends Component
   {
     $this->validate();
     $this->user->password = Hash::make($this->user->password);
+    $this->user->role = 'host';
     $this->user->save();
     // $this->showSuccesNotification = true;
 

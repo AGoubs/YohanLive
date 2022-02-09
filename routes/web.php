@@ -45,14 +45,17 @@ Route::middleware('auth')->group(function () {
   /**
    * Dashboard Routes
    */
-  Route::get('/accueil', Accueil::class)->name('accueil');
-
+  Route::middleware('user')->group(function () {
+    Route::get('/accueil', Accueil::class)->name('accueil');
+  });
   /**
    * Events Routes
    */
   Route::prefix('events')->group(function () {
-    Route::get('/', Event::class)->name('events.index');
-    Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
+    Route::middleware('user')->group(function () {
+      Route::get('/', Event::class)->name('events.index');
+      Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
+    });
     Route::get('/contact/{eventId}', ContactContact::class)->name('events.contact');
     Route::get('/create-contact/{eventId}', CreateContact::class)->name('events.create-contact');
 
@@ -66,9 +69,11 @@ Route::middleware('auth')->group(function () {
   /**
    * Hosts Routes
    */
-  Route::prefix('hosts')->group(function () {
-    Route::get('/add/{eventId}', AddHost::class)->name('hosts.add');
-    Route::get('/edit/{eventId}&{hostId?}', EditHost::class)->name('hosts.edit');
+  Route::middleware('user')->group(function () {
+    Route::prefix('hosts')->group(function () {
+      Route::get('/add/{eventId}', AddHost::class)->name('hosts.add');
+      Route::get('/edit/{eventId}&{hostId?}', EditHost::class)->name('hosts.edit');
+    });
   });
 
   /**

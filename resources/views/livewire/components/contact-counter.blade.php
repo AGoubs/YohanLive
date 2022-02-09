@@ -5,19 +5,6 @@
         <div class="col-md-6 position-relative">
           <div class="p-1 text-center">
             <h2 class="text-gradient text-dark">
-              @if ($total)
-                <span id="select">{{ $total }}</span>
-              @else
-                <span id="select">0</span>
-              @endif
-            </h2>
-            <p class="mb-1">Contact sur l'évènement</p>
-          </div>
-          <hr class="vertical dark">
-        </div>
-        <div class="col-md-6 position-relative">
-          <div class="p-1 text-center">
-            <h2 class="text-gradient text-dark">
               @if ($day)
                 <span id="select">{{ $day }}</span>
               @else
@@ -25,6 +12,19 @@
               @endif
             </h2>
             <p class="mb-1">Contact date sélectionnée</p>
+          </div>
+          <hr class="vertical dark">
+        </div>
+        <div class="col-md-6 position-relative">
+          <div class="p-1 text-center">
+            <h2 class="text-gradient text-dark">
+              @if ($total)
+                <span id="select">{{ $total }}</span>
+              @else
+                <span id="select">0</span>
+              @endif
+            </h2>
+            <p class="mb-1">Contact sur l'évènement</p>
           </div>
           <hr class="vertical dark">
         </div>

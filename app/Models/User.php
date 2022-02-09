@@ -51,6 +51,10 @@ class User extends Authenticatable
   {
     return $this->role === 'user';
   }
+  public function isHost()
+  {
+    return $this->role === 'host';
+  }
 
   public static function getUsersIdsByEvent($eventId)
   {

@@ -69,6 +69,10 @@ class Contact extends Component
   public function deleteContact($id)
   {
     ModelsContact::find($id)->delete();
-    return redirect()->route('events.contact', [$this->eventId]);
+    if (auth()->user()->isAdmin()) {
+      return redirect()->route('events.show', [$this->eventId]);
+    } else {
+      return redirect()->route('events.contact', [$this->eventId]);
+    }
   }
 }

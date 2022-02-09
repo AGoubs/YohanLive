@@ -6,28 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEventByUserTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('event_by_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('event_id')->constrained();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('event_by_users', function (Blueprint $table) {
+      $table->id();
+      $table->foreignId('user_id')->constrained()->onDelete('cascade');
+      $table->foreignId('event_id')->constrained()->onDelete('cascade');
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('event_by_user');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('event_by_user');
+  }
 }
