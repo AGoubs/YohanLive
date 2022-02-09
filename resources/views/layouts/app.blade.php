@@ -21,7 +21,7 @@
     request()->route()->getName(),
     ['events.contact', 'events.create-contact', 'contacts.edit'],
 ))
-
+      @include('layouts.navbars.auth.nav-profile')
       {{ $slot }}
     @elseif (in_array(
     request()->route()->getName(),

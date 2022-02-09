@@ -1,20 +1,17 @@
 <div x-data="{open: false}">
-  <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
-    aria-expanded="false" x-on:click="open = ! open" @click.away="open = false">
-    <i
-      class="fa fa-user me-sm-1 {{ in_array(
-          request()->route()->getName(),
-          ['profile', 'my-profile'],
-      )
-          ? 'text-white'
-          : '' }}"></i>
-    <span
-      class="d-sm-inline d-none {{ in_array(
-          request()->route()->getName(),
-          ['profile', 'my-profile'],
-      )
-          ? 'text-white'
-          : '' }}">Bienvenue
+  <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" x-on:click="open = ! open" @click.away="open = false">
+    <i class="fa fa-user me-sm-1 {{ in_array(
+        request()->route()->getName(),
+        ['profile', 'my-profile'],
+    )
+        ? 'text-white'
+        : '' }}"></i>
+    <span class="d-sm-inline d-none {{ in_array(
+        request()->route()->getName(),
+        ['profile', 'my-profile'],
+    )
+        ? 'text-white'
+        : '' }}">Bienvenue
       {{ $user }}
       <span x-html="open ?  `<i class='fa fa-chevron-up ms-1'></i>` : `<i class='fa fa-chevron-down ms-1'></i>`"></span>
     </span>

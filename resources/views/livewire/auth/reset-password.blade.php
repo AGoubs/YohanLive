@@ -13,7 +13,7 @@
                 <div>
                   <label for="email">{{ __('Identifiant') }}</label>
                   <div class="mb-3">
-                    <input wire:model="email" id="email" type="email" class="form-control @error('password')is-invalid @enderror" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    <input wire:model="email" id="email" type="text" class="form-control @error('password')is-invalid @enderror" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                   </div>
                   @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
@@ -42,7 +42,7 @@
                   <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                   <span class="alert-text text-white">
                     {{ __('Your password has been successfuly changed! You
-                                                                                can login now!') }}</a></span>
+                                                                                                    can login now!') }}</a></span>
                   <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                   </button>
                 </div>

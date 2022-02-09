@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\Event;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,7 @@ class ResetPassword extends Component
 
   protected $rules = [
     'email' => 'required',
-    'password' => 'required|min:6|same:passwordConfirmation'
+    'password' => 'required|same:passwordConfirmation'
   ];
 
   public function resetPassword()
@@ -36,7 +37,8 @@ class ResetPassword extends Component
       $existingUser->update([
         'password' => Hash::make($this->password)
       ]);
-      return redirect()->route('accueil');
+
+      redirect('/');
     } else {
       $this->showFailureNotification = true;
     }
