@@ -27,7 +27,7 @@
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
               </div>
-              <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
+              {{-- <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a> --}}
             @endif
 
           </div>

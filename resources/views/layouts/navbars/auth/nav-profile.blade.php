@@ -1,4 +1,4 @@
-<nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
+<nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-3 w-100 z-index-2">
   <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
 

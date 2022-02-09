@@ -4,6 +4,7 @@
     <div class="mt-n7">
       <livewire:components.tables.contact :eventId="$eventId">
     </div>
+    <livewire:components.host-fixed-plugin :eventId="$eventId">
 </div>
 <script>
   (function() {

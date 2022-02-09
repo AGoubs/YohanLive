@@ -23,6 +23,7 @@
 ))
       @include('layouts.navbars.auth.nav-profile')
       {{ $slot }}
+
     @elseif (in_array(
     request()->route()->getName(),
     ['profile', 'my-profile'],
