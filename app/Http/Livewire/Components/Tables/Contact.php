@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Components\Tables;
 
-use App\Exports\ContactExport;
+use App\Exports\ContactPerDateSheetExport;
 use App\Models\Contact as ModelsContact;
 use App\Models\Event;
 use Livewire\Component;
@@ -20,6 +20,9 @@ class Contact extends Component
 
   public function render()
   {
+
+    // $test = ModelsContact::where('event_id', $this->eventId)->whereDate('created_at', $this->date)->get(['name', 'firstname', 'phone', 'email', 'comment', 'model']);
+    // dd($test);
     $this->emit('getSelectedDate', $this->date);
 
     if ($this->date == $this->dateBetween[0]) {
@@ -80,6 +83,7 @@ class Contact extends Component
 
   public function ContactExport()
   {
-    return Excel::download(new ContactExport, 'users.xlsx');
+    $test =  $this->event->Nom . '.xlsx';
+    return Excel::download(new ContactPerDateSheetExport($this->eventId, $this->dateBetween), $this->event->Nom . \Carbon\Carbon::parse($this->event->Date)->translatedFormat('Y') . '.xlsx');
   }
 }

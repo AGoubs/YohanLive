@@ -3,31 +3,45 @@
 namespace App\Exports;
 
 use App\Models\Contact;
+use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithTitle;
 
-class ContactExport implements FromCollection
+class ContactExport implements FromCollection, WithHeadings, ShouldAutoSize, WithTitle
 {
+  use Exportable;
+  protected $date;
+
+  public function  __construct($eventId, $date)
+  {
+    $this->eventId = $eventId;
+    $this->date = $date;
+  }
+
+  public function headings(): array
+  {
+    return [
+      'Nom',
+      'Prénom',
+      'Téléphone',
+      'Email',
+      'Commentaire',
+      'Model actuel',
+    ];
+  }
+
   /**
    * @return \Illuminate\Support\Collection
    */
   public function collection()
   {
-    return Contact::all();
+    return Contact::where('event_id', $this->eventId)->whereDate('created_at', $this->date)->get(['name', 'firstname', 'phone', 'email', 'comment', 'model']);
   }
-  /**
-   * @param array $row
-   *
-   * @return \Illuminate\Database\Eloquent\Model|null
-   */
-  public function model(array $row)
+
+  public function title(): string
   {
-    return new Contact([
-      'nom' => $row['name'],
-      'prenom' => $row['firstname'],
-      'telephone' => isset($row['phone']) ? $row['phone'] : null,
-      'email' => isset($row['email']) ? $row['email'] : null,
-      'comment' => isset($row['comment']) ? $row['comment'] : null,
-      'model' => isset($row['model']) ? $row['model'] : null
-    ]);
+    return ucfirst(\Carbon\Carbon::parse($this->date)->translatedFormat('l d F Y'));
   }
 }
