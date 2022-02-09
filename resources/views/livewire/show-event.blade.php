@@ -5,14 +5,16 @@
         <div class="col-12 text-center">
           <h2>{{ $event->Nom }}</h2>
         </div>
-        <div class="col-12 col-lg-12 m-auto mt-4">
-          <livewire:components.tables.contact :eventId="$eventId">
-            <div class="mx-3">
-              <livewire:components.tables.users :eventId="$eventId" :users='$users' :assignButton="true">
+        <livewire:components.contact-counter :eventId="$eventId">
 
-            </div>
+          <div class="col-12 col-lg-12 m-auto mt-4">
+            <livewire:components.tables.contact :eventId="$eventId">
+              <div class="mx-3">
+                <livewire:components.tables.users :eventId="$eventId" :users='$users' :assignButton="true">
 
-        </div>
+              </div>
+
+          </div>
       </div>
     </div>
 

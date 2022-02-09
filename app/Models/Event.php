@@ -21,4 +21,29 @@ class Event extends Model
   {
     return Event::where('id', $eventId)->first();
   }
+
+  /** 
+   * Permet de retrouver les dates entres deux valeurs
+   *
+   * @return response()
+   */
+  public static function getBetweenDates($startDate, $endDate)
+  {
+    $rangArray = [];
+
+    $startDate = strtotime($startDate);
+    $endDate = strtotime($endDate);
+
+    for (
+      $currentDate = $startDate;
+      $currentDate <= $endDate;
+      $currentDate += (86400)
+    ) {
+
+      $date = date('Y-m-d', $currentDate);
+      $rangArray[] = $date;
+    }
+
+    return $rangArray;
+  }
 }

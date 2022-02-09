@@ -7,20 +7,19 @@
             @if (auth()->user()->isAdmin())
               <div class="col-12 col-md-6 col-lg-6 mt-2 mt-sm-0">
                 <div class="d-inline-flex">
-
-                  <button class="btn" wire:click="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
+                  <div x-data>
+                    <button x-bind:disabled="$wire.disableDecrease" class="btn" wire:click="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
+                  </div>
                   <div class="form-group mx-2">
                     <select class="form-control" id="date_event" style="background-color: white" wire:model="date">
                       @foreach ($dateBetween as $date)
-                        @if ($date == date('Y-m-d'))
-                          <option selected="selected" value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
-                        @else
-                          <option value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
-                        @endif
+                        <option wire:key="{{ $date }}" value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
                       @endforeach
                     </select>
                   </div>
-                  <button class="btn" wire:click="increase_date()"><i class="fas fa-chevron-right"></i></button>
+                  <div x-data>
+                    <button x-bind:disabled="$wire.disableIncrease" class="btn" wire:click="increase_date()"><i class="fas fa-chevron-right"></i></button>
+                  </div>
                 </div>
               </div>
               <div><button class="btn"><i class="far fa-file-excel fa-2x text-success"></i></button></div>
@@ -101,7 +100,7 @@
     </div>
   </div>
 </div>
-{{-- <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
 <script>
   const dataTableSearchContacts = new simpleDatatables.DataTable("#contacts-table", {
     searchable: true,
@@ -114,4 +113,4 @@
       info: "Affichage de {start} à {end} des {rows} contacts",
     }
   });
-</script> --}}
+</script>
