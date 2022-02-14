@@ -30,6 +30,17 @@
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
               </div>
+              @if ($total)
+                @if ($total <= 1)
+                  <div>
+                    <span class="h5">{{ $total }}</span> Contact ajouté
+                  </div>
+                @else
+                  <div>
+                    <span class="h5">{{ $total }}</span> Contacts ajoutés
+                  </div>
+                @endif
+              @endif
               {{-- <a href="{{ route('events.create-contact', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a> --}}
             @endif
 
@@ -60,9 +71,11 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Model actuel
                     </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Ajouté par
-                    </th>
+                    @if (auth()->user()->isAdmin())
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                        Ajouté par
+                      </th>
+                    @endif
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
                   </tr>
                 </thead>
@@ -88,9 +101,11 @@
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
                       </td>
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
-                      </td>
+                      @if ($contact->user_name)
+                        <td class="text-md-left">
+                          <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
+                        </td>
+                      @endif
                       <td class="text-md-left" style="min-width: 130px">
                         <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                           <i class="fas fa-user-edit text-secondary"></i>

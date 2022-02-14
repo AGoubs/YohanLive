@@ -19,6 +19,10 @@ class Contact extends Model
     return Contact::where('event_id', $eventId)->whereDate('created_at', '=', $date)->get();
   }
 
+  public static function getContactsByEventAndDateAndUser($eventId, $date, $userId)
+  {
+    return Contact::where('event_id', $eventId)->where('user_id', $userId)->whereDate('created_at', '=', $date)->get();
+  }
 
   public static function getContactById($id)
   {

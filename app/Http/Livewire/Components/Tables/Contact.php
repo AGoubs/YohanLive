@@ -16,6 +16,7 @@ class Contact extends Component
   public $date;
   public $dateBetween;
   public $contacts;
+  public $total;
   public $disableDecrease = false;
   public $disableIncrease = false;
 
@@ -34,10 +35,21 @@ class Contact extends Component
     } else {
       $this->disableIncrease = false;
     }
-    $this->contacts = ModelsContact::getContactsByEventAndDate($this->eventId, $this->date);
-    foreach ($this->contacts as $contact) {
-      $contact->user_name = User::getUserNameById($contact->user_id);
+
+    if (auth()->user()->isAdmin()) {
+      $this->contacts = ModelsContact::getContactsByEventAndDate($this->eventId, $this->date);
+      if ($this->contacts) {
+        foreach ($this->contacts as $contact) {
+          $contact->user_name = User::getUserNameById($contact->user_id);
+        }
+      }
+    } else {
+      $this->contacts = ModelsContact::getContactsByEventAndDateAndUser($this->eventId, $this->date, auth()->id());
+      $this->total = $this->contacts->count();
     }
+
+
+
 
     return view('livewire.components.tables.contact');
   }
