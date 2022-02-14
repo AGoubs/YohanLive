@@ -24,6 +24,8 @@ class ContactPerDateSheetExport implements WithMultipleSheets
     foreach ($this->dateBetween as $date) {
       $sheets[] = new ContactExport($this->eventId, $date);
     }
+    $sheets[] = new ContactTotalExport($this->eventId);
+
 
     return $sheets;
   }
