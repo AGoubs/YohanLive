@@ -6,7 +6,7 @@
         <div class="col-lg-5 text-center mx-auto">
           <h1 class="text-white mb-2 mt-5">{{ __('Bienvenue !') }}</h1>
           <p class="text-lead text-white">
-            {{ __('Application de gestion d\'hôtes pour des évènements') }}
+            {{ __('Application de prise de contact pour des évènements') }}
           </p>
         </div>
       </div>
@@ -38,7 +38,9 @@
               <div class="text-center">
                 <button type="submit" class="btn bg-gradient-dark w-100 mt-4 mb-0">{{ __('Connexion') }}</button>
               </div>
-              <p class="text-sm mt-4 mb-0 text-center">Mot de passe oublié ? <a href="{{ route('forgot-password') }}" class="text-dark font-weight-bolder">Cliquez ici</a></p>
+              <div class="text-sm mt-4 mb-0 text-center">
+                {{-- Mot de passe oublié ? <a href="{{ route('forgot-password') }}" class="text-dark font-weight-bolder">Cliquez ici</a> --}}
+              </div>
             </form>
 
           </div>
