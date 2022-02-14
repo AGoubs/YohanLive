@@ -29,13 +29,13 @@ class CreateContact extends Component
 
   public function render()
   {
-    $this->event = Event::find($this->eventId);
     return view('livewire.contact.create-contact');
   }
 
   public function mount()
   {
     $this->contact = new Contact();
+    $this->event = Event::find($this->eventId);
   }
 
   public function submit()
