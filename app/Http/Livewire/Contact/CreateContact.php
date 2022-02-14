@@ -40,7 +40,7 @@ class CreateContact extends Component
 
   public function submit()
   {
-    $this->validate();
+    // $this->validate();
     $this->contact->event_id = $this->eventId;
     $this->contact->user_id = auth()->id();
     $this->contact->save();
