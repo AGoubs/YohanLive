@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n7"><img src="{{ $event->Logo }}" alt="" width="{{ $event->LogoSize }}"></h1>
+            <h1 class="text-white pt-3 mt-n7"><img src="{{ asset('storage/' . $event->Logo) }}" alt="" width="{{ $event->LogoSize }}"></h1>
             {{-- <h1 class="text-white pt-3 mt-n7"><img src="{{ asset('assets/img/event-header/honda.png') }}" alt="" width="200"></h1> --}}
           </div>
         </div>
