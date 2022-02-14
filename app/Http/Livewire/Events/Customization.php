@@ -42,7 +42,7 @@ class Customization extends Component
   public function updateEvent()
   {
     $this->validate();
-    $this->event->Logo = $this->Logo->store('logos', 'public');
+    $this->event->Logo = $this->Logo->store('photo');
     $this->event->Couleur = $this->Couleur;
     $this->event->LogoSize = $this->LogoSize;
     $this->event->save();

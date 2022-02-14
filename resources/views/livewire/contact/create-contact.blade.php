@@ -28,7 +28,7 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Téléphone</label>
-                  <input type="text" class="form-control @error('contact.phone') is-invalid  @enderror" wire:model="contact.phone" autofocus />
+                  <input type="text" class="form-control @error('contact.phone') is-invalid  @enderror" wire:model="contact.phone" />
                   @error('contact.phone') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
@@ -40,7 +40,7 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label class="control-label">Model Actuel</label>
-                  <input type="text" class="form-control @error('contact.model') is-invalid  @enderror" wire:model="contact.model" autofocus />
+                  <input type="text" class="form-control @error('contact.model') is-invalid  @enderror" wire:model="contact.model" />
                   @error('contact.model') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
               </div>
