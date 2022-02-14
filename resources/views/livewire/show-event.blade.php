@@ -11,11 +11,11 @@
             <livewire:components.tables.contact :eventId="$eventId">
               <div class="mx-3">
                 <livewire:components.tables.users :eventId="$eventId" :users='$users' :assignButton="true">
-
               </div>
-
           </div>
       </div>
+      <livewire:components.host-fixed-plugin :eventId="$eventId">
+
     </div>
 
   @else

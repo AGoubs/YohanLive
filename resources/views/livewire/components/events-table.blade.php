@@ -24,7 +24,6 @@
             <th data-type="date" data-format="DD/MM/YYYY" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
               Date de fin
             </th>
-
             @if (auth()->user()->isAdmin())
               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                 Actions
@@ -47,7 +46,8 @@
                     </a>
                 </td>
                 <td class="text-md-center" data-label="Date" onclick="redirect({{ $event->id }})">
-                  @if ($event->Date < date('Y-m-d')) <span class="badge badge-sm badge-danger">
+                  @if ($event->Date < date('Y-m-d'))
+                    <span class="badge badge-sm badge-danger">
                       {{ date('d/m/Y', strtotime($event->Date)) }}</span>
                   @elseif ($event->Date == date('Y-m-d'))
                     <span class="badge badge-sm badge-info">{{ date('d/m/Y', strtotime($event->Date)) }}</span>
@@ -56,7 +56,8 @@
                   @endif
                 </td>
                 <td class="text-md-center" data-label="Date" onclick="redirect({{ $event->id }})">
-                  @if ($event->DateFin < date('Y-m-d')) <span class="badge badge-sm badge-danger">
+                  @if ($event->DateFin < date('Y-m-d'))
+                    <span class="badge badge-sm badge-danger">
                       {{ date('d/m/Y', strtotime($event->DateFin)) }}</span>
                   @elseif ($event->DateFin == date('Y-m-d'))
                     <span class="badge badge-sm badge-info">{{ date('d/m/Y', strtotime($event->DateFin)) }}</span>

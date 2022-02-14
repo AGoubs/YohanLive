@@ -22,7 +22,10 @@
                   </div>
                 </div>
               </div>
-              <div><button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button></div>
+              <div>
+                <button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button>
+              </div>
+
             @else
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
@@ -69,6 +72,7 @@
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->firstname }}</p>
                       </td>
+
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $contact->phone }}</p>
                       </td>
@@ -81,7 +85,6 @@
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
                       </td>
-                      {{-- TODO Edit contact --}}
                       <td class="text-md-left" style="min-width: 130px">
                         <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                           <i class="fas fa-user-edit text-secondary"></i>

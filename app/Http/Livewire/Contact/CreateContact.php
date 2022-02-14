@@ -43,6 +43,10 @@ class CreateContact extends Component
     $this->contact->event_id = $this->eventId;
     $this->contact->save();
 
-    return redirect()->route('events.contact', [$this->eventId]);
+    if (auth()->user()->isAdmin()) {
+      return redirect()->route('events.show', [$this->eventId]);
+    } else {
+      return redirect()->route('events.contact', [$this->eventId]);
+    }
   }
 }
