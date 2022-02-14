@@ -68,4 +68,10 @@ class User extends Authenticatable
     $usersByEvent = User::whereIn('id', $usersIds)->get();
     return $usersByEvent;
   }
+
+  public static function getUserNameById($userId)
+  {
+    $userName = User::where('id', $userId)->pluck('name')->first();
+    return $userName;
+  }
 }

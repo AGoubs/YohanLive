@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
       'role' => 'admin'
     ]);
 
+    User::factory()->create([
+      'name' => 'Le Testeur Fou',
+      'email' => 'Test',
+      'password' => Hash::make('Test'),
+      'role' => 'host'
+    ]);
+
 
     TypeEvent::factory()->create([
       'type_event' => 'Basique',

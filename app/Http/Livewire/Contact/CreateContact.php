@@ -19,6 +19,7 @@ class CreateContact extends Component
     'contact.email' => '',
     'contact.comment' => '',
     'contact.model' => '',
+    'contact.user_id' => '',
   ];
 
   protected $messages = [
@@ -41,6 +42,7 @@ class CreateContact extends Component
   {
     $this->validate();
     $this->contact->event_id = $this->eventId;
+    $this->contact->user_id = auth()->id();
     $this->contact->save();
 
     if (auth()->user()->isAdmin()) {

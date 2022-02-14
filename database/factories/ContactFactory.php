@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Contact;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContactFactory extends Factory
@@ -30,6 +31,7 @@ class ContactFactory extends Factory
       'comment' => $this->faker->word(2),
       'model' => $this->faker->word(),
       'event_id' => Event::all()->random()->id,
+      'user_id' => User::all()->random()->id,
     ];
   }
 }

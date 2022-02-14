@@ -60,6 +60,9 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Model actuel
                     </th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                      Ajouté par
+                    </th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
                   </tr>
                 </thead>
@@ -84,6 +87,9 @@
                       </td>
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
+                      </td>
+                      <td class="text-md-left">
+                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
                       </td>
                       <td class="text-md-left" style="min-width: 130px">
                         <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
