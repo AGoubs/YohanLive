@@ -36,7 +36,7 @@ class ShowEvent extends Component
     $this->userEvents = EventByUser::where('user_id', auth()->id())->pluck('event_id')->toArray();
 
     if (!isset($this->eventId)) {
-      $this->event = Event::where('Date', date("Y-m-d"))->first();
+      $this->event = Event::whereDate('Date', '<=', date('Y-m-d'))->whereDate('DateFin', '>=', date('Y-m-d'))->first();
       if (!isset($this->event)) {
         session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
         return redirect()->route('events.index');
