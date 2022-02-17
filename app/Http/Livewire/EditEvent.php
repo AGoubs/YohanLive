@@ -15,7 +15,7 @@ class EditEvent extends Component
 
   protected $rules = [
     'Nom' => 'required',
-    'Date' => 'required',
+    'Date' => 'required|before:DateFin',
     'DateFin' => '',
   ];
 

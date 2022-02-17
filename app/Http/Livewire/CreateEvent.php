@@ -13,7 +13,7 @@ class CreateEvent extends Component
 
   protected $rules = [
     'Nom' => 'required',
-    'Date' => 'required',
+    'Date' => 'required|before_or_equal:DateFin',
     'DateFin' => '',
   ];
 
@@ -24,10 +24,10 @@ class CreateEvent extends Component
 
   public function createEvent()
   {
-    $this->validate();
     if (!$this->DateFin) {
       $this->DateFin = $this->Date;
     }
+    $this->validate();
     $event = Event::create([
       'Nom' => $this->Nom,
       'Date' => $this->Date,

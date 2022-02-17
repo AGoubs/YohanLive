@@ -45,8 +45,10 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="name" class="form-control-label">{{ __('Nom complet') }} <span class="text-danger">*</span></label>
-                <input wire:model="user.name" class="form-control @error('user.name') is-invalid @enderror" type="text" placeholder="Michel Dubois" id="name">
-                @error('user.name') <div class="text-danger">{{ $message }}</div> @enderror
+                <input wire:model.defer="user.name" class="form-control @error('user.name') is-invalid @enderror" type="text" placeholder="Michel Dubois" id="name">
+                @error('user.name')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
@@ -54,15 +56,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="user-email" class="form-control-label">{{ __('Identifiant') }} <span class="text-danger">*</span></label>
-                <input wire:model="user.email" class="form-control @error('user.email') is-invalid @enderror" type="text" placeholder="MDubois" id="user-email">
-                @error('user.email') <div class="text-danger">{{ $message }}</div> @enderror
+                <input wire:model.defer="user.email" class="form-control @error('user.email') is-invalid @enderror" type="text" placeholder="MDubois" id="user-email">
+                @error('user.email')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="user-password" class="form-control-label">{{ __('Mot de passe') }} <span class="text-danger">*</span></label>
-                <input wire:model="user.password" class="form-control @error('user.password') is-invalid @enderror" type="password" placeholder="******" id="user-password">
-                @error('user.password') <div class="text-danger">{{ $message }}</div> @enderror
+                <input wire:model.defer="user.password" class="form-control @error('user.password') is-invalid @enderror" type="password" placeholder="******" id="user-password">
+                @error('user.password')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
@@ -70,22 +76,28 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="user.phone" class="form-control-label">{{ __('Téléphone') }}</label>
-                <input wire:model="user.phone" class="form-control @error('user.phone') is-invalid @enderror" type="tel" placeholder="0601020304" id="phone">
-                @error('user.phone') <div class="text-danger">{{ $message }}</div> @enderror
+                <input wire:model.defer="user.phone" class="form-control @error('user.phone') is-invalid @enderror" type="tel" placeholder="0601020304" id="phone">
+                @error('user.phone')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="user.location" class="form-control-label">{{ __('Lieu') }}</label>
-                <input wire:model="user.location" class="form-control @error('user.location') is-invalid @enderror" type="text" placeholder="Lyon" id="name">
-                @error('user.location') <div class="text-danger">{{ $message }}</div> @enderror
+                <input wire:model.defer="user.location" class="form-control @error('user.location') is-invalid @enderror" type="text" placeholder="Lyon" id="name">
+                @error('user.location')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="about">{{ 'A propos' }}</label>
-            <textarea wire:model="user.about" class="form-control @error('user.about') is-invalid @enderror" id="about" rows="3" placeholder="A propos"></textarea>
-            @error('user.about') <div class="text-danger">{{ $message }}</div> @enderror
+            <textarea wire:model.defer="user.about" class="form-control @error('user.about') is-invalid @enderror" id="about" rows="3" placeholder="A propos"></textarea>
+            @error('user.about')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
           <div class="d-flex justify-content-end">
             <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Sauvegarder' }}</button>

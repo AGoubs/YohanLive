@@ -20,20 +20,26 @@
             <div class="row mt-3">
               <div class="col-12 col-sm-12">
                 <label for="Nom" class="control-label">Nom <span class="text-danger">*</span></label>
-                <input type="text" class="form-control @error('Nom') is-invalid  @enderror" wire:model="Nom" autofocus />
-                @error('Nom') <div class="text-danger">{{ $message }}</div> @enderror
+                <input type="text" class="form-control @error('Nom') is-invalid @enderror" wire:model.defer="Nom" autofocus />
+                @error('Nom')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                 <label for="Date" class="control-label">Date de début <span class="text-danger">*</span></label>
-                <input type="date" class="form-control @error('Date') border border-danger  @enderror" wire:model="Date" />
-                @error('Date') <div class="text-danger">{{ $message }}</div> @enderror
+                <input type="date" class="form-control @error('Date') border border-danger @enderror" wire:model.defer="Date" />
+                @error('Date')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                 <label for="DateFin" class="control-label">Date de fin</label>
-                <input type="Date" class="form-control @error('DateFin') border border-danger  @enderror" wire:model="DateFin" />
-                @error('DateFin') <div class="text-danger">{{ $message }}</div> @enderror
+                <input type="Date" class="form-control @error('DateFin') border border-danger @enderror" wire:model.defer="DateFin" />
+                @error('DateFin')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="button-row d-flex mt-4">
                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Suivant">Suivant</button>
