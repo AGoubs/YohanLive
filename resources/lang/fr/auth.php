@@ -16,5 +16,5 @@ return [
   'password' => 'Le mot de passe fourni est incorrect.',
   'throttle' => 'Tentatives de connexion trop nombreuses. Veuillez essayer de nouveau dans :seconds secondes.',
   'connexion_failed' => 'Erreur de connexion à la base de données. Merci de contacter l\'administrateur.',
-  'no_event' => 'Aucun évènement n\'est attribué à cet utilisateur.',
+  'no_event' => 'Aucun évènement n\'est attribué à ce jour à cet utilisateur.',
 ];
