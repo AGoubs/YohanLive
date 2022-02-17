@@ -30,7 +30,8 @@ class ShowUsers extends Component
     $this->validate();
     $this->user->save();
 
-    $this->showSuccesNotification = true;
+    // $this->showSuccesNotification = true;
+    return redirect()->route('users.index');
   }
   public function render()
   {
