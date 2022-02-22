@@ -44,6 +44,7 @@ class CreateContact extends Component
     $this->contact->firstname = trim($this->contact->firstname);
     $this->contact->phone = trim($this->contact->phone);
     $this->contact->email = trim($this->contact->email);
+    $this->contact->model = trim($this->contact->model);
     $this->contact->comment = trim($this->contact->comment);
 
     $this->validate();
