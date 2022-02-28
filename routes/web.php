@@ -44,9 +44,9 @@ Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')
 
 Route::middleware('auth')->group(function () {
 
-  Route::get('/offline', function () {
-    return view('modules/laravelpwa/offline');
-  });
+  Route::get('/offline', function () {    
+    return view('vendor/laravelpwa/offline');
+    });
 
   /**
    * Dashboard Routes
