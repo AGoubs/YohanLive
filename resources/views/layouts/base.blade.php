@@ -34,7 +34,7 @@
   <script src="{{ asset('assets/js/alpine.min.js') }}" defer></script>
 
   @livewireStyles
-
+  @laravelPWA
 </head>
 
 <body class="g-sidenav-show bg-gray-100">

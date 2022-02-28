@@ -41,7 +41,13 @@ Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
 
+
 Route::middleware('auth')->group(function () {
+
+  Route::get('/offline', function () {
+    return view('modules/laravelpwa/offline');
+  });
+
   /**
    * Dashboard Routes
    */
