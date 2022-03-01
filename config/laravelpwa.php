@@ -4,13 +4,13 @@ return [
     'name' => 'Event',
     'manifest' => [
         'name' => env('APP_NAME', 'Event'),
-        'short_name' => 'PWA',
+        'short_name' => 'Event',
         'start_url' => '/',
         'background_color' => '#ffffff',
-        'theme_color' => '#000000',
+        'theme_color' => '#ffffff',
         'display' => 'standalone',
         'orientation'=> 'any',
-        'status_bar'=> 'black',
+        'status_bar'=> 'white',
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/72.png',
