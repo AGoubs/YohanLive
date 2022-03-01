@@ -4,17 +4,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon2.png') }}">
-  <link rel="apple-touch-startup-image" href="{{ asset('assets/img/apple-icon2.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-
-
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
   <title>
     Event
   </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
   <!-- Fonts and icons     -->
   {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> --}}
   <link href="{{ asset('assets/css/open-sans.min.css') }}" rel="stylesheet" />
@@ -24,7 +18,7 @@
   <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
-  <link href="{{ asset('assets/js/kit-fontawesome.min.js') }}" rel="stylesheet" />
+  {{-- <link href="{{ asset('assets/js/kit-fontawesome.min.js') }}" rel="stylesheet" /> --}}
 
   <!-- CSS Files -->
   <link href="{{ asset('assets/css/soft-ui-dashboard.min.css') }}" rel="stylesheet" />

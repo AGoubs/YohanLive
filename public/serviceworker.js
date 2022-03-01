@@ -1,16 +1,16 @@
 var staticCacheName = "pwa-v" + new Date().getTime();
 var filesToCache = [
-    '/offline',
-    '/css/app.css',
-    '/js/app.js',
-    '/images/icons/icon-72x72.png',
-    '/images/icons/icon-96x96.png',
-    '/images/icons/icon-128x128.png',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/icon-152x152.png',
-    '/images/icons/icon-192x192.png',
-    '/images/icons/icon-384x384.png',
-    '/images/icons/icon-512x512.png',
+    '/event/contact',
+    '/assets/css/soft-ui-dashboard.min.css',
+    '/assets/css/open-sans.min.css',
+    '/assets/js/kit-fontawesome.min.js',
+    '/assets/js/alpine.min.js',
+    '/assets/js/core/bootstrap.min.js',
+    '/assets/js/core/jquery-3.6.0.min.js',
+    '/assets/js/soft-ui-dashboard.js?v=1.0.2',
+    '/images/icons/72.png',
+    '/images/icons/128.png',
+    '/images/icons/512.png',
 ];
 
 // Cache on install
