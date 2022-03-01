@@ -7,10 +7,10 @@ return [
         'short_name' => 'Event',
         'start_url' => '/',
         'background_color' => '#ffffff',
-        'theme_color' => '#ffffff',
+        'theme_color' => '#000000',
         'display' => 'standalone',
         'orientation'=> 'any',
-        'status_bar'=> 'white',
+        'status_bar'=> 'black',
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/72.png',
