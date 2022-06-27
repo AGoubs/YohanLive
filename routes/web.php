@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
   //   return view('vendor/laravelpwa/offline');
   //   });
 
-  Route::get('/offline', ContactContact::class)->name('offline');
+  Route::get('/offline', CreateContact::class)->name('offline');
 
   /**
    * Dashboard Routes
