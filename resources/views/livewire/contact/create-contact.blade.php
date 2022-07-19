@@ -15,14 +15,16 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Nom <span class="text-danger">*</span></label>
-                  <input type="text" required class="form-control @error('contact.name') is-invalid @enderror" wire:model.defer="contact.name" autofocus />
+                  <input type="text" required class="form-control @error('contact.name') is-invalid @enderror"
+                    wire:model.defer="contact.name" autofocus />
                   @error('contact.name')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                   <label class="control-label">Prénom <span class="text-danger">*</span></label>
-                  <input type="text" required class="form-control @error('contact.firstname') is-invalid @enderror" wire:model.defer="contact.firstname" />
+                  <input type="text" required class="form-control @error('contact.firstname') is-invalid @enderror"
+                    wire:model.defer="contact.firstname" />
                   @error('contact.firstname')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
@@ -31,14 +33,16 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Téléphone</label>
-                  <input type="text" class="form-control @error('contact.phone') is-invalid @enderror" wire:model.defer="contact.phone" />
+                  <input type="text" class="form-control @error('contact.phone') is-invalid @enderror"
+                    wire:model.defer="contact.phone" />
                   @error('contact.phone')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                   <label class="control-label">Email</label>
-                  <input type="email" class="form-control @error('contact.email') is-invalid @enderror" wire:model.defer="contact.email" />
+                  <input type="email" class="form-control @error('contact.email') is-invalid @enderror"
+                    wire:model.defer="contact.email" />
                   @error('contact.email')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
@@ -47,7 +51,8 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label class="control-label">Model Actuel</label>
-                  <input type="text" class="form-control @error('contact.model') is-invalid @enderror" wire:model.defer="contact.model" />
+                  <input type="text" class="form-control @error('contact.model') is-invalid @enderror"
+                    wire:model.defer="contact.model" />
                   @error('contact.model')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
@@ -56,14 +61,16 @@
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label for="commentaire" class="control-label">Commentaire</label>
-                  <textarea name="commentaire" id="commentaire" class="form-control @error('contact.comment') is-invalid @enderror" cols="30" rows="5" wire:model.defer="contact.comment"></textarea>
+                  <textarea name="commentaire" id="commentaire" class="form-control @error('contact.comment') is-invalid @enderror"
+                    cols="30" rows="5" wire:model.defer="contact.comment"></textarea>
                   @error('contact.comment')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
               </div>
               <div class="button-row d-flex mt-3">
-                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Valider">Valider</button>
+                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
+                  title="Valider">Valider</button>
               </div>
             </form>
           </div>

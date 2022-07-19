@@ -84,6 +84,11 @@ class Contact extends Component
     }
   }
 
+  public function scanQrCode()
+  {
+    dd('hello');
+  }
+
   public function deleteContact($id)
   {
     ModelsContact::find($id)->delete();
@@ -96,7 +101,6 @@ class Contact extends Component
 
   public function ContactExport()
   {
-    $test =  $this->event->Nom . '.xlsx';
     return Excel::download(new ContactPerDateSheetExport($this->eventId, $this->dateBetween), $this->event->Nom . " " . \Carbon\Carbon::parse($this->event->Date)->translatedFormat('Y') . '.xlsx');
   }
 

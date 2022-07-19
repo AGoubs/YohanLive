@@ -10,7 +10,6 @@
             <a href="{{ route('users.create', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
               Ajouter</a>
             @if ($assignButton === true)
-
               <a href="{{ route('assign-users.index', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">-&nbsp; Attribuer</a>
             @endif
           @endif

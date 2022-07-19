@@ -8,24 +8,27 @@
               <div class="col-12 col-md-6 col-lg-6 mt-2 mt-sm-0">
                 <div class="d-inline-flex">
                   <div x-data>
-                    <button x-bind:disabled="$wire.disableDecrease" class="btn" onclick="decrease_date()"><i class="fas fa-chevron-left"></i> </button>
+                    <button x-bind:disabled="$wire.disableDecrease" class="btn" onclick="decrease_date()"><i
+                        class="fas fa-chevron-left"></i> </button>
                   </div>
                   <div class="form-group mx-2">
                     <select class="form-control" id="date_event" style="background-color: white" wire:model="date">
                       @foreach ($dateBetween as $date)
-                        <option wire:key="{{ $date }}" value="{{ $date }}">{{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
+                        <option wire:key="{{ $date }}" value="{{ $date }}">
+                          {{ ucfirst(\Carbon\Carbon::parse($date)->translatedFormat('l d F Y')) }}</option>
                       @endforeach
                     </select>
                   </div>
                   <div x-data>
-                    <button x-bind:disabled="$wire.disableIncrease" class="btn" onclick="increase_date()"><i class="fas fa-chevron-right"></i></button>
+                    <button x-bind:disabled="$wire.disableIncrease" class="btn" onclick="increase_date()"><i
+                        class="fas fa-chevron-right"></i></button>
                   </div>
                 </div>
               </div>
               <div>
-                <button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button>
+                <button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i
+                    class="far fa-file-excel fa-lg text-success"></i></button>
               </div>
-
             @else
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
@@ -107,11 +110,15 @@
                         </td>
                       @endif
                       <td class="text-md-left" style="min-width: 130px">
-                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
+                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}"
+                          class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
                           <i class="fas fa-user-edit text-secondary"></i>
                         </a>
                         <span>
-                          <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer le contact" onclick="confirm('Supprimer ce contact : {{ $contact->name }} {{ $contact->firstname }}?') || event.stopImmediatePropagation()" wire:click="deleteContact({{ $contact->id }})"></i>
+                          <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
+                            data-bs-original-title="Supprimer le contact"
+                            onclick="confirm('Supprimer ce contact : {{ $contact->name }} {{ $contact->firstname }}?') || event.stopImmediatePropagation()"
+                            wire:click="deleteContact({{ $contact->id }})"></i>
                         </span>
                       </td>
                     </tr>
@@ -124,6 +131,8 @@
     </div>
   </div>
 </div>
+
+
 <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
 <script>
   let dataTableSearchContacts = new simpleDatatables.DataTable("#contacts-table", {

@@ -7,7 +7,8 @@
         </div>
         <div>
           @if (auth()->user()->isAdmin())
-
+          <a class="btn bg-gradient-dark mb-0" href="{{ route('assign-users-qrcode', $eventId) }}"><i
+            class="fas fa-qrcode fa-lg"></i> &nbsp; Scanner</a>
             <a href="{{ route('assign-users.index', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark mb-0" type="button"><i class="fas fa-user-check"></i>&nbsp; Attribuer</a>
           @endif
         </div>

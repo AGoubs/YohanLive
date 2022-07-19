@@ -17,6 +17,7 @@ use App\Http\Livewire\EditHost;
 use App\Http\Livewire\Event;
 use App\Http\Livewire\Events\Customization;
 use App\Http\Livewire\LaravelExamples\UserProfile;
+use App\Http\Livewire\QRCode;
 use App\Http\Livewire\ShowEvent;
 use App\Http\Livewire\Users\CreateUser;
 use App\Http\Livewire\Users\ShowUsers;
@@ -120,6 +121,8 @@ Route::middleware('auth')->group(function () {
    */
   Route::prefix('assign-users')->group(function () {
     Route::middleware('admin')->group(function () {
+    Route::get('/qrcode/{eventId}', QRCode::class)->name('assign-users-qrcode');
+
       Route::get('/{eventId}', AssignUsers::class)->name('assign-users.index');
     });
   });
