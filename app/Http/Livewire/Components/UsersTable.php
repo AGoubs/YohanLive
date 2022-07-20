@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Components;
 
-use App\Http\Livewire\UsersEvents\UsersEvents;
+use App\Mail\sendQrCode;
 use App\Models\EventByUser;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
-
 class UsersTable extends Component
 {
   public $users;
@@ -29,6 +29,14 @@ class UsersTable extends Component
   {
     EventByUser::where('user_id', $id)->delete();
     User::find($id)->delete();
+    return redirect()->route('users.index');
+  }
+
+  public function generateQrCode($userId, $email)
+  {
+    Mail::to($email)->send(new sendQrCode('malfoo@gmail.com', 'Voici votre QR Code', $userId));
+
+    session()->flash('success', 'Email envoyé avec succès');
     return redirect()->route('users.index');
   }
 

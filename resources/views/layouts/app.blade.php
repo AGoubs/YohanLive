@@ -20,6 +20,7 @@
       {{ $slot }}
     @elseif (in_array(request()->route()->getName(),
         ['assign-users-qrcode']))
+      <livewire:flash-message>
       {{ $slot }}
     @elseif (in_array(request()->route()->getName(),
         ['profile', 'my-profile']))

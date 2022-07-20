@@ -7,10 +7,12 @@
         </div>
         <div>
           @if (auth()->user()->isAdmin())
-            <a href="{{ route('users.create', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp;
+            <a href="{{ route('users.create', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0"
+              type="button">+&nbsp;
               Ajouter</a>
             @if ($assignButton === true)
-              <a href="{{ route('assign-users.index', ['eventId' => $eventId]) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">-&nbsp; Attribuer</a>
+              <a href="{{ route('assign-users.index', ['eventId' => $eventId]) }}"
+                class="btn bg-gradient-dark btn-sm mb-0" type="button">-&nbsp; Attribuer</a>
             @endif
           @endif
         </div>
@@ -45,7 +47,6 @@
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                   Assigner
                 </th>
-
               @endif
             @endif
           </tr>
@@ -54,29 +55,42 @@
           @if ($users != [])
             @foreach ($users as $user)
               <tr class="px-3">
-                <td class="text-md-left" data-label="Nom" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                <td class="text-md-left" data-label="Nom" style="cursor: pointer"
+                  wire:click='selectEvent({{ $user->id }})'>
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->name }}</p>
                 </td>
-                <td class="text-md-center" data-label="Email" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                <td class="text-md-center" data-label="Email" style="cursor: pointer"
+                  wire:click='selectEvent({{ $user->id }})'>
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->email }}</p>
                 </td>
-                <td class="text-md-center" data-label="Téléphone" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                <td class="text-md-center" data-label="Téléphone" style="cursor: pointer"
+                  wire:click='selectEvent({{ $user->id }})'>
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->phone }}</p>
                 </td>
-                <td class="text-md-center" data-label="Localisation" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                <td class="text-md-center" data-label="Localisation" style="cursor: pointer"
+                  wire:click='selectEvent({{ $user->id }})'>
                   <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->location }}</p>
                 </td>
                 @if (auth()->user()->isAdmin())
                   @if ($action === true)
-                    <td class="text-md-center" data-label="Role" style="cursor: pointer" wire:click='selectEvent({{ $user->id }})'>
+                    <td class="text-md-center" data-label="Role" style="cursor: pointer"
+                      wire:click='selectEvent({{ $user->id }})'>
                       <p class="text-xs font-weight-bold mb-0 ps-3">{{ $user->role }}</p>
                     </td>
                     <td class="text-md-center">
-                      <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'utilisateur">
+                      <span>
+                        <i class="cursor-pointer fas fa-qrcode text-secondary" data-bs-toggle="tooltip"
+                          data-bs-original-title="Envoyer le QRcode"
+                          onclick="sendQrCode({{ $user->id }},'{{ $user->email }}')"></i>
+                      </span>
+                      <a href="{{ route('users.show', [$user->id]) }}" class="mx-3" data-bs-toggle="tooltip"
+                        data-bs-original-title="Editer l'utilisateur">
                         <i class="fas fa-user-edit text-secondary"></i>
                       </a>
                       <span>
-                        <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'utilisateur" onclick="deleteUser({{ $user->id }},'{{ $user->name }}')"></i>
+                        <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip"
+                          data-bs-original-title="Supprimer l'utilisateur"
+                          onclick="deleteUser({{ $user->id }},'{{ $user->name }}')"></i>
                       </span>
                     </td>
                   @endif
@@ -84,9 +98,11 @@
                     <td class="text-md-center" data-label="Assigner" style="cursor: pointer">
                       <div class="form-check form-switch d-flex justify-content-end">
                         @if (in_array($user->id, $usersIdsByEvent))
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="{{ $user->id }}" checked>
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                            name="{{ $user->id }}" checked>
                         @else
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="{{ $user->id }}">
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                            name="{{ $user->id }}">
                         @endif
                       </div>
                     </td>
@@ -97,6 +113,7 @@
           @endif
         </tbody>
       </table>
+      <div id="qrcode"></div>
     </div>
   </div>
 </div>
@@ -121,5 +138,9 @@
     if (confirm("Supprimer cet utilisateur : " + name + " ?")) {
       @this.deleteUser(id);
     }
+  }
+  function sendQrCode(id, email)
+  {
+    @this.generateQrCode(id, email)
   }
 </script>
