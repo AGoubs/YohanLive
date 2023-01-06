@@ -26,7 +26,6 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
       'Téléphone',
       'Email',
       'Commentaire',
-      'Model actuel',
     ];
   }
 
@@ -35,7 +34,7 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
    */
   public function collection()
   {
-    return Contact::where('event_id', $this->eventId)->get(['name', 'firstname', 'phone', 'email', 'comment', 'model']);
+    return Contact::where('event_id', $this->eventId)->get(['name', 'firstname', 'phone', 'email', 'comment']);
   }
 
   public function title(): string
