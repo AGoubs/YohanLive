@@ -25,7 +25,6 @@
               <div>
                 <button class="btn bg-gradient-dark mb-0" wire:click="ContactExport()">Exporter <i class="far fa-file-excel fa-lg text-success"></i></button>
               </div>
-
             @else
               <div>
                 <h5 class="mb-0">{{ $event->Nom }}</h5>
@@ -67,9 +66,6 @@
                     </th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Commentaire
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Model actuel
                     </th>
                     @if (auth()->user()->isAdmin())
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">

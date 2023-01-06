@@ -45,7 +45,7 @@
                   @enderror
                 </div>
               </div>
-              <div class="row mt-3">
+              {{-- <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label class="control-label">Model Actuel</label>
                   <input type="text" class="form-control @error('contact.model') is-invalid @enderror" wire:model.defer="contact.model" autofocus />
@@ -53,7 +53,7 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label for="commentaire" class="control-label">Commentaire</label>
