@@ -94,9 +94,6 @@
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->comment }}</p>
                       </td>
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->model }}</p>
-                      </td>
                       @if ($contact->user_name)
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
