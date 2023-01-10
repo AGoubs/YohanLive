@@ -18,8 +18,10 @@ class EditContact extends Component
     'contact.firstname' => 'required',
     'contact.phone' => '',
     'contact.email' => '',
+    'contact.company' => '',
+    'contact.date_appointment' => '',
+    'contact.user_appointment' => '',
     'contact.comment' => '',
-    'contact.model' => '',
   ];
   protected $messages = [
     'contact.name.required' => 'Le champs Nom est obligatoire',
@@ -43,8 +45,10 @@ class EditContact extends Component
     $this->contact->firstname = trim($this->contact->firstname);
     $this->contact->phone = trim($this->contact->phone);
     $this->contact->email = trim($this->contact->email);
-    $this->contact->model = trim($this->contact->model);
     $this->contact->comment = trim($this->contact->comment);
+    $this->contact->company = trim($this->contact->company);
+    $this->contact->date_appointment = trim($this->contact->date_appointment);
+    $this->contact->user_appointment = trim($this->contact->user_appointment);
 
     $this->validate();
     $this->contact->save();

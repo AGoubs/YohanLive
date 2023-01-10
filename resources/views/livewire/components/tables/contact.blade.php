@@ -67,6 +67,9 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Commentaire
                     </th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                      Rendez-vous
+                    </th>
                     @if (auth()->user()->isAdmin())
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Ajouté par
@@ -92,15 +95,24 @@
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->email }}</p>
                       </td>
                       <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->comment }}</p>
+                        <p class="text-xs font-weight-bold mb-0 ps-3 ">{{ \Illuminate\Support\Str::limit($contact->comment, 30, $end = '...') }}</p>
                       </td>
+                      @if ($contact->date_appointment)
+                        <td class="text-md-left">
+                          <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-check text-success"></i></p>
+                        </td>
+                      @else
+                        <td class="text-md-left">
+                          <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-times text-secondary"></i></p>
+                        </td>
+                      @endif
                       @if ($contact->user_name)
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
                         </td>
                       @endif
                       <td class="text-md-left" style="min-width: 130px">
-                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer l'hôte">
+                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer le contact">
                           <i class="fas fa-user-edit text-secondary"></i>
                         </a>
                         <span>
@@ -128,7 +140,7 @@
       perPage: "{select} contacts par page",
       noRows: "Aucun contact trouvée",
       info: "Affichage de {start} à {end} des {rows} contacts",
-    }
+    },
   });
 </script>
 <script>

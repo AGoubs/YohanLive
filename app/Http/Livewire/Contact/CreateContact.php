@@ -18,7 +18,9 @@ class CreateContact extends Component
     'contact.phone' => '',
     'contact.email' => '',
     'contact.comment' => '',
-    'contact.model' => '',
+    'contact.company' => '',
+    'contact.date_appointment' => '',
+    'contact.user_appointment' => '',
     'contact.user_id' => '',
   ];
 
@@ -44,8 +46,10 @@ class CreateContact extends Component
     $this->contact->firstname = trim($this->contact->firstname);
     $this->contact->phone = trim($this->contact->phone);
     $this->contact->email = trim($this->contact->email);
-    $this->contact->model = trim($this->contact->model);
     $this->contact->comment = trim($this->contact->comment);
+    $this->contact->company = trim($this->contact->company);
+    $this->contact->date_appointment = trim($this->contact->date_appointment);
+    $this->contact->user_appointment = trim($this->contact->user_appointment);
 
     $this->validate();
     $this->contact->event_id = $this->eventId;

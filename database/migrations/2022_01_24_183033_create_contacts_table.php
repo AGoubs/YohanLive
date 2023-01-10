@@ -19,8 +19,10 @@ class CreateContactsTable extends Migration
       $table->string('firstname');
       $table->string('phone')->nullable();
       $table->string('email')->nullable();
-      $table->string('comment')->nullable();
-      $table->string('model')->nullable();
+      $table->text('comment')->nullable();
+      $table->string('company')->nullable();
+      $table->string('date_appointment')->nullable();
+      $table->string('user_appointment')->nullable();
       $table->string('event_id')->constrained()->onDelete('cascade');
       $table->string('user_id')->constrained()->onDelete('cascade');
       $table->timestamps();
