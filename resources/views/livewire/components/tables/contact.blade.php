@@ -64,9 +64,11 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Email
                     </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Commentaire
-                    </th>
+                    @if (auth()->user()->isAdmin())
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                        Commentaire
+                      </th>
+                    @endif
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Rendez-vous
                     </th>
@@ -94,9 +96,11 @@
                       <td class="text-md-left">
                         <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->email }}</p>
                       </td>
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0 ps-3 ">{{ \Illuminate\Support\Str::limit($contact->comment, 30, $end = '...') }}</p>
-                      </td>
+                      @if (auth()->user()->isAdmin())
+                        <td class="text-md-left">
+                          <p class="text-xs font-weight-bold mb-0 ps-3 ">{{ \Illuminate\Support\Str::limit($contact->comment, 30, $end = '...') }}</p>
+                        </td>
+                      @endif
                       @if ($contact->date_appointment)
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-check text-success"></i></p>
