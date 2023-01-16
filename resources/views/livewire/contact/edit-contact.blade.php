@@ -66,8 +66,11 @@
                   <label class="control-label">Avec</label>
                   <select name="user_appointment" style="background-color:#fff" class="form-control @error('contact.user_appointment') is-invalid @enderror" id="user_appointment" wire:model.defer="contact.user_appointment">
                     <option value=""></option>
-                    <option value="Jean Dujardin">Jean Dujardin</option>
-                    <option value="Michel Dubois">Michel Dubois</option>
+                    <option value="Diaz gregoire">Diaz gregoire</option>
+                    <option value="Pottier eric">Pottier eric</option>
+                    <option value="Jadoux claude">Jadoux claude</option>
+                    <option value="Omri karim">Omri karim</option>
+                    <option value="Omri brahim">Omri brahim</option>
                   </select>
                   @error('contact.user_appointment')
                     <div class="text-danger">{{ $message }}</div>
