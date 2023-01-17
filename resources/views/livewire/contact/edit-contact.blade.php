@@ -105,6 +105,15 @@
                   @enderror
                 </div>
               </div>
+              <div class="row mt-3">
+                <div class="col-12 col-sm-12">
+                  <label class="control-label">N° SIRET</label>
+                  <input type="text" class="form-control @error('contact.siret') is-invalid @enderror" wire:model.defer="contact.siret" />
+                  @error('contact.siret')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+              </div>
               <hr class="my-4">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
@@ -123,6 +132,11 @@
                     <option value="Jadoux claude">Jadoux claude</option>
                     <option value="Omri karim">Omri karim</option>
                     <option value="Omri brahim">Omri brahim</option>
+                    <option value="Alliod phillipe">Alliod phillipe</option>
+                    <option value="Lachal carina">Lachal carina</option>
+                    <option value="Borisov eugene">Borisov eugene</option>
+                    <option value="Renault guillaume">Renault guillaume</option>
+                    <option value="Amor ferial">Amor ferial</option>
                   </select>
                   @error('contact.user_appointment')
                     <div class="text-danger">{{ $message }}</div>

@@ -35,6 +35,7 @@ class ContactExport implements FromCollection, WithHeadings, ShouldAutoSize, Wit
       'CP',
       'Date de rendez-vous',
       'Avec',
+      'N° SIRET',
       'Commentaire',
     ];
   }
@@ -44,7 +45,7 @@ class ContactExport implements FromCollection, WithHeadings, ShouldAutoSize, Wit
    */
   public function collection()
   {
-    return Contact::where('event_id', $this->eventId)->whereDate('created_at', $this->date)->get(['activity', 'company', 'name', 'firstname', 'phone', 'email', 'country', 'city', 'postal',  'date_appointment', 'user_appointment', 'comment']);
+    return Contact::where('event_id', $this->eventId)->whereDate('created_at', $this->date)->get(['activity', 'company', 'name', 'firstname', 'phone', 'email', 'country', 'city', 'postal',  'date_appointment', 'user_appointment', 'siret', 'comment']);
   }
 
   public function title(): string

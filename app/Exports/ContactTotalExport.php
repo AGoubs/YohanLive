@@ -33,6 +33,7 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
       'CP',
       'Date de rendez-vous',
       'Avec',
+      'N° SIRET',
       'Commentaire',
     ];
   }
@@ -42,7 +43,7 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
    */
   public function collection()
   {
-    return Contact::where('event_id', $this->eventId)->get(['activity', 'company', 'name', 'firstname', 'phone', 'email', 'country', 'city', 'postal',  'date_appointment', 'user_appointment', 'comment']);
+    return Contact::where('event_id', $this->eventId)->get(['activity', 'company', 'name', 'firstname', 'phone', 'email', 'country', 'city', 'postal',  'date_appointment', 'user_appointment', 'siret', 'comment']);
   }
 
   public function title(): string

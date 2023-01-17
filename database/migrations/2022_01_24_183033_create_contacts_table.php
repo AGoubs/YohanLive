@@ -27,6 +27,7 @@ class CreateContactsTable extends Migration
       $table->string('city')->nullable();
       $table->string('address')->nullable();
       $table->string('postal')->nullable();
+      $table->string('siret')->nullable();
       $table->string('date_appointment')->nullable();
       $table->string('user_appointment')->nullable();
       $table->text('comment')->nullable();

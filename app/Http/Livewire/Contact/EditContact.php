@@ -24,6 +24,7 @@ class EditContact extends Component
     'contact.city' => '',
     'contact.address' => '',
     'contact.postal' => '',
+    'contact.siret' => '',
     'contact.date_appointment' => '',
     'contact.user_appointment' => '',
     'contact.comment' => '',
@@ -58,6 +59,7 @@ class EditContact extends Component
     $this->contact->city = trim($this->contact->city);
     $this->contact->address = trim($this->contact->address);
     $this->contact->postal = trim($this->contact->postal);
+    $this->contact->siret = trim($this->contact->siret);
     $this->contact->date_appointment = trim($this->contact->date_appointment);
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
