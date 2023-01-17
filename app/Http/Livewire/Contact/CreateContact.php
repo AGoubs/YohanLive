@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Contact;
 
 use App\Models\Contact;
 use App\Models\Event;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class CreateContact extends Component
@@ -48,7 +49,7 @@ class CreateContact extends Component
     $this->event = Event::find($this->eventId);
   }
 
-  public function submit()
+  public function submit(Request $request)
   {
     $this->contact->name = trim($this->contact->name);
     $this->contact->firstname = trim($this->contact->firstname);
@@ -65,8 +66,7 @@ class CreateContact extends Component
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
     // if (exec('getmac')) {
-    dd(substr(shell_exec('getmac'), 159, 20));
-    $this->contact->mac_address = substr(exec('getmac'), 0, 17);
+    $this->contact->mac_address = $request->ip();
     // }
 
     $this->validate();
