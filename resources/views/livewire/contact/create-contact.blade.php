@@ -173,7 +173,7 @@
     let machineId = localStorage.getItem('MachineId');
 
     if (!machineId) {
-      machineId = crypto.randomUUID();
+      machineId = Math.random().toString(16).slice(2);
       localStorage.setItem('MachineId', machineId);
     }
     return machineId;
