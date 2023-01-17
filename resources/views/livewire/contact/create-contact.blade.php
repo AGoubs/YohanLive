@@ -14,6 +14,34 @@
             <form wire:submit.prevent="submit">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
+                  <label class="control-label">Activité <span class="text-danger">*</span></label>
+                  <select name="activity" required style="background-color:#fff" class="form-control @error('contact.activity') is-invalid @enderror" id="activity" wire:model.defer="contact.activity">
+                    <option value="" selected></option>
+                    <option value="Café">Café</option>
+                    <option value="Boucherie">Boucherie</option>
+                    <option value="Poissonerie">Poissonerie</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Boulangerie">Boulangerie</option>
+                    <option value="Fromagerie">Fromagerie</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Epicerie">Epicerie</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                  @error('contact.activity')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label class="control-label">Société</label>
+                  <input type="text" class="form-control @error('contact.company') is-invalid @enderror" wire:model.defer="contact.company" />
+                  @error('contact.company')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12 col-sm-6">
                   <label class="control-label">Nom <span class="text-danger">*</span></label>
                   <input type="text" required class="form-control @error('contact.name') is-invalid @enderror" wire:model.defer="contact.name" autofocus />
                   @error('contact.name')
@@ -45,14 +73,38 @@
                 </div>
               </div>
               <div class="row mt-3">
-                <div class="col-12 col-sm-12">
-                  <label class="control-label">Société</label>
-                  <input type="text" class="form-control @error('contact.company') is-invalid @enderror" wire:model.defer="contact.company" />
-                  @error('contact.company')
+                <div class="col-12 col-sm-6">
+                  <label class="control-label">Pays</label>
+                  <input type="text" class="form-control @error('contact.country') is-invalid @enderror" wire:model.defer="contact.country" />
+                  @error('contact.country')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                  <label class="control-label">Ville <span class="text-danger">*</span></label>
+                  <input type="text" required class="form-control @error('contact.city') is-invalid @enderror" wire:model.defer="contact.city" />
+                  @error('contact.city')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
               </div>
+              <div class="row mt-3">
+                <div class="col-12 col-sm-8">
+                  <label class="control-label">Adresse</label>
+                  <input type="text" class="form-control @error('contact.address') is-invalid @enderror" wire:model.defer="contact.address" />
+                  @error('contact.address')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                  <label class="control-label">CP</label>
+                  <input type="text" class="form-control @error('contact.postal') is-invalid @enderror" wire:model.defer="contact.postal" />
+                  @error('contact.postal')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+              </div>
+              <hr class="my-4">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Rendez-vous le</label>

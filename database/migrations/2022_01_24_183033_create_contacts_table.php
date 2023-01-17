@@ -15,16 +15,21 @@ class CreateContactsTable extends Migration
   {
     Schema::create('contacts', function (Blueprint $table) {
       $table->id();
+      $table->string('event_id')->constrained()->onDelete('cascade');
+      $table->string('user_id')->constrained()->onDelete('cascade');
       $table->string('name');
       $table->string('firstname');
       $table->string('phone')->nullable();
       $table->string('email')->nullable();
-      $table->text('comment')->nullable();
+      $table->string('activity')->nullable();
       $table->string('company')->nullable();
+      $table->string('country')->nullable();
+      $table->string('city')->nullable();
+      $table->string('address')->nullable();
+      $table->string('postal')->nullable();
       $table->string('date_appointment')->nullable();
       $table->string('user_appointment')->nullable();
-      $table->string('event_id')->constrained()->onDelete('cascade');
-      $table->string('user_id')->constrained()->onDelete('cascade');
+      $table->text('comment')->nullable();
       $table->timestamps();
     });
   }
