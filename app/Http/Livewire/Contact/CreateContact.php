@@ -49,7 +49,7 @@ class CreateContact extends Component
     $this->event = Event::find($this->eventId);
   }
 
-  public function submit(Request $request)
+  public function submit()
   {
     $this->contact->name = trim($this->contact->name);
     $this->contact->firstname = trim($this->contact->firstname);
@@ -65,9 +65,6 @@ class CreateContact extends Component
     $this->contact->date_appointment = trim($this->contact->date_appointment);
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
-    // if (exec('getmac')) {
-    $this->contact->mac_address = $request->ip();
-    // }
 
     $this->validate();
     $this->contact->event_id = $this->eventId;

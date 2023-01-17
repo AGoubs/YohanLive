@@ -31,7 +31,6 @@ class CreateContactsTable extends Migration
       $table->string('date_appointment')->nullable();
       $table->string('user_appointment')->nullable();
       $table->text('comment')->nullable();
-      $table->string('mac_address')->nullable();
       $table->timestamps();
     });
   }
