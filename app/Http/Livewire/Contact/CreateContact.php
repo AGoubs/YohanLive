@@ -64,9 +64,9 @@ class CreateContact extends Component
     $this->contact->date_appointment = trim($this->contact->date_appointment);
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
-    if (exec('getmac')) {
-      $this->contact->mac_address = substr(exec('getmac'), 0, 17);
-    }
+    // if (exec('getmac')) {
+    $this->contact->mac_address = substr(exec('getmac'), 0, 17);
+    // }
 
     $this->validate();
     $this->contact->event_id = $this->eventId;
