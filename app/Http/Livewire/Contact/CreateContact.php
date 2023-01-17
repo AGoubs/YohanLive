@@ -12,6 +12,7 @@ class CreateContact extends Component
   public $contact;
   public $eventId;
   public $event;
+  public $uniqueId;
 
   protected $rules = [
     'contact.user_id' => '',
@@ -65,6 +66,9 @@ class CreateContact extends Component
     $this->contact->date_appointment = trim($this->contact->date_appointment);
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
+    if ($this->uniqueId) {
+      $this->contact->unique_id = $this->uniqueId;
+    }
 
     $this->validate();
     $this->contact->event_id = $this->eventId;

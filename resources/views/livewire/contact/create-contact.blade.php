@@ -162,3 +162,20 @@
 
     <livewire:contact.footer>
 </div>
+
+<script>
+  document.addEventListener('livewire:load', function() {
+    @this.uniqueId = getMachineId();
+  })
+
+  function getMachineId() {
+
+    let machineId = localStorage.getItem('MachineId');
+
+    if (!machineId) {
+      machineId = crypto.randomUUID();
+      localStorage.setItem('MachineId', machineId);
+    }
+    return machineId;
+  }
+</script>
