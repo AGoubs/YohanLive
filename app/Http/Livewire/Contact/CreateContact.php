@@ -66,7 +66,6 @@ class CreateContact extends Component
     $this->contact->date_appointment = trim($this->contact->date_appointment);
     $this->contact->user_appointment = trim($this->contact->user_appointment);
     $this->contact->comment = trim($this->contact->comment);
-    dd($this->uniqueId);
     if ($this->uniqueId) {
       $this->contact->unique_id = $this->uniqueId;
     }
