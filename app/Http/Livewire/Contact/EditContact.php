@@ -17,7 +17,7 @@ class EditContact extends Component
     'contact.name' => 'required',
     'contact.firstname' => 'required',
     'contact.phone' => 'required',
-    'contact.email' => 'required',
+    'contact.email' => '',
     'contact.activity' => '',
     'contact.company' => '',
     'contact.country' => '',
@@ -33,7 +33,6 @@ class EditContact extends Component
     'contact.name.required' => 'Le champs Nom est obligatoire',
     'contact.firstname.required' => 'Le champs Prénom est obligatoire',
     'contact.phone.required' => 'Le champs Téléphone est obligatoire',
-    'contact.email.required' => 'Le champs Email est obligatoire',
   ];
   public function render()
   {

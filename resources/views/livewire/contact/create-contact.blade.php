@@ -65,8 +65,8 @@
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                  <label class="control-label">Email <span class="text-danger">*</span></label>
-                  <input type="email" required class="form-control @error('contact.email') is-invalid @enderror" wire:model.defer="contact.email" />
+                  <label class="control-label">Email</label>
+                  <input type="email" class="form-control @error('contact.email') is-invalid @enderror" wire:model.defer="contact.email" />
                   @error('contact.email')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
