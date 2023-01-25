@@ -35,6 +35,7 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
       'Avec',
       'N° SIRET',
       'Commentaire',
+      'Pris par',
     ];
   }
 
