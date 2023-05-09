@@ -12,7 +12,7 @@
           </div>
           <div class="card-body px-0 pt-0 pb-2 mx-3">
             <form wire:submit.prevent="submit">
-              <div class="row mt-3">
+              {{-- <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Activité <span class="text-danger">*</span></label>
                   <select name="activity" required style="background-color:#fff" class="form-control @error('contact.activity') is-invalid @enderror" id="activity" wire:model.defer="contact.activity">
@@ -39,7 +39,7 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Nom <span class="text-danger">*</span></label>
@@ -72,7 +72,7 @@
                   @enderror
                 </div>
               </div>
-              <div class="row mt-3">
+              {{-- <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Pays</label>
                   <input type="text" class="form-control @error('contact.country') is-invalid @enderror" wire:model.defer="contact.country" />
@@ -87,8 +87,8 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
-              <div class="row mt-3">
+              </div> --}}
+              {{-- <div class="row mt-3">
                 <div class="col-12 col-sm-8">
                   <label class="control-label">Adresse</label>
                   <input type="text" class="form-control @error('contact.address') is-invalid @enderror" wire:model.defer="contact.address" />
@@ -103,8 +103,8 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
-              <div class="row mt-3">
+              </div> --}}
+              {{-- <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label class="control-label">N° SIRET</label>
                   <input type="text" class="form-control @error('contact.siret') is-invalid @enderror" wire:model.defer="contact.siret" />
@@ -112,8 +112,8 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
-              <hr class="my-4">
+              </div> --}}
+              {{-- <hr class="my-4">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Rendez-vous le</label>
@@ -150,7 +150,7 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="button-row d-flex mt-3">
                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Valider">Valider</button>
               </div>
