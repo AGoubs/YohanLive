@@ -21,8 +21,8 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
   public function headings(): array
   {
     return [
-      // 'Activité',
-      // 'Société',
+      'Activité',
+      'Fonction',
       'Nom',
       'Prénom',
       'Téléphone',
@@ -45,7 +45,7 @@ class ContactTotalExport implements FromCollection, WithHeadings, ShouldAutoSize
   public function collection()
   {
     // return Contact::where('event_id', $this->eventId)->join('users', 'contacts.user_id', '=', 'users.id')->select('contacts.activity', 'contacts.company', 'contacts.name as contact_name', 'contacts.firstname', 'contacts.phone', 'contacts.email', 'contacts.country', 'contacts.city', 'contacts.address', 'contacts.postal',  'contacts.date_appointment', 'contacts.user_appointment', 'contacts.siret', 'contacts.comment', 'users.name')->get();
-    return Contact::where('event_id', $this->eventId)->join('users', 'contacts.user_id', '=', 'users.id')->select('contacts.name as contact_name', 'contacts.firstname', 'contacts.phone', 'contacts.email', 'contacts.comment')->get();
+    return Contact::where('event_id', $this->eventId)->join('users', 'contacts.user_id', '=', 'users.id')->select('contacts.activity', 'contacts.company', 'contacts.name as contact_name', 'contacts.firstname', 'contacts.phone', 'contacts.email', 'contacts.comment')->get();
   }
 
   public function title(): string

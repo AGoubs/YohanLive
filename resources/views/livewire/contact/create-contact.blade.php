@@ -12,34 +12,34 @@
           </div>
           <div class="card-body px-0 pt-0 pb-2 mx-3">
             <form wire:submit.prevent="submit">
-              {{-- <div class="row mt-3">
+              <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Activité <span class="text-danger">*</span></label>
-                  <select name="activity" required style="background-color:#fff" class="form-control @error('contact.activity') is-invalid @enderror" id="activity" wire:model.defer="contact.activity">
+                  <label class="control-label">Activité</label>
+                  <select name="activity" style="background-color:#fff" class="form-control @error('contact.activity') is-invalid @enderror" id="activity" wire:model.defer="contact.activity">
                     <option value="" selected></option>
-                    <option value="Café">Café</option>
-                    <option value="Boucherie">Boucherie</option>
-                    <option value="Poissonerie">Poissonerie</option>
+                    <option value="Entreprise">Entreprise</option>
+                    <option value="Collectivité">Collectivité</option>
+                    {{-- <option value="Poissonerie">Poissonerie</option>
                     <option value="Hotel">Hotel</option>
                     <option value="Boulangerie">Boulangerie</option>
                     <option value="Fromagerie">Fromagerie</option>
                     <option value="Restaurant">Restaurant</option>
                     <option value="Epicerie">Epicerie</option>
                     <option value="Bar">Bar</option>
-                    <option value="Autre">Autre</option>
+                    <option value="Autre">Autre</option> --}}
                   </select>
                   @error('contact.activity')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Société</label>
+                  <label class="control-label">Fonction</label>
                   <input type="text" class="form-control @error('contact.company') is-invalid @enderror" wire:model.defer="contact.company" />
                   @error('contact.company')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div> --}}
+              </div>
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
                   <label class="control-label">Nom <span class="text-danger">*</span></label>
