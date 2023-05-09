@@ -15,9 +15,9 @@ class EditContact extends Component
 
   protected $rules = [
     'contact.name' => 'required',
-    'contact.firstname' => 'required',
+    'contact.firstname' => '',
     'contact.phone' => 'required',
-    'contact.email' => '',
+    'contact.email' => 'required',
     'contact.activity' => '',
     'contact.company' => '',
     'contact.country' => '',
@@ -30,9 +30,9 @@ class EditContact extends Component
     'contact.comment' => '',
   ];
   protected $messages = [
-    'contact.name.required' => 'Le champs Nom est obligatoire',
-    'contact.firstname.required' => 'Le champs Prénom est obligatoire',
-    'contact.phone.required' => 'Le champs Téléphone est obligatoire',
+    'contact.name.required' => 'Le Nom est obligatoire',
+    'contact.phone.required' => 'Le Téléphone est obligatoire',
+    'contact.email.required' => 'L\'Email est obligatoire',
   ];
   public function render()
   {
