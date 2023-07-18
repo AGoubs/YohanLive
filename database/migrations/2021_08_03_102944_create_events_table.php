@@ -17,9 +17,10 @@ class CreateEventsTable extends Migration
       $table->id();
       $table->string('Nom');
       $table->date('Date');
-      $table->time('HeureArrive');
-      $table->time('HeureEvenement');
-      $table->string('type_event');
+      $table->date('DateFin')->nullable();
+      $table->string('Couleur')->nullable();
+      $table->string('Logo')->nullable();
+      $table->integer('LogoSize')->nullable();
       $table->timestamps();
     });
   }
