@@ -34,6 +34,6 @@ class CreateEvent extends Component
       'DateFin' => $this->DateFin,
     ]);
 
-    return redirect()->route('events.customization', ['eventId' => $event->id]);
+    return redirect()->route('events.fields', ['eventId' => $event->id]);
   }
 }

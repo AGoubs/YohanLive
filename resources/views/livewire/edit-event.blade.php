@@ -13,15 +13,17 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-8 m-auto">
-        <form wire:submit.prevent="updateEvent" action="#" method="POST" class="multisteps-form__form " style="height: 500px;" asp-action="Create">
-          <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+        <form wire:submit.prevent="updateEvent" action="#" method="POST" asp-action="Create">
+          <div class="card p-3 border-radius-xl bg-white">
             <h5 class="font-weight-bolder mb-0">Evènement</h5>
             <p class="mb-0 text-sm">Modification de l'évènement</p>
             <div class="row mt-3">
               <div class="col-12 col-sm-12">
                 <label for="Nom" class="control-label">Nom <span class="text-danger">*</span></label>
                 <input type="text" class="form-control @error('Nom') border border-danger  @enderror" wire:model="Nom" autofocus />
-                @error('Nom') <div class="text-danger">{{ $message }}</div> @enderror
+                @error('Nom')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
 
             </div>
@@ -29,12 +31,16 @@
               <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                 <label for="Date" class="control-label">Date de début <span class="text-danger">*</span></label>
                 <input type="date" class="form-control @error('Date') border border-danger  @enderror" wire:model="Date" />
-                @error('Date') <div class="text-danger">{{ $message }}</div> @enderror
+                @error('Date')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
               <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                 <label for="Date" class="control-label">Date de fin</label>
                 <input type="date" class="form-control @error('DateFin') border border-danger  @enderror" wire:model="DateFin" />
-                @error('DateFin') <div class="text-danger">{{ $message }}</div> @enderror
+                @error('DateFin')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="button-row d-flex mt-4">
@@ -42,7 +48,9 @@
             </div>
           </div>
         </form>
-        <div class="col-12">
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-8 m-auto mt-5">
           <a href="{{ route('events.index') }}" class="btn btn-default" type="button"><i class="fas fa-arrow-left mr-2"></i> Retour</a>
         </div>
       </div>
