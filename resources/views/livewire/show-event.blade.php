@@ -17,7 +17,6 @@
       <livewire:components.host-fixed-plugin :eventId="$eventId">
 
     </div>
-
   @else
     <div class="container-fluid py-4">
       <h2>Pas d'évènement aujourd'hui</h2>

@@ -37,14 +37,14 @@ class Fields extends Component
     [
       'id' => '4',
       'name' => 'Email',
-      'type' => 'mail',
+      'type' => 'email',
       'required' => false
     ]
   ];
 
   public $replacementMap = [
     'text' => 'Champ de texte',
-    'mail' => 'Champ d\'email',
+    'email' => 'Champ d\'email',
     'select' => 'Liste déroulante',
     'checkbox' => 'Case à cocher'
   ];
@@ -60,6 +60,7 @@ class Fields extends Component
 
   public function addField()
   {
+    //Si nouveau champ
     if (!$this->newFieldId) {
       foreach ($this->fields as $key => $field) {
         if ($field['name'] === $this->newFieldName && !$this->newFieldId) {
@@ -80,7 +81,9 @@ class Fields extends Component
       $this->fields[] = $newField;
 
       $this->clearFields();
-    } else {
+    }
+    //Si modification
+    else {
       foreach ($this->fields as $field) {
         if ($field['id'] === $this->newFieldId) {
           $newField =

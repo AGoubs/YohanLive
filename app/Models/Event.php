@@ -22,7 +22,6 @@ class Event extends Model
     return Event::where('id', $eventId)->first();
   }
 
-
   public static function getTodayEventByUser($userId)
   {
     $event_by_user = EventByUser::where('user_id', $userId)->get();
