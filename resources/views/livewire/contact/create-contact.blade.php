@@ -58,8 +58,8 @@
               </div>
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Téléphone <span class="text-danger">*</span></label>
-                  <input type="text" required class="form-control @error('contact.phone') is-invalid @enderror" wire:model.defer="contact.phone" />
+                  <label class="control-label">Téléphone</label>
+                  <input type="text" class="form-control @error('contact.phone') is-invalid @enderror" wire:model.defer="contact.phone" />
                   @error('contact.phone')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
