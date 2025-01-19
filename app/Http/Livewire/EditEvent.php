@@ -40,6 +40,6 @@ class EditEvent extends Component
     $this->event->DateFin = $this->DateFin;
     $this->event->save();
 
-    return redirect()->route('events.customization', ['eventId' => $this->event->id]);
+    return redirect()->route('events.fields', ['eventId' => $this->event->id]);
   }
 }

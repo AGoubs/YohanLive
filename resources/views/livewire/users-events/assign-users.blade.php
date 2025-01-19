@@ -20,7 +20,7 @@
       </div>
       <div class="row mt-2">
         <div class="d-flex justify-content-between">
-          <a href="{{ route('events.customization', $eventId) }}" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+          <a href="{{ route('events.fields', $eventId) }}" class="btn btn-default"><i class="fas fa-arrow-left mr-2"></i>Retour</a>
           <button type="submit" class="btn bg-gradient-dark btn-sm mb-0">Enregistrer</button>
         </div>
       </div>

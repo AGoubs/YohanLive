@@ -13,8 +13,8 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-8 m-auto">
-        <form wire:submit.prevent="createEvent" action="#" method="POST" class="multisteps-form__form" style="height: 500px;">
-          <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+        <form wire:submit.prevent="createEvent" action="#" method="POST">
+          <div class="card p-3 border-radius-xl bg-white">
             <h5 class="font-weight-bolder mb-0">Evènement</h5>
             <p class="mb-0 text-sm">Informations de l'évènement</p>
             <div class="row mt-3">
@@ -48,7 +48,9 @@
 
         </form>
       </div>
-      <div class="col-12">
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-8 m-auto mt-5">
         <a href="{{ route('events.index') }}" class="btn btn-default" type="button"><i class="fas fa-arrow-left mr-2"></i> Retour</a>
       </div>
     </div>
