@@ -69,9 +69,9 @@
                         Commentaire
                       </th>
                     @endif
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                       Rendez-vous
-                    </th>
+                    </th> --}}
                     @if (auth()->user()->isAdmin())
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Ajouté par
@@ -101,7 +101,7 @@
                           <p class="text-xs font-weight-bold mb-0 ps-3 ">{{ \Illuminate\Support\Str::limit($contact->comment, 30, $end = '...') }}</p>
                         </td>
                       @endif
-                      @if ($contact->date_appointment)
+                      {{-- @if ($contact->date_appointment)
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-check text-success"></i></p>
                         </td>
@@ -109,7 +109,7 @@
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-times text-secondary"></i></p>
                         </td>
-                      @endif
+                      @endif --}}
                       @if ($contact->user_name)
                         <td class="text-md-left">
                           <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>

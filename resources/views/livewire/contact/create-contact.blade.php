@@ -141,7 +141,7 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div>
+              </div> --}}
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
                   <label for="commentaire" class="control-label">Commentaire</label>
@@ -150,7 +150,7 @@
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              </div> --}}
+              </div>
               <div class="button-row d-flex mt-3">
                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Valider">Valider</button>
               </div>
