@@ -30,7 +30,7 @@
                 <option value="text">Champ texte</option>
                 <option value="select">Liste déroulante</option>
                 <option value="checkbox">Case à cocher</option>
-                <option value="mail">Champ mail</option>
+                <option value="email">Champ mail</option>
               </select>
             </div>
             <div class="col-12 col-lg-1 mr-6">

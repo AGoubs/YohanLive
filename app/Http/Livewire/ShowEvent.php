@@ -47,6 +47,7 @@ class ShowEvent extends Component
 
     if (in_array($this->eventId, $this->userEvents) || auth()->user()->isAdmin()) {
       $this->event = Event::find($this->eventId);
+      // dd(json_decode($this->event->fields, true));
     } else {
       session()->flash('info',  "Pas d'évènement prévu aujourd'hui");
       return redirect()->route('events.index');

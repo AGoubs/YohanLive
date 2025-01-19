@@ -52,75 +52,31 @@
               <table class="table align-items-center mb-0" id="contacts-table">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Nom
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Prénom
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Téléphone
-                    </th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Email
-                    </th>
-                    @if (auth()->user()->isAdmin())
+                    @foreach ($fields as $field)
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                        Commentaire
+                        {{ $field['name'] }}
                       </th>
-                    @endif
-                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                      Rendez-vous
-                    </th> --}}
-                    @if (auth()->user()->isAdmin())
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                        Ajouté par
-                      </th>
-                    @endif
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                    @endforeach
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($contacts as $contact)
-                    <tr class="px-3">
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0 ps-3">{{ $contact->name }}</p>
-                      </td>
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->firstname }}</p>
-                      </td>
 
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0 ps-md-3">{{ $contact->phone }}</p>
-                      </td>
-                      <td class="text-md-left">
-                        <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->email }}</p>
-                      </td>
-                      @if (auth()->user()->isAdmin())
+                  @foreach ($contactsFields as $key => $contact)
+                    <tr class="px-3">
+                      @foreach ($contact as $item)
                         <td class="text-md-left">
-                          <p class="text-xs font-weight-bold mb-0 ps-3 ">{{ \Illuminate\Support\Str::limit($contact->comment, 30, $end = '...') }}</p>
+                          <p class="text-xs font-weight-bold mb-0 ps-3">{{ $item }}</p>
                         </td>
-                      @endif
-                      {{-- @if ($contact->date_appointment)
-                        <td class="text-md-left">
-                          <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-check text-success"></i></p>
-                        </td>
-                      @else
-                        <td class="text-md-left">
-                          <p class="text-xs font-weight-bold mb-0  ps-3"><i class="cursor-pointer fas fa-times text-secondary"></i></p>
-                        </td>
-                      @endif --}}
-                      @if ($contact->user_name)
-                        <td class="text-md-left">
-                          <p class="text-xs font-weight-bold mb-0  ps-3">{{ $contact->user_name }}</p>
-                        </td>
-                      @endif
+                      @endforeach
                       <td class="text-md-left" style="min-width: 130px">
-                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $contact->id]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer le contact">
+                        <a href="{{ route('contacts.edit', ['eventId' => $event->id, 'contactId' => $key]) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editer le contact">
                           <i class="fas fa-user-edit text-secondary"></i>
                         </a>
                         <span>
-                          <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer le contact" onclick="confirm('Supprimer ce contact : {{ $contact->name }} {{ $contact->firstname }}?') || event.stopImmediatePropagation()" wire:click="deleteContact({{ $contact->id }})"></i>
+                          <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer le contact" onclick="confirm('Supprimer ce contact ?') || event.stopImmediatePropagation()" wire:click="deleteContact({{ $key }})"></i>
                         </span>
                       </td>
                     </tr>

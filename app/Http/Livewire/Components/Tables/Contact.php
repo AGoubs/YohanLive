@@ -16,9 +16,11 @@ class Contact extends Component
   public $date;
   public $dateBetween;
   public $contacts;
+  public $contactsFields;
   public $total;
   public $disableDecrease = false;
   public $disableIncrease = false;
+  public $fields;
 
   public function render()
   {
@@ -46,10 +48,19 @@ class Contact extends Component
     } else {
       $this->contacts = ModelsContact::getContactsByEventAndDateAndUser($this->eventId, $this->date, auth()->id());
       $this->total = $this->contacts->count();
+      // dd($this->contactsFields);
     }
-
-
-
+    $this->contactsFields = [];
+    if ($this->contacts) {
+      foreach ($this->contacts as $contact) {
+        $contactField = json_decode($contact->fields, true);
+        foreach ($this->fields as $field) {
+          if (isset($contactField[$field['name']])) {
+            $this->contactsFields[$contact->id][$field['name']] = $contactField[$field['name']];
+          }
+        }
+      }
+    }
 
     return view('livewire.components.tables.contact');
   }
@@ -76,6 +87,7 @@ class Contact extends Component
   {
     $this->event = Event::find($this->eventId);
     $this->dateBetween = Event::getBetweenDates($this->event->Date, $this->event->DateFin);
+    $this->fields = json_decode($this->event->fields, true);
 
     if (in_array(date('Y-m-d'), $this->dateBetween)) {
       $this->date = date('Y-m-d');
