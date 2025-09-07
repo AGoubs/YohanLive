@@ -16,9 +16,9 @@ class CreateContact extends Component
 
   protected $rules = [
     'contact.user_id' => '',
-    'contact.name' => 'required',
-    'contact.firstname' => 'required',
-    'contact.phone' => 'required',
+    'contact.name' => '',
+    'contact.firstname' => '',
+    'contact.phone' => '',
     'contact.email' => '',
     'contact.activity' => '',
     'contact.company' => '',

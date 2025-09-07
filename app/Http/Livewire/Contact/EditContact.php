@@ -14,9 +14,9 @@ class EditContact extends Component
   public $eventId;
 
   protected $rules = [
-    'contact.name' => 'required',
-    'contact.firstname' => 'required',
-    'contact.phone' => 'required',
+    'contact.name' => '',
+    'contact.firstname' => '',
+    'contact.phone' => '',
     'contact.email' => '',
     'contact.activity' => '',
     'contact.company' => '',

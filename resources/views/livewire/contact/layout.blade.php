@@ -1,6 +1,7 @@
 <div>
   <header class="header-2">
-    <div class="page-header min-vh-40 relative  bg-gray-100" style="background-image: url('{{ asset('assets/img/curved-images/curved1.jpg') }}')">
+    {{-- <div class="page-header min-vh-40 relative  bg-gray-100" style="background-image: url('{{ asset('assets/img/curved-images/curved1.jpg') }}')"> --}}
+    <div class="page-header min-vh-40 relative  bg-gray-100">
       <span class="mask" style="background-color: {{ $event->Couleur }}"></span>
       <div class="container">
         <div class="row">

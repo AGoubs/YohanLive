@@ -15,25 +15,6 @@
             <form wire:submit.prevent="submit">
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Activité <span class="text-danger">*</span></label>
-                  <select name="activity" style="background-color:#fff" class="form-control @error('contact.activity') is-invalid @enderror" id="activity" wire:model.defer="contact.activity" required>
-                    <option value="" selected></option>
-                    <option value="Café">Café</option>
-                    <option value="Boucherie">Boucherie</option>
-                    <option value="Poissonerie">Poissonerie</option>
-                    <option value="Hotel">Hotel</option>
-                    <option value="Boulangerie">Boulangerie</option>
-                    <option value="Fromagerie">Fromagerie</option>
-                    <option value="Restaurant">Restaurant</option>
-                    <option value="Epicerie">Epicerie</option>
-                    <option value="Bar">Bar</option>
-                    <option value="Autre">Autre</option>
-                  </select>
-                  @error('contact.activity')
-                    <div class="text-danger">{{ $message }}</div>
-                  @enderror
-                </div>
-                <div class="col-12 col-sm-6">
                   <label class="control-label">Société</label>
                   <input type="text" class="form-control @error('contact.company') is-invalid @enderror" wire:model.defer="contact.company" />
                   @error('contact.company')
@@ -43,14 +24,14 @@
               </div>
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Nom <span class="text-danger">*</span></label>
+                  <label class="control-label">Nom</label>
                   <input type="text" required class="form-control @error('contact.name') is-invalid @enderror" wire:model.defer="contact.name" autofocus />
                   @error('contact.name')
                     <div class="text-danger">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                  <label class="control-label">Prénom <span class="text-danger">*</span></label>
+                  <label class="control-label">Prénom</label>
                   <input type="text" required class="form-control @error('contact.firstname') is-invalid @enderror" wire:model.defer="contact.firstname" />
                   @error('contact.firstname')
                     <div class="text-danger">{{ $message }}</div>
@@ -59,7 +40,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col-12 col-sm-6">
-                  <label class="control-label">Téléphone <span class="text-danger">*</span></label>
+                  <label class="control-label">Téléphone</label>
                   <input type="text" required class="form-control @error('contact.phone') is-invalid @enderror" wire:model.defer="contact.phone" autofocus />
                   @error('contact.phone')
                     <div class="text-danger">{{ $message }}</div>
@@ -82,7 +63,7 @@
                   @enderror
                 </div>
                 <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                  <label class="control-label">Ville <span class="text-danger">*</span></label>
+                  <label class="control-label">Ville</label>
                   <input type="text" required class="form-control @error('contact.city') is-invalid @enderror" wire:model.defer="contact.city" />
                   @error('contact.city')
                     <div class="text-danger">{{ $message }}</div>
@@ -107,7 +88,14 @@
               </div>
               <div class="row mt-3">
                 <div class="col-12 col-sm-12">
-                  <label class="control-label">N° SIRET</label>
+                  <label class="control-label">Voiture actuelle</label>
+                  <input type="text" class="form-control @error('contact.activity') is-invalid @enderror" wire:model.defer="contact.activity" />
+                  @error('contact.activity')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="col-12 col-sm-12">
+                  <label class="control-label">Projet d'achat</label>
                   <input type="text" class="form-control @error('contact.siret') is-invalid @enderror" wire:model.defer="contact.siret" />
                   @error('contact.siret')
                     <div class="text-danger">{{ $message }}</div>
@@ -127,16 +115,13 @@
                   <label class="control-label">Avec</label>
                   <select name="user_appointment" style="background-color:#fff" class="form-control @error('contact.user_appointment') is-invalid @enderror" id="user_appointment" wire:model.defer="contact.user_appointment">
                     <option value=""></option>
+                    <option value="Collaudin Matteo">Collaudin Matteo</option>
                     <option value="Diaz gregoire">Diaz gregoire</option>
-                    <option value="Pottier eric">Pottier eric</option>
-                    <option value="Jadoux claude">Jadoux claude</option>
+                    <option value="Richard Martin">Richard Martin</option>
                     <option value="Omri karim">Omri karim</option>
                     <option value="Omri brahim">Omri brahim</option>
-                    <option value="Alliod phillipe">Alliod phillipe</option>
-                    <option value="Lachal carina">Lachal carina</option>
-                    <option value="Borisov eugene">Borisov eugene</option>
-                    <option value="Renault guillaume">Renault guillaume</option>
-                    <option value="Amor ferial">Amor ferial</option>
+                    <option value="Chettrit Eytan">Chettrit Eytan</option>
+                    <option value="Beaudot Jerome">Beaudot Jerome</option>
                   </select>
                   @error('contact.user_appointment')
                     <div class="text-danger">{{ $message }}</div>
